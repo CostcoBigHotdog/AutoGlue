@@ -1,0 +1,408 @@
+[
+  {
+    "step_definition_id": 62,
+    "annotation": "\n    @Given(\"an empty library\")",
+    "glue_code": "    @Given(\"an empty library\")\n    public void emptyLibrary() {\n        bookService.deleteAllBooks();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 44,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business/Library.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business",
+      "filename": "Library.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 63,
+    "annotation": "\n    @Given(\"a library, containing (only one )book(s) with isbn(s) {string}\")",
+    "glue_code": "    @Given(\"a library, containing (only one )book(s) with isbn(s) {string}\")\n    public void createLibraryWithSingleBookWithGivenIsbn(String isbns) {\n        emptyLibrary();\n        List<Book> newBooks = createNewBooksByISBNS(isbns);\n        newBooks.stream().forEach(book -> storyContext.putObject(\"LAST_INSERTED_BOOK\", book));\n        storyContext.putObject(\"LAST_INSERTED_BOOKS\", newBooks);\n\n\n//    Book book = DemoBookFactory.createDemoBook().withISBN(isbn).build();\n//    Optional<Book> createdBook =\n//        bookService.createBook(\n//            new BookParameter(\n//                book.getTitle(),\n//                book.getAuthor(),\n//                book.getEdition(),\n//                book.getIsbn(),\n//                book.getYearOfPublication(),\n//                book.getDescription()));\n//    createdBook.ifPresent(b -> storyContext.putObject(\"LAST_INSERTED_BOOK\", b));\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 49,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business/Library.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business",
+      "filename": "Library.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 64,
+    "annotation": "\n\n    @Given(\"{string} has borrowed book(s) {string}\")",
+    "glue_code": "\n    @Given(\"{string} has borrowed book(s) {string}\")",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 70,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business/Library.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business",
+      "filename": "Library.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 65,
+    "annotation": "\n    @Given(\"{string} has borrowed books {string} on {date}\")",
+    "glue_code": "    @Given(\"{string} has borrowed books {string} on {date}\")\n    public void has_borrowed_books_on(String borrower, String isbns, LocalDate borrowDate) {\n        List<Book> books = (List<Book>) storyContext.getObject(\"LAST_INSERTED_BOOKS\");\n        Splitter.on(\" \").omitEmptyStrings().splitToList(isbns).stream().forEach(isbn -> {\n            Book bookToBeBorrowed = books.stream()\n                                        .filter(book -> book.getIsbn().equals(isbn))\n                                        .findFirst().orElseThrow();\n\n            LocalDate date = borrowDate.atStartOfDay(ZoneId.systemDefault()).toLocalDate();\n\n            Borrowing newBorrowing = new Borrowing(bookToBeBorrowed, borrower, date);\n            borrowingRepository.save(newBorrowing);\n\n            bookToBeBorrowed.setBorrowing(newBorrowing);\n            bookRepository.save(bookToBeBorrowed);\n        });\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 76,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business/Library.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business",
+      "filename": "Library.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 66,
+    "annotation": "\n    @Then(\"the library contains {long} books\")",
+    "glue_code": "    @Then(\"the library contains {long} books\")\n    public void shouldContainNumberOfBooks(long books) {\n        assertThat(bookRepository.count(), is(books));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 122,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business/Library.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business",
+      "filename": "Library.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 67,
+    "annotation": "\n    @Then(\"the library contains {int} book(s) with {string}\")",
+    "glue_code": "    @Then(\"the library contains {int} book(s) with {string}\")\n    public void shouldContainNumberOfBooksWithISBN(int books, String isbn) {\n        if (isbn.isEmpty()) return;\n        assertThat(bookRepository.findByIsbn(isbn).size(), is(books));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 127,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business/Library.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business",
+      "filename": "Library.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 68,
+    "annotation": "\n    @Then(\"the library still contains all borrowed books {string}\")",
+    "glue_code": "    @Then(\"the library still contains all borrowed books {string}\")\n    public void shouldContainOneCopyOf(String isbn) {\n        if (isbn.isEmpty()) return;\n        assertThat(bookRepository.findByIsbn(isbn).size(), is(1));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 133,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business/Library.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business",
+      "filename": "Library.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 69,
+    "annotation": "\n    @Then(\"the new book {string} be added\")",
+    "glue_code": "    @Then(\"the new book {string} be added\")\n    public void shouldNotHaveCreatedANewCopy(String can) {\n        Book lastInsertedBook = (Book) storyContext.getObject(\"LAST_INSERTED_BOOK\");\n        int numberOfCopies = \"CAN\".equals(can) ? 2 : 1;\n        assertNumberOfCopies(lastInsertedBook.getIsbn(), numberOfCopies);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 139,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business/Library.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/business",
+      "filename": "Library.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 70,
+    "annotation": "\n  @When(\"I navigate to the detail page of the book with the isbn {string}\")",
+    "glue_code": "  @When(\"I navigate to the detail page of the book with the isbn {string}\")\n  public void navigateToDetailPage(String isbn) {\n    seleniumAdapter.clickOnPageElementByClassName(\"detailsLink-\" + isbn);\n    storyContext.put(\"LAST_BROWSED_BOOK_DETAILS\", isbn);\n  }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 33,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/BookDetailsPage.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "BookDetailsPage.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 71,
+    "annotation": "\n  @When(\"a librarian removes book(s) {string}\")",
+    "glue_code": "  @When(\"a librarian removes book(s) {string}\")\n  public void a_librarian_removes_book(String isbn) {\n    seleniumAdapter.gotoPageWithParameter(Page.REMOVEBOOK, isbn);\n//    seleniumAdapter.clickOnPageElementById(PageElement.REMOVE_BOOK_BUTTON);\n  }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 39,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/BookDetailsPage.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "BookDetailsPage.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 72,
+    "annotation": "\n  @Then(\"I can see all book details for that book\")",
+    "glue_code": "  @Then(\"I can see all book details for that book\")\n  public void allBookDetailsVisible() {\n    String isbn = storyContext.get(\"LAST_BROWSED_BOOK_DETAILS\");\n    Set<Book> books = bookService.findBooksByIsbn(isbn);\n    assertThat(books, hasSize(greaterThanOrEqualTo(1)));\n    Book book = books.iterator().next();\n    String description = book.getDescription();\n    assertThat(seleniumAdapter.containsTextOnPage(book.getIsbn()), is(true));\n    assertThat(seleniumAdapter.containsTextOnPage(book.getAuthor()), is(true));\n    assertThat(seleniumAdapter.containsTextOnPage(book.getTitle()), is(true));\n    assertThat(seleniumAdapter.containsTextOnPage(book.getEdition()), is(true));\n    assertThat(\n        seleniumAdapter.containsTextOnPage(String.valueOf(book.getYearOfPublication())), is(true));\n    Optional.ofNullable(description)\n        .ifPresent(desc -> assertThat(seleniumAdapter.containsTextOnPage(description), is(true)));\n  }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 45,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/BookDetailsPage.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "BookDetailsPage.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 54,
+    "annotation": "\n  @Given(\"I browse the list of all books\")",
+    "glue_code": "  @Given(\"I browse the list of all books\")\n  public void browseBookList() {\n    seleniumAdapter.gotoPage(Page.BOOKLIST);\n  }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 29,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/BookList.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "BookList.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 55,
+    "annotation": "\n  @Then(\"the booklist contains a book with {string}, {string}, {string}, {int} and {string}\")",
+    "glue_code": "  @Then(\"the booklist contains a book with {string}, {string}, {string}, {int} and {string}\")\n  public void bookListContainsRowWithValues(\n      final String title,\n      final String author,\n      final String year,\n      final Integer edition,\n      final String isbn) {\n    seleniumAdapter.gotoPage(Page.BOOKLIST);\n    HtmlBookList htmlBookList = seleniumAdapter.getTableContent(PageElement.BOOK_LIST);\n    HtmlBook htmlBook = htmlBookList.getBookByIsbn(isbn);\n    assertThat(title, is(htmlBook.getTitle()));\n    assertThat(author, is(htmlBook.getAuthor()));\n    assertThat(year, is(htmlBook.getYearOfPublication()));\n    assertThat(edition, is(htmlBook.getEdition()));\n    assertThat(isbn, is(htmlBook.getIsbn()));\n  }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 34,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/BookList.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "BookList.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 56,
+    "annotation": "\n  @Then(\"the booklist contains a book with all the properties from the last inserted book\")",
+    "glue_code": "  @Then(\"the booklist contains a book with all the properties from the last inserted book\")\n  public void justAsLastInserted() {\n    Book lastInserted = (Book) storyContext.getObject(\"LAST_INSERTED_BOOK\");\n    seleniumAdapter.gotoPage(Page.BOOKLIST);\n    HtmlBookList htmlBookList = seleniumAdapter.getTableContent(PageElement.BOOK_LIST);\n    HtmlBook htmlBook = htmlBookList.getBookByIsbn(lastInserted.getIsbn());\n    assertThat(lastInserted.getTitle(), containsString(htmlBook.getTitle()));\n    assertThat(lastInserted.getAuthor(), containsString(htmlBook.getAuthor()));\n    assertThat(\n        lastInserted.getYearOfPublication(), is(Integer.parseInt(htmlBook.getYearOfPublication())));\n    assertThat(lastInserted.getEdition(), containsString(htmlBook.getEdition().toString()));\n    assertThat(lastInserted.getDescription(), containsString(htmlBook.getDescription()));\n  }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 51,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/BookList.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "BookList.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 57,
+    "annotation": "\n  @Then(\n      \"the booklist contains a book with {string}, {string}, {string}, {int}, {string}, and {string}\")",
+    "glue_code": "  @Then(\n      \"the booklist contains a book with {string}, {string}, {string}, {int}, {string}, and {string}\")",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 65,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/BookList.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "BookList.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 58,
+    "annotation": "\n  @Then(\"The library contains no books\")",
+    "glue_code": "  @Then(\"The library contains no books\")\n  public void libraryIsEmpty() {\n    seleniumAdapter.gotoPage(Page.BOOKLIST);\n    HtmlBookList htmlBookList = seleniumAdapter.getTableContent(PageElement.BOOK_LIST);\n    assertThat(htmlBookList.size(), is(0));\n  }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 85,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/BookList.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "BookList.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 59,
+    "annotation": "\n  @Then(\"the booklist lists {string} as borrower for the book with isbn {string}\")",
+    "glue_code": "  @Then(\"the booklist lists {string} as borrower for the book with isbn {string}\")\n  public void bookListHasBorrowerForBookWithIsbn(final String borrower, final String isbn) {\n    seleniumAdapter.gotoPage(Page.BOOKLIST);\n    HtmlBookList htmlBookList = seleniumAdapter.getTableContent(PageElement.BOOK_LIST);\n    HtmlBook htmlBook = htmlBookList.getBookByIsbn(isbn);\n    assertThat(htmlBook.getBorrower(), is(borrower));\n  }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 92,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/BookList.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "BookList.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 60,
+    "annotation": "\n  @Then(\"book(s) {string} is/are {string} by {string}\")",
+    "glue_code": "  @Then(\"book(s) {string} is/are {string} by {string}\")\n  public void booksAreNotBorrowedByBorrower1(String isbns, String borrowStatus, String borrower) {\n    seleniumAdapter.gotoPage(Page.BOOKLIST);\n    HtmlBookList htmlBookList = seleniumAdapter.getTableContent(PageElement.BOOK_LIST);\n\n    long booksInWrongBorrowingState =\n        Splitter.on(\" \").omitEmptyStrings().splitToList(isbns).stream()\n            .filter(\n                isbn -> {\n                  String actualBorrower = htmlBookList.getBookByIsbn(isbn).getBorrower();\n                  return !borrowStatus.contains(\"not borrowed\") != borrower.equals(actualBorrower);\n                })\n            .count();\n\n    assertThat(booksInWrongBorrowingState, is(0L));\n  }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 100,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/BookList.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "BookList.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 61,
+    "annotation": "\n  @Then(\"for every book the booklist contains a cover\")",
+    "glue_code": "  @Then(\"for every book the booklist contains a cover\")\n  public void checkCover() {\n    seleniumAdapter.gotoPage(Page.BOOKLIST);\n    HtmlBookList htmlBookList = seleniumAdapter.getTableContent(PageElement.BOOK_LIST);\n    Collection<HtmlBook> books = htmlBookList.getHtmlBooks().values();\n    for (HtmlBook book : books) {\n      assertThat(book.getCover(), containsString(book.getIsbn()));\n    }\n  }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 117,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/BookList.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "BookList.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 73,
+    "annotation": "\n  @When(\"{string} borrows the book {string}\")",
+    "glue_code": "  @When(\"{string} borrows the book {string}\")\n  public void whenUseruserBorrowsTheBookisbn(String user, String isbn) {\n    seleniumAdapter.gotoPage(Page.BORROWBOOK);\n    seleniumAdapter.typeIntoField(\"email\", user);\n    seleniumAdapter.typeIntoField(\"isbn\", isbn);\n    seleniumAdapter.clickOnPageElementById(PageElement.BORROW_BOOK_BUTTON);\n  }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 29,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/BorrowBook.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "BorrowBook.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 74,
+    "annotation": "\n  @When(\"a librarian adds a book with {string}, {string}, {string}, {int}, and {string}\")",
+    "glue_code": "  @When(\"a librarian adds a book with {string}, {string}, {string}, {int}, and {string}\")\n  public void whenABookWithISBNisbnIsAdded(\n      String isbn, String title, String author, Integer edition, String year) {\n    insertAndSubmitBook(isbn, title, author, edition, year, \"\");\n  }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 36,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/InsertBook.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "InsertBook.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 75,
+    "annotation": "\n  @When(\"a librarian adds a book with {string}, {string}, {string}, {int}, {string}, and {string}\")",
+    "glue_code": "  @When(\"a librarian adds a book with {string}, {string}, {string}, {int}, {string}, and {string}\")\n  public void whenABookIsAdded(\n      String isbn, String title, String author, Integer edition, String year, String description) {\n    insertAndSubmitBook(isbn, title, author, edition, year, description);\n  }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 42,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/InsertBook.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "InsertBook.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 76,
+    "annotation": "\n  @When(\"a librarian tries to add a similar book with different {string}, {string} and {int}\")",
+    "glue_code": "  @When(\"a librarian tries to add a similar book with different {string}, {string} and {int}\")\n  public void whenASimilarBookIsAdded(String title, String author, Integer edition) {\n    Book lastInsertedBook = (Book) storyContext.getObject(\"LAST_INSERTED_BOOK\");\n    insertAndSubmitBook(\n        lastInsertedBook.getIsbn(),\n        title,\n        author,\n        edition,\n        String.valueOf(lastInsertedBook.getYearOfPublication()),\n        lastInsertedBook.getDescription());\n  }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 48,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/InsertBook.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "InsertBook.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 77,
+    "annotation": "\n  @When(\"a librarian tries to add a similar book with same title, author and edition\")",
+    "glue_code": "  @When(\"a librarian tries to add a similar book with same title, author and edition\")\n  public void whenASimilarBookIsAdded() {\n    Book lastInsertedBook = (Book) storyContext.getObject(\"LAST_INSERTED_BOOK\");\n    insertAndSubmitBook(\n        lastInsertedBook.getIsbn(),\n        lastInsertedBook.getTitle(),\n        lastInsertedBook.getAuthor(),\n        Integer.parseInt(lastInsertedBook.getEdition()),\n        String.valueOf(lastInsertedBook.getYearOfPublication()),\n        lastInsertedBook.getDescription());\n  }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 60,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/InsertBook.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "InsertBook.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 78,
+    "annotation": "  @Then(\"the page contains error message for field {string}\")",
+    "glue_code": "  public void pageContainsErrorMessage(String field) {\n    String errorMessage = seleniumAdapter.getTextFromElement(PageElement.errorFor(field));\n    assertThat(errorMessage, notNullValue());\n  }\n\n  // *****************\n  // *** U T I L *****\n  // *****************\n\n  private void insertAndSubmitBook(\n      String isbn, String title, String author, Integer edition, String year, String description) {",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 76,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/InsertBook.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "InsertBook.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 80,
+    "annotation": "\n  @When(\"{string} requests list of borrowed books\")",
+    "glue_code": "  @When(\"{string} requests list of borrowed books\")\n  public void requests_list_of_borrowed_books(String borrower) {\n    seleniumAdapter.gotoPage(Page.BORROWED_BOOK_LIST);\n    seleniumAdapter.typeIntoField(\"email\", borrower);\n    seleniumAdapter.clickOnPageElementById(PageElement.SHOW_BORROWED_BOOKS_BUTTON);\n  }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 26,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/ListBorrowedBooksPage.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "ListBorrowedBooksPage.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 81,
+    "annotation": "\n  @Then(\"the list shows the books {string} with due date {date}\")",
+    "glue_code": "  @Then(\"the list shows the books {string} with due date {date}\")\n  public void the_list_shows_the_books(String isbns, LocalDate dueDate) {\n    HtmlBookList tableContent = seleniumAdapter.getTableContent(PageElement.BORROWED_BOOK_LIST);\n    HtmlBook bookByIsbn = tableContent.getBookByIsbn(isbns);\n\n    assertThat(bookByIsbn).isNotNull();\n    assertThat(bookByIsbn)\n        .hasFieldOrPropertyWithValue(\"dueDate\", dueDate)\n        .hasFieldOrPropertyWithValue(\"isbn\", isbns);\n  }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 33,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/ListBorrowedBooksPage.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "ListBorrowedBooksPage.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 82,
+    "annotation": "\n    @Then(\"the list is sorted by dueDate in ascending order\")",
+    "glue_code": "    @Then(\"the list is sorted by dueDate in ascending order\")\n    public void the_list_of_borrowed_books_for_lists_books_sorted_by_due_date_with_the_next_book_to_return_on_top() {\n        HtmlBookList listOfBorrowings = seleniumAdapter.getTableContent(PageElement.BORROWED_BOOK_LIST);\n        listOfBorrowings.getHtmlBooks().values().stream().reduce( (a, b) -> {\n            if (a.getDueDate().compareTo(b.getDueDate()) > 0 ) throw new IllegalStateException(\"The Books \" + a + \" and \" + b + \" are not ordered correctly.\");\n            return b;\n        });\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 44,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/ListBorrowedBooksPage.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "ListBorrowedBooksPage.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 79,
+    "annotation": "\n  @When(\"{string} returns the/all book(s)\")",
+    "glue_code": "  @When(\"{string} returns the/all book(s)\")\n  public void whenUseruserReturnsAllHisBooks(String borrower1) {\n    seleniumAdapter.gotoPage(Page.RETURNBOOKS);\n    seleniumAdapter.typeIntoField(\"emailAddress\", borrower1);\n    seleniumAdapter.clickOnPageElementById(PageElement.RETURN_ALL_BOOKS_BUTTON);\n  }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 20,
+    "file_info": {
+      "path": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page/ReturnAllBooks.java",
+      "directory": "worblehat-acceptancetests/src/test/java/de/codecentric/psd/worblehat/acceptancetests/step/page",
+      "filename": "ReturnAllBooks.java",
+      "extension": ".java"
+    }
+  }
+]

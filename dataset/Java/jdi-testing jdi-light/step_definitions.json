@@ -1,0 +1,2452 @@
+[
+  {
+    "step_definition_id": 432,
+    "annotation": "\n    @Given(\"^I should be logged in$\")",
+    "glue_code": "    @Given(\"^I should be logged in$\")\n    public void iShouldBeLogin() {\n        String url = WebPage.getUrl();\n        if (!url.contains(\"https://jdi-testing.github.io/jdi-light/\")\n                || url.contains(\"issue\")) {\n            homePage.open();\n        }\n        if (userName.isHidden()) {\n            if (loginForm.isHidden()) {\n                userIcon.click();\n            }\n            loginForm.submit(DEFAULT_USER);\n        }\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 19,
+    "file_info": {
+      "path": "jdi-bdd-tests/src/test/java/cucumberTests/stepdefs/UserStepdefs.java",
+      "directory": "jdi-bdd-tests/src/test/java/cucumberTests/stepdefs",
+      "filename": "UserStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 433,
+    "annotation": "\n    @When(\"^I try to upload file \\\"([^\\\"]*)\\\" by \\\"([^\\\"]*)\\\" file input element$\")",
+    "glue_code": "    @When(\"^I try to upload file \\\"([^\\\"]*)\\\" by \\\"([^\\\"]*)\\\" file input element$\")\n    public void iTryToUploadFileByFileInputElement(String pathToFile, String elementName) {\n        FileInput fileInput = getUI(elementName, FileInput.class);\n        try {\n            fileInput.uploadFile(mergePath(COMMON.projectPath, pathToFile));\n            fail(\"Can't upload file in disabled FileInput\");\n        } catch (Exception ex) {\n            assertTrue(ex.getLocalizedMessage().contains(\"FileInput 'Disabled File Input' is disabled. Can't upload file\"));\n        }\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 34,
+    "file_info": {
+      "path": "jdi-bdd-tests/src/test/java/cucumberTests/stepdefs/UserStepdefs.java",
+      "directory": "jdi-bdd-tests/src/test/java/cucumberTests/stepdefs",
+      "filename": "UserStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 434,
+    "annotation": "    @When(\"^I select \\\"([^\\\"]*)\\\" disabled option \\\"([^\\\"]*)\\\"\")",
+    "glue_code": "    public void iSelectDisabled(String name, String option) {\n        try {\n            iCheckCheckBox(name, option);\n            fail(\"Select disabled should throw exception\");\n        } catch (Exception ignore) {}",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 45,
+    "file_info": {
+      "path": "jdi-bdd-tests/src/test/java/cucumberTests/stepdefs/UserStepdefs.java",
+      "directory": "jdi-bdd-tests/src/test/java/cucumberTests/stepdefs",
+      "filename": "UserStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 435,
+    "annotation": "    @Given(\"^I open application$\")",
+    "glue_code": "    public void iMOpenSite() {\n        openUrl(getDomain());\n    }\n\n    @Given(\"^I open \\\"([^\\\"]*)\\\"(?: page|)$\")\n    public void iOpen(String pageName) {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 31,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 436,
+    "annotation": "\n    @Given(\"^I open \\\"([^\\\"]*)\\\"(?: page|)$\")",
+    "glue_code": "    @Given(\"^I open \\\"([^\\\"]*)\\\"(?: page|)$\")\n    public void iOpen(String pageName) {\n        if (pageName.startsWith(\"http\")) {\n            WebPage.openUrl(pageName);\n            return;\n        }\n        getPage(pageName).shouldBeOpened();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 35,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 437,
+    "annotation": "\n    @Given(\"^I open \\\"([^\\\"]*)\\\"(?: page|) with params \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Given(\"^I open \\\"([^\\\"]*)\\\"(?: page|) with params \\\"([^\\\"]*)\\\"$\")\n    public void iMOpenParams(String pageName, Object params) {\n        getPage(pageName).shouldBeOpened(params);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 49,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 438,
+    "annotation": "    @When(\"^(?:I |)refresh webpage$\")",
+    "glue_code": "    public void refreshWebpage() {\n        WebPage.refresh();\n    }\n\n    @When(\"^(?:I |)click on \\\"([^\\\"]*)\\\"$\")\n    public void click(String name) {",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 56,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 439,
+    "annotation": "\n    @When(\"^(?:I |)click on \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)click on \\\"([^\\\"]*)\\\"$\")\n    public void click(String name) {\n        getUI(name, IClickable.class).click();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 60,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 440,
+    "annotation": "\n    @When(\"^(?:I |)send keys \\\"([^\\\"]*)\\\" to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)send keys \\\"([^\\\"]*)\\\" to \\\"([^\\\"]*)\\\"$\")\n    public void sendKeys(String value, String name) {\n        input(name).sendKeys(value);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 65,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 441,
+    "annotation": "\n    @When(\"^(?:I |)check \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)check \\\"([^\\\"]*)\\\"$\")\n    public void check(String name) {\n        getUI(name, HasCheck.class).check();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 70,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 442,
+    "annotation": "\n    @When(\"^(?:I |)uncheck \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)uncheck \\\"([^\\\"]*)\\\"$\")\n    public void uncheck(String name) {\n        getUI(name, HasCheck.class).uncheck();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 75,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 443,
+    "annotation": "\n    @When(\"^(?:I |)clear \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)clear \\\"([^\\\"]*)\\\"$\")\n    public void clear(String name) {\n        input(name).clear();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 80,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 444,
+    "annotation": "\n    @When(\"^(?:I |)click with JS on \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)click with JS on \\\"([^\\\"]*)\\\"$\")\n    public void jsClick(String name) {\n        getUI(name, HasClick.class).click(JS);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 85,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 445,
+    "annotation": "\n    @When(\"^(?:I |)input \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)input \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\"$\")\n    public void inputText(String value, String name) {\n        input(name).input(value);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 90,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 446,
+    "annotation": "\n    @When(\"^(?:I |)select \\\"([^\\\"]*)\\\" field from \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)select \\\"([^\\\"]*)\\\" field from \\\"([^\\\"]*)\\\"$\")\n    public void select(String value, String name) {\n        getUI(name, ISelector.class).select(value);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 95,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 447,
+    "annotation": "\n    @When(\"^(?:I |)focus on \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)focus on \\\"([^\\\"]*)\\\"$\")\n    public void focusOn(String name) {\n        input(name).focus();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 100,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 448,
+    "annotation": "\n    @When(\"^(?:I |)set text \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)set text \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\"$\")\n    public void setText(String value, String name) {\n        input(name).setText(value);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 105,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 449,
+    "annotation": "\n    @When(\"^(?:I |)double click on \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)double click on \\\"([^\\\"]*)\\\"$\")\n    public void doubleClick(String name) {\n        getUI(name, HasClick.class).doubleClick();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 110,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 450,
+    "annotation": "\n    @When(\"^(?:I |)right click on \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)right click on \\\"([^\\\"]*)\\\"$\")\n    public void rightClick(String name) {\n        getUI(name, HasClick.class).rightClick();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 115,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 451,
+    "annotation": "\n    @When(\"^(?:I |)highlight \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)highlight \\\"([^\\\"]*)\\\"$\")\n    public void highlight(String name) {\n        getUI(name).highlight();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 120,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 452,
+    "annotation": "\n    @When(\"^(?:I |)show \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)show \\\"([^\\\"]*)\\\"$\")\n    public void show(String name) {\n        getUI(name).show();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 125,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 453,
+    "annotation": "\n    @When(\"^(?:I |)set \\\"([^\\\"]*)\\\" attribute \\\"([^\\\"]*)\\\" with value \\\"([^\\\"]*)\\\" element$\")",
+    "glue_code": "    @When(\"^(?:I |)set \\\"([^\\\"]*)\\\" attribute \\\"([^\\\"]*)\\\" with value \\\"([^\\\"]*)\\\" element$\")\n    public void setAttribute(String name, String attrName, String attrValue) {\n        core(name).setAttribute(attrName, attrValue);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 130,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 454,
+    "annotation": "\n    @When(\"^(?:I |)go forward$\")",
+    "glue_code": "    @When(\"^(?:I |)go forward$\")\n    public void goForward() {\n        WebPage.forward();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 135,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 455,
+    "annotation": "\n    @When(\"^(?:I |)go back$\")",
+    "glue_code": "    @When(\"^(?:I |)go back$\")\n    public void goBack() {\n        WebPage.back();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 140,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 456,
+    "annotation": "\n    @When(\"^(?:I |)set browser size to \\\"([0-9]+)\\\"px width and \\\"([0-9]+)\\\"px height$\")",
+    "glue_code": "    @When(\"^(?:I |)set browser size to \\\"([0-9]+)\\\"px width and \\\"([0-9]+)\\\"px height$\")\n    public void setBrowserSize(int width, int height) {\n        Dimension dimension = new Dimension(width, height);\n        WebDriverFactory.getDriver().manage().window().setSize(dimension);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 145,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 457,
+    "annotation": "\n    @Given(\"Page with url \\\"([^\\\"]*)\\\" openned$\")",
+    "glue_code": "    @Given(\"Page with url \\\"([^\\\"]*)\\\" openned$\")\n    @When(\"^(?:I |)open url \\\"([^\\\"]*)\\\"$\")\n    public void iOpenUrl(String url) {\n        openUrl(url);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 151,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 458,
+    "annotation": "    @When(\"^(?:I |)open url \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    public void iOpenUrl(String url) {\n        openUrl(url);\n    }\n\n    //#endregion\n    //#region Then\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:page |)is opened$\")\n    public void iMOn(String pageName) {",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 153,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 459,
+    "annotation": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:page |)is opened$\")",
+    "glue_code": "    public void iMOn(String pageName) {\n        getPage(pageName).shouldBeOpened();\n    }\n\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:page |)is opened with params \\\"([^\\\"]*)\\\"$\")\n    public void pageOpenedParams(String pageName, Object params) {",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 160,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 460,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:page |)is opened with params \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:page |)is opened with params \\\"([^\\\"]*)\\\"$\")\n    public void pageOpenedParams(String pageName, Object params) {\n        getPage(pageName).shouldBeOpened(params);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 164,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 461,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" label text equals to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" label text equals to \\\"([^\\\"]*)\\\"$\")\n    public void labelTextEquals(String name, String value) {\n        getUI(name, HasLabel.class).label().has().text(equalTo(value));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 169,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 462,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" label text contains \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" label text contains \\\"([^\\\"]*)\\\"$\")\n    public void labelTextContains(String name, String value) {\n        label(name).has().text(containsString(value));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 174,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 463,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" label text matches to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" label text matches to \\\"([^\\\"]*)\\\"$\")\n    public void labelTextMatchRegex(String name, String regex) {\n        label(name).has().text(matchesPattern(regex));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 179,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 464,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" is selected$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" is selected$\")\n    public void isSelected(String name) {\n        selectedAssert(name).selected();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 184,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 465,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" is deselected$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" is deselected$\")\n    public void isDeselected(String name) {\n        selectedAssert(name).deselected();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 189,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 466,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" placeholder equals to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" placeholder equals to \\\"([^\\\"]*)\\\"$\")\n    public void placeholderEquals(String name, String placeholder) {\n        isAssert(name).attr(\"placeholder\", placeholder);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 194,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 467,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" placeholder contains \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" placeholder contains \\\"([^\\\"]*)\\\"$\")\n    public void placeholderContains(String name, String placeholder) {\n        isAssert(name).attr(\"placeholder\", containsString(placeholder));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 199,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 468,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" placeholder matches to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" placeholder matches to \\\"([^\\\"]*)\\\"$\")\n    public void placeholderMatchRegex(String name, String regex) {\n        isAssert(name).attr(\"placeholder\", matchesPattern(regex));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 204,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 469,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" text equals to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" text equals to \\\"([^\\\"]*)\\\"$\")\n    public void textEquals(String name, String value) {\n        textAssert(name).text(value);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 209,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 470,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" text contains \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" text contains \\\"([^\\\"]*)\\\"$\")\n    public void textContains(String name, String value) {\n        textAssert(name).text(containsString(value));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 214,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 471,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" text matches to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" text matches to \\\"([^\\\"]*)\\\"$\")\n    public void textMatchRegex(String name, String regex) {\n        textAssert(name).text(matchesPattern(regex));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 219,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 472,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" attribute \\\"([^\\\"]*)\\\" equals to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" attribute \\\"([^\\\"]*)\\\" equals to \\\"([^\\\"]*)\\\"$\")\n    public void attributeEquals(String name, String attrName, String attrValue) {\n        isAssert(name).attr(attrName, attrValue);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 224,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 473,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" attribute \\\"([^\\\"]*)\\\" contains \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" attribute \\\"([^\\\"]*)\\\" contains \\\"([^\\\"]*)\\\"$\")\n    public void attributeContains(String name, String attrName, String attrValue) {\n        isAssert(name).attr(attrName, containsString(attrValue));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 229,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 474,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" attribute \\\"([^\\\"]*)\\\" matches to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" attribute \\\"([^\\\"]*)\\\" matches to \\\"([^\\\"]*)\\\"$\")\n    public void attributeMatchRegex(String name, String attrName, String regex) {\n        isAssert(name).attr(attrName, matchesPattern(regex));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 234,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 475,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" css \\\"([^\\\"]*)\\\" equals to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" css \\\"([^\\\"]*)\\\" equals to \\\"([^\\\"]*)\\\"$\")\n    public void cssEquals(String name, String attrName, String cssValue) {\n        isAssert(name).css(attrName, cssValue);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 239,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 476,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" css \\\"([^\\\"]*)\\\" contains \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" css \\\"([^\\\"]*)\\\" contains \\\"([^\\\"]*)\\\"$\")\n    public void cssContains(String name, String css, String cssValue) {\n        isAssert(name).css(css, containsString(cssValue));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 244,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 494,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" css \\\"([^\\\"]*)\\\" matches to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" css \\\"([^\\\"]*)\\\" matches to \\\"([^\\\"]*)\\\"$\")\n    public void cssMatchRegex(String name, String css, String regex) {\n        isAssert(name).css(css, matchesPattern(regex));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 249,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 495,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" is enabled$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" is enabled$\")\n    public void isEnabled(String name) {\n        uiAssert(name).enabled();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 254,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 496,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" is disabled$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" is disabled$\")\n    public void isDisabled(String name) {\n        uiAssert(name).disabled();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 259,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 497,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" is displayed$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" is displayed$\")\n    public void isDisplayed(String name) {\n        uiAssert(name).displayed();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 264,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 498,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" is hidden$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" is hidden$\")\n    public void isHidden(String name) {\n        uiAssert(name).hidden();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 269,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 499,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" disappear$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" disappear$\")\n    public void isDisappear(String name) {\n        uiAssert(name).disappear();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 274,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 500,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" does not appear$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" does not appear$\")\n    public void isNotAppear(String name) {\n        uiAssert(name).notAppear();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 279,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 501,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" does not appear during \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" does not appear during \\\"([^\\\"]*)\\\"$\")\n    public void isNotAppear(String name, int seconds) {\n        uiAssert(name).notAppear(seconds);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 284,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 502,
+    "annotation": "\n    @Then(\"^the \\\"(.*?)\\\" text is on page$\")",
+    "glue_code": "    @Then(\"^the \\\"(.*?)\\\" text is on page$\")\n    public void textOnPage(String text) {\n        $(byText(text)).is().displayed();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 289,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 503,
+    "annotation": "\n    @Then(\"^the current page url is \\\"(.*?)\\\"$\")",
+    "glue_code": "    @Then(\"^the current page url is \\\"(.*?)\\\"$\")\n    public void urlIs(String expectedUrl) {\n        assertThat(expectedUrl, is(getUrl()));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 294,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 504,
+    "annotation": "\n    @Then(\"^the current page title is \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the current page title is \\\"([^\\\"]*)\\\"$\")\n    public void titleIs(String expectedUrl) {\n        assertThat(expectedUrl, is(getTitle()));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 299,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/JDISteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd",
+      "filename": "JDISteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 505,
+    "annotation": "    @When(\"^(?:I |)accept alert\")",
+    "glue_code": "    public void accept() {\n        acceptAlert();\n    }\n\n    @When(\"^(?:I |)dismiss alert\")\n    public void dismiss() {",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 16,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/AlertSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "AlertSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 506,
+    "annotation": "\n    @When(\"^(?:I |)dismiss alert\")",
+    "glue_code": "    @When(\"^(?:I |)dismiss alert\")\n    public void dismiss() {\n        dismissAlert();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 20,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/AlertSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "AlertSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 507,
+    "annotation": "    @Then(\"^the Alert text equals to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    public void alertTextEquals(String alertText) {\n        validateAndAcceptAlert(is(alertText));\n    }\n\n    @Then(\"^the Alert text contains \\\"([^\\\"]*)\\\"$\")\n    public void alertTextContains(String alertText) {",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 28,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/AlertSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "AlertSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 508,
+    "annotation": "\n    @Then(\"^the Alert text contains \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the Alert text contains \\\"([^\\\"]*)\\\"$\")\n    public void alertTextContains(String alertText) {\n        validateAndAcceptAlert(containsString(alertText));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 32,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/AlertSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "AlertSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 509,
+    "annotation": "\n    @Then(\"^the Alert text matches to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the Alert text matches to \\\"([^\\\"]*)\\\"$\")\n    public void alertTextMatches(String alertText) {\n        validateAndAcceptAlert(matchesPattern(alertText));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 37,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/AlertSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "AlertSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 477,
+    "annotation": "\n    @When(\"^(?:I |)check element \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\" checklist$\")",
+    "glue_code": "    @When(\"^(?:I |)check element \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\" checklist$\")\n    public static void iCheckCheckBox(String value, String name) {\n        checklist(name).check(value);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 25,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 478,
+    "annotation": "\n    @When(\"^(?:I |)check elements in \\\"([^\\\"]*)\\\" checklist:$\")",
+    "glue_code": "    @When(\"^(?:I |)check elements in \\\"([^\\\"]*)\\\" checklist:$\")\n    public static void iCheckCheckboxes(String name, DataTable values) {\n        checklist(name).check(values.values().toArray(new String[0]));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 30,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 479,
+    "annotation": "\n    @When(\"^(?:I |)uncheck in \\\"([^\\\"]*)\\\" checklist elements:$\")",
+    "glue_code": "    @When(\"^(?:I |)uncheck in \\\"([^\\\"]*)\\\" checklist elements:$\")\n    public static void iUncheckElements(String name, DataTable values) {\n        checklist(name).uncheck(values.values().toArray(new String[0]));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 35,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 480,
+    "annotation": "\n    @When(\"^(?:I |)uncheck element \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\" checklist$\")",
+    "glue_code": "    @When(\"^(?:I |)uncheck element \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\" checklist$\")\n    public static void iUnCheckCheckBox(String value, String name) {\n        checklist(name).uncheck(value);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 40,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 481,
+    "annotation": "\n    @When(\"^(?:I |)check in \\\"([^\\\"]*)\\\" checklist elements by numbers:$\")",
+    "glue_code": "    @When(\"^(?:I |)check in \\\"([^\\\"]*)\\\" checklist elements by numbers:$\")\n    public static void iCheckElementsByNumbers(String name, DataTable values) {\n        List<Integer> intValues = values.values().stream().map(Integer::parseInt).collect(Collectors.toList());\n        checklist(name).check(toIntArray(intValues));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 45,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 482,
+    "annotation": "\n    @When(\"^(?:I |)check in \\\"([^\\\"]*)\\\" checklist element by numbers ([0-9]+)$\")",
+    "glue_code": "    @When(\"^(?:I |)check in \\\"([^\\\"]*)\\\" checklist element by numbers ([0-9]+)$\")\n    public static void iCheckElementByNumbers(String name, int value) {\n        checklist(name).check(value);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 51,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 483,
+    "annotation": "\n    @When(\"^(?:I |)uncheck in \\\"([^\\\"]*)\\\" checklist elements by numbers:$\")",
+    "glue_code": "    @When(\"^(?:I |)uncheck in \\\"([^\\\"]*)\\\" checklist elements by numbers:$\")\n    public static void iUncheckCheckBoxesByNumbers(String name, DataTable values) {\n        List<Integer> intValues = values.values().stream().map(Integer::parseInt).collect(Collectors.toList());\n        checklist(name).uncheck(toIntArray(intValues));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 56,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 484,
+    "annotation": "\n    @When(\"^(?:I |)uncheck in \\\"([^\\\"]*)\\\" checklist element by numbers ([0-9]+)$\")",
+    "glue_code": "    @When(\"^(?:I |)uncheck in \\\"([^\\\"]*)\\\" checklist element by numbers ([0-9]+)$\")\n    public static void iUncheckCheckBoxesByNumbers(String name, int value) {\n        checklist(name).uncheck(value);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 62,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 485,
+    "annotation": "\n    @When(\"^(?:I |)select elements in \\\"([^\\\"]*)\\\" checklist by numbers:$\")",
+    "glue_code": "    @When(\"^(?:I |)select elements in \\\"([^\\\"]*)\\\" checklist by numbers:$\")\n    public static void iSelectCheckBoxesByNumbers(String name, DataTable values) {\n        List<Integer> intValues = values.values().stream().map(Integer::parseInt).collect(Collectors.toList());\n        checklist(name).select(toIntArray(intValues));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 67,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 486,
+    "annotation": "\n    @When(\"^(?:I |)select element in \\\"([^\\\"]*)\\\" checklist by number ([0-9]+)$\")",
+    "glue_code": "    @When(\"^(?:I |)select element in \\\"([^\\\"]*)\\\" checklist by number ([0-9]+)$\")\n    public static void iSelectCheckBoxByNumbers(String name, int value) {\n        checklist(name).select(value);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 73,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 487,
+    "annotation": "\n    @When(\"^(?:I |)check all elements in \\\"([^\\\"]*)\\\" checklist\")",
+    "glue_code": "    @When(\"^(?:I |)check all elements in \\\"([^\\\"]*)\\\" checklist\")\n    public static void iCheckAllCheckBoxes(String name) {\n        checklist(name).checkAll();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 78,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 488,
+    "annotation": "\n    @When(\"^(?:I |)uncheck all elements in \\\"([^\\\"]*)\\\" checklist$\")",
+    "glue_code": "    @When(\"^(?:I |)uncheck all elements in \\\"([^\\\"]*)\\\" checklist$\")\n    public static void iUncheckAllCheckBoxes(String name) {\n        checklist(name).uncheckAll();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 83,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 489,
+    "annotation": "\n    @Then(\"^in \\\"([^\\\"]*)\\\" checklist \\\"([^\\\"]*)\\\" is checked$\")",
+    "glue_code": "    @Then(\"^in \\\"([^\\\"]*)\\\" checklist \\\"([^\\\"]*)\\\" is checked$\")\n    public static void isCheckBoxChecked(String name, String value) {\n        checklist(name).is().selected(containsString(value));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 88,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 490,
+    "annotation": "\n    @Then(\"count of selected elements in {string} checklist is {int}\")",
+    "glue_code": "    @Then(\"count of selected elements in {string} checklist is {int}\")\n    public static void countOfSelectedCheckBoxes(String name, int count) {\n        checklist(name).is().checked(hasSize(count));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 93,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 491,
+    "annotation": "\n    @Then(\"in the \\\"([^\\\"]*)\\\" checklist checked elements are:$\")",
+    "glue_code": "    @Then(\"in the \\\"([^\\\"]*)\\\" checklist checked elements are:$\")\n    public static void isCheckBoxesChecked(String name, DataTable values) {\n        checklist(name).is().checked(values.values());\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 98,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 492,
+    "annotation": "\n    @Then(\"the \\\"([^\\\"]*)\\\" checklist value is \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"the \\\"([^\\\"]*)\\\" checklist value is \\\"([^\\\"]*)\\\"$\")\n    public static void checkListTextIs(String name, String text) {\n        checklist(name).has().text(text);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 103,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 493,
+    "annotation": "\n    @When(\"^(?:I |)Select fields from \\\"([^\\\"]*)\\\":$\")",
+    "glue_code": "    @When(\"^(?:I |)Select fields from \\\"([^\\\"]*)\\\":$\")\n    public static void multiSelect(String name, DataTable values) {\n        checklist(name).select(values.values().toArray(new String[0]));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 108,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/CheckListSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "CheckListSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 514,
+    "annotation": "\n    @Given(\"^the \\\"([^\\\"]*)\\\" was set to \\\"([^\\\"]*)\\\" color$\")",
+    "glue_code": "    @Given(\"^the \\\"([^\\\"]*)\\\" was set to \\\"([^\\\"]*)\\\" color$\")\n    @When(\"^I set \\\"([^\\\"]*)\\\" to \\\"([^\\\"]*)\\\" color$\")\n    public void preSetColor(String name, String color) {\n        colorPicker(name).setColor(color);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 18,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/ColorPickerSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "ColorPickerSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 515,
+    "annotation": "    @When(\"^I set \\\"([^\\\"]*)\\\" to \\\"([^\\\"]*)\\\" color$\")",
+    "glue_code": "    public void preSetColor(String name, String color) {\n        colorPicker(name).setColor(color);\n    }\n\n    @Then(\"^the \\\"([^\\\"]*)\\\" has color \\\"([^\\\"]*)\\\"$\")\n    public void hasColor(String name, String color) {",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 20,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/ColorPickerSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "ColorPickerSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 516,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" has color \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" has color \\\"([^\\\"]*)\\\"$\")\n    public void hasColor(String name, String color) {\n        colorPicker(name).has().color(color);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 24,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/ColorPickerSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "ColorPickerSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 513,
+    "annotation": "\n    @When(\"^select index ([0-9]+) in \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^select index ([0-9]+) in \\\"([^\\\"]*)\\\"$\")\n    public void comboboxSelect(int index, String name) {\n        combobox(name).select(index);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 16,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/ComboboxSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "ComboboxSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 510,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" min equals to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" min equals to \\\"([^\\\"]*)\\\"$\")\n    public void attributeMinEquals(String name, String date) {\n        dateTimeSelector(name).is().min(date);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 17,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/DateTimeSelectorSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "DateTimeSelectorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 511,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" max equals to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" max equals to \\\"([^\\\"]*)\\\"$\")\n    public void attributeMaxEquals(String name, String date) {\n        dateTimeSelector(name).is().max(date);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 22,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/DateTimeSelectorSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "DateTimeSelectorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 512,
+    "annotation": "\n    @When(\"^(?:I |)set date \\\"([^\\\"]*)\\\" in the \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)set date \\\"([^\\\"]*)\\\" in the \\\"([^\\\"]*)\\\"$\")\n    public void iSetDate(String date, String name) {\n        dateTimeSelector(name).setDateTime(date);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 27,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/DateTimeSelectorSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "DateTimeSelectorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 517,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\" is selected$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\" is selected$\")\n    public void theInIsSelected(String textValue, String name) {\n        dropdown(name).is().selected(textValue);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 16,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/DropdownSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "DropdownSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 533,
+    "annotation": "\n    @When(\"^I upload file \\\"([^\\\"]*)\\\" by \\\"([^\\\"]*)\\\" file input element$\")",
+    "glue_code": "    @When(\"^I upload file \\\"([^\\\"]*)\\\" by \\\"([^\\\"]*)\\\" file input element$\")\n    public void iUploadFileByFileInputElement(String pathToFile, String name) {\n        fileInput(name).uploadFile(mergePath(COMMON.projectPath, pathToFile));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 18,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/FileInputSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "FileInputSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 518,
+    "annotation": "\n    @When(\"^I login as \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^I login as \\\"([^\\\"]*)\\\"$\")\n    public void loginAsForm(String jsonName) {\n        getForm(\"Login form\").submit(getMapFromJson(jsonName, \"json.test.data\"));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 39,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/FormSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "FormSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 519,
+    "annotation": "\n    @When(\"^(?:I |)fill form \\\"([^\\\"]*)\\\" with data:$\")",
+    "glue_code": "    @When(\"^(?:I |)fill form \\\"([^\\\"]*)\\\" with data:$\")\n    public void fillForm(String name, DataTable data) {\n        getForm(name).fill(getMapFromTable(data));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 44,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/FormSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "FormSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 520,
+    "annotation": "\n    @When(\"^(?:I |)fill form \\\"([^\\\"]*)\\\" with \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)fill form \\\"([^\\\"]*)\\\" with \\\"([^\\\"]*)\\\"$\")\n    public void fillForm(String name, String jsonName) {\n        getForm(name).fill(getMapFromJson(jsonName, \"json.test.data\"));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 49,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/FormSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "FormSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 521,
+    "annotation": "\n    @When(\"^(?:I |)(?:submit|send|add|publich|save|update|cancel|close|back|select|next|search) form$\")",
+    "glue_code": "    @When(\"^(?:I |)(?:submit|send|add|publich|save|update|cancel|close|back|select|next|search) form$\")\n    public void submitDataForm() {\n        getLastForm().submit();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 54,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/FormSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "FormSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 522,
+    "annotation": "\n    @When(\"^(?:I |)(?:submit|send|add|publich|save|update|cancel|close|back|select|next|search) \" +",
+    "glue_code": "    @When(\"^(?:I |)(?:submit|send|add|publich|save|update|cancel|close|back|select|next|search) \" +\n            \"form \\\"([^\\\"]*)\\\" with data:$\")\n    public void submitDataForm(String name, DataTable data) {\n        getForm(name).submit(getMapFromTable(data));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 59,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/FormSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "FormSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 523,
+    "annotation": "\n    @When(\"^(?:I |)(?:submit|send|add|publich|save|update|cancel|close|back|select|next|search) form using button \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)(?:submit|send|add|publich|save|update|cancel|close|back|select|next|search) form using button \\\"([^\\\"]*)\\\"$\")\n    public void submitForm(String buttonName) {\n        getLastForm().pressButton(buttonName);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 65,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/FormSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "FormSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 524,
+    "annotation": "\n    @When(\"^(?:I |)(?:submit|send|add|publich|save|update|cancel|close|back|select|next|search) \"",
+    "glue_code": "    @When(\"^(?:I |)(?:submit|send|add|publich|save|update|cancel|close|back|select|next|search) \"\n            + \"form \\\"([^\\\"]*)\\\" with \\\"([^\\\"]*)\\\"$\")\n    public void submitForm(String name, String jsonName) {\n        getForm(name).submit(getMapFromJson(jsonName, \"json.test.data\"));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 70,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/FormSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "FormSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 525,
+    "annotation": "\n    @Then(\"^the form \\\"([^\\\"]*)\\\" data equals to:$\")",
+    "glue_code": "    @Then(\"^the form \\\"([^\\\"]*)\\\" data equals to:$\")\n    public void dataEquals(String name, DataTable data) {\n        getForm(name).check(getMapFromTable(data));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 76,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/FormSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "FormSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 526,
+    "annotation": "\n    @Then(\"^the form \\\"([^\\\"]*)\\\" data equals to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the form \\\"([^\\\"]*)\\\" data equals to \\\"([^\\\"]*)\\\"$\")\n    public void dataEquals(String name, String jsonName) {\n        getForm(name).check(getMapFromJson(jsonName, \"json.test.data\"));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 81,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/FormSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "FormSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 527,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" reference equals to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" reference equals to \\\"([^\\\"]*)\\\"$\")\n    public void refEquals(String name, String expectedText) {\n        link(name).is().ref(equalTo(expectedText));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 16,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/LinkSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "LinkSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 528,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" reference contains \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" reference contains \\\"([^\\\"]*)\\\"$\")\n    public void refContains(String name, String expectedText) {\n        link(name).is().ref(containsString(expectedText));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 21,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/LinkSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "LinkSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 529,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" reference match to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" reference match to \\\"([^\\\"]*)\\\"$\")\n    public void refMatchRegex(String name, String regex) {\n        link(name).is().ref(matchesPattern(regex));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 26,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/LinkSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "LinkSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 530,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" alt text equals to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" alt text equals to \\\"([^\\\"]*)\\\"$\")\n    public void altEquals(String name, String expectedText) {\n        link(name).is().alt(equalTo(expectedText));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 31,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/LinkSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "LinkSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 531,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" alt text contains \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" alt text contains \\\"([^\\\"]*)\\\"$\")\n    public void altContains(String name, String expectedText) {\n        link(name).is().alt(containsString(expectedText));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 36,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/LinkSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "LinkSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 532,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" alt text match to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" alt text match to \\\"([^\\\"]*)\\\"$\")\n    public void altMatchRegex(String name, String regex) {\n        link(name).is().alt(matchesPattern(regex));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 41,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/LinkSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "LinkSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 534,
+    "annotation": "\n    @When(\"^(?:I |)select \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\" menu$\")",
+    "glue_code": "    @When(\"^(?:I |)select \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\" menu$\")\n    public void select(String value, String name) {\n        menu(name).select(value);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 19,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/MenuSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "MenuSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 535,
+    "annotation": "\n    @When(\"^(?:I |)select items in \\\"([^\\\"]*)\\\" menu:$\")",
+    "glue_code": "    @When(\"^(?:I |)select items in \\\"([^\\\"]*)\\\" menu:$\")\n    public void selectItems(String name, DataTable values) {\n        for (String item : values.values())\n            menu(name).select(item);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 24,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/MenuSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "MenuSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 536,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\" menu is selected$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\" menu is selected$\")\n    public void isSelected(String value, String name) {\n        menu(name).is().selected(value);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 30,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/MenuSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "MenuSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 546,
+    "annotation": "\n    @When(\"^(?:I |)check in the \\\"([^\\\"]*)\\\" values:$\")",
+    "glue_code": "    @When(\"^(?:I |)check in the \\\"([^\\\"]*)\\\" values:$\")\n    public void iCheckInTheValues(String name, DataTable values) {\n        multiDropDown(name).check(values.values().toArray(new String[0]));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 28,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/MultiDropDownSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "MultiDropDownSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 547,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" selected values:$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" selected values:$\")\n    public void theSelectedValues(String name, DataTable values) {\n        multiDropDown(name).is().checked(values.values());\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 33,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/MultiDropDownSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "MultiDropDownSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 548,
+    "annotation": "\n    @When(\"^(?:I |)check in the \\\"([^\\\"]*)\\\" values by number:$\")",
+    "glue_code": "    @When(\"^(?:I |)check in the \\\"([^\\\"]*)\\\" values by number:$\")\n    public void iCheckInTheValuesByNumber(String name, DataTable values) {\n        List<Integer> intValues = values.values().stream().map(Integer::parseInt).collect(Collectors.toList());\n        multiDropDown(name).check(toIntArray(intValues));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 38,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/MultiDropDownSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "MultiDropDownSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 549,
+    "annotation": "\n    @When(\"^(?:I |)check value \\\"([^\\\"]*)\\\" in the \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)check value \\\"([^\\\"]*)\\\" in the \\\"([^\\\"]*)\\\"$\")\n    public void iCheckValueInThe(String value, String name) {\n        multiDropDown(name).check(value);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 44,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/MultiDropDownSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "MultiDropDownSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 550,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" selected value is \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" selected value is \\\"([^\\\"]*)\\\"$\")\n    public void theSelectedValueIs(String name, String value) {\n        selectAssert(name).selected(value);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 49,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/MultiDropDownSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "MultiDropDownSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 551,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" values has item \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" values has item \\\"([^\\\"]*)\\\"$\")\n    public void theValuesHasItem(String name, String value) {\n        selectAssert(name).values(hasItem(value));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 54,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/MultiDropDownSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "MultiDropDownSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 552,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" has disabled item \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" has disabled item \\\"([^\\\"]*)\\\"$\")\n    public void theHasDisabledItem(String name, String value) {\n        selectAssert(name).disabled(hasItem(value));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 59,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/MultiDropDownSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "MultiDropDownSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 553,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" has no enabled item \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" has no enabled item \\\"([^\\\"]*)\\\"$\")\n    public void theHasNotEnabledItem(String name, String value) {\n        selectAssert(name).enabled(not(hasItem(value)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 64,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/MultiDropDownSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "MultiDropDownSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 554,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" has enabled items:$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" has enabled items:$\")\n    public void theHasEnabledItems(String name, DataTable values) {\n        selectAssert(name).enabled(hasItems(values.values().toArray(new String[0])));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 69,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/MultiDropDownSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "MultiDropDownSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 555,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" contains items:$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" contains items:$\")\n    public void theContainsItems(String name, DataTable values) {\n        selectAssert(name).values(containsInAnyOrder(values.values().toArray(new String[0])));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 74,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/MultiDropDownSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "MultiDropDownSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 537,
+    "annotation": "\n    @When(\"^(?:I |)set number \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)set number \\\"([^\\\"]*)\\\" in \\\"([^\\\"]*)\\\"$\")\n    public void setNumber(String value, String name) {\n        numberSelector(name).setNumber(value);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 18,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/NumberSelectorSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "NumberSelectorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 538,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" number selector value equals to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" number selector value equals to \\\"([^\\\"]*)\\\"$\")\n    public void getValue(String name, String value) {\n        numberSelector(name).has().number(is(Double.valueOf((value))));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 23,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/NumberSelectorSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "NumberSelectorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 539,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" number selector min is \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" number selector min is \\\"([^\\\"]*)\\\"$\")\n    public void getMin(String name, String value) {\n        numberSelector(name).has().min(is(Double.valueOf((value))));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 28,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/NumberSelectorSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "NumberSelectorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 540,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" number selector max is \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" number selector max is \\\"([^\\\"]*)\\\"$\")\n    public void getMax(String name, String value) {\n        numberSelector(name).has().max(is(Double.valueOf((value))));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 33,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/NumberSelectorSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "NumberSelectorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 541,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" number selector step is \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" number selector step is \\\"([^\\\"]*)\\\"$\")\n    public void getStep(String name, String value) {\n        numberSelector(name).has().step(is(Double.valueOf((value))));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 38,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/NumberSelectorSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "NumberSelectorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 542,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" number selector value is greater or equal to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" number selector value is greater or equal to \\\"([^\\\"]*)\\\"$\")\n    public void numberIsGreaterOrEqual(String name, String value) {\n        numberSelector(name).is().number(greaterThanOrEqualTo(Double.valueOf(value)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 43,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/NumberSelectorSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "NumberSelectorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 543,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" number selector value less or equal to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" number selector value less or equal to \\\"([^\\\"]*)\\\"$\")\n    public void numberLessThanOrEqual(String name, String value) {\n        numberSelector(name).is().number(lessThanOrEqualTo(Double.valueOf(value)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 48,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/NumberSelectorSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "NumberSelectorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 544,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" number selector value is greater than \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" number selector value is greater than \\\"([^\\\"]*)\\\"$\")\n    public void numberIsGreaterThan(String name, String value) {\n        numberSelector(name).is().number(greaterThan(Double.valueOf(value)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 53,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/NumberSelectorSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "NumberSelectorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 545,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" number selector value less than \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" number selector value less than \\\"([^\\\"]*)\\\"$\")\n    public void numberLessThan(String name, String value) {\n        numberSelector(name).is().number(lessThan(Double.valueOf(value)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 58,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/NumberSelectorSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "NumberSelectorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 565,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" progress value greater or equal to ([0-9]+)$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" progress value greater or equal to ([0-9]+)$\")\n    public void valueGreaterOrEqualTo(String name, int value) {\n        progressBar(name).is().value(greaterThanOrEqualTo(value));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 19,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/ProgressBarSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "ProgressBarSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 566,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" progress value less or equal to ([0-9]+)$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" progress value less or equal to ([0-9]+)$\")\n    public void valueLessOrEqualTo(String name, int value) {\n        progressBar(name).is().value(lessThanOrEqualTo(value));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 24,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/ProgressBarSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "ProgressBarSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 556,
+    "annotation": "\n    @When(\"^(?:I |)select the radio button with \\\"([^\\\"]*)\\\" index from \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)select the radio button with \\\"([^\\\"]*)\\\" index from \\\"([^\\\"]*)\\\"$\")\n    public void selectRadioIndex(int index, String name) {\n        radioButtons(name).select(index);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 20,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/RadioSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "RadioSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 557,
+    "annotation": "    @Then(\"^the \\\"([^\\\"]*)\\\" consists of next values:$\")",
+    "glue_code": "    public void theConsistOfNextValues(String name, DataTable values) {\n        radioButtons(name).has().values(values.values());\n    }\n\n    @Then(\"^the \\\"([^\\\"]*)\\\" contains \\\"([^\\\"]*)\\\" radio button$\")\n    public void theContainsRadioButton(String name, String value) {",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 27,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/RadioSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "RadioSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 558,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" contains \\\"([^\\\"]*)\\\" radio button$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" contains \\\"([^\\\"]*)\\\" radio button$\")\n    public void theContainsRadioButton(String name, String value) {\n        radioButtons(name).is().values(hasItem(value));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 31,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/RadioSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "RadioSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 559,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" contains \\\"([^\\\"]*)\\\" disabled radio button$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" contains \\\"([^\\\"]*)\\\" disabled radio button$\")\n    public void theContainsDisabledRadioButton(String name, String value) {\n        radioButtons(name).is().disabled(hasItem(value));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 36,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/RadioSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "RadioSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 560,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" does not contain \\\"([^\\\"]*)\\\" enabled radio button$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" does not contain \\\"([^\\\"]*)\\\" enabled radio button$\")\n    public void theDoesNotContainEnabledRadioButton(String name, String value) {\n        radioButtons(name).is().enabled(not(hasItem(value)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 41,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/RadioSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "RadioSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 561,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" contains next enabled values:$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" contains next enabled values:$\")\n    public void theContainsNextValues(String name, DataTable values) {\n        for (String string : values.values()) {\n            radioButtons(name).is().enabled(hasItem(string));\n        }\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 46,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/RadioSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "RadioSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 562,
+    "annotation": "\n    @When(\"^(?:I |)set \\\"([^\\\"]*)\\\" value to ([0-9]+)$\")",
+    "glue_code": "    @When(\"^(?:I |)set \\\"([^\\\"]*)\\\" value to ([0-9]+)$\")\n    public void installTo(String name, double value) {\n        range(name).setupValue(value);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 19,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/RangeSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "RangeSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 563,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" range value less or equal to ([0-9]+)$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" range value less or equal to ([0-9]+)$\")\n    public void rangeLessOrEqualTo(String name, double value) {\n        range(name).is().value(lessThanOrEqualTo(value));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 24,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/RangeSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "RangeSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 564,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" range value greater or equal to ([0-9]+)$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" range value greater or equal to ([0-9]+)$\")\n    public void rangeGreaterOrEqualTo(String name, double value) {\n        range(name).is().value(greaterThanOrEqualTo(value));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 29,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/RangeSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "RangeSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 567,
+    "annotation": "    @When(\"^(?:I |)click the cell \\\\(([^\\\\)]*)\\\\) in the \\\"([^\\\"]*)\\\"(?: table|)$\")",
+    "glue_code": "    public void selectCell(String cellPair, String name) {\n        cell(name, cellPair).click();\n    }\n    //endregion\n\n    //#region Then\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has \\\"([^\\\"]*)\\\" columns$\")\n    public void assertColumnsCount(String name, int size) {",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 35,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 568,
+    "annotation": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has \\\"([^\\\"]*)\\\" columns$\")",
+    "glue_code": "    public void assertColumnsCount(String name, int size) {\n        table(name).assertThat().columns(hasSize(size));\n    }\n\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has \\\"([^\\\"]*)\\\" rows$\")\n    public void assertRowsCount(String name, int count) {",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 42,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 569,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has \\\"([^\\\"]*)\\\" rows$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has \\\"([^\\\"]*)\\\" rows$\")\n    public void assertRowsCount(String name, int count) {\n        table(name).has().size(count);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 46,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 570,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has at least \\\"([^\\\"]*)\\\" rows$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has at least \\\"([^\\\"]*)\\\" rows$\")\n    public void atLeastRows(String name, int count) {\n        table(name).has().size(greaterThanOrEqualTo(count));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 51,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 571,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has not more than \\\"([^\\\"]*)\\\" rows$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has not more than \\\"([^\\\"]*)\\\" rows$\")\n    public void notMoreThan(String name, int count) {\n        table(name).has().size(lessThanOrEqualTo(count));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 56,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 572,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has header:$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has header:$\")\n    public void assertHasItems(String name, DataTable values) {\n        table(name).has().columns(values.values());\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 61,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 573,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)preview is:$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)preview is:$\")\n    public void assertEqualsValues(String name, DataTable values) {\n        List<List<String>> content = values.asLists();\n        String preview = print(map(content, v -> print(map(v, String::trim), \" \")), \" \");\n        table(name).has().preview(preview);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 66,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 574,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)is not empty$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)is not empty$\")\n    public void assertNotEmpty(String name) {\n        table(name).is().notEmpty();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 73,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 575,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)is empty$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)is empty$\")\n    public void assertEmpty(String name) {\n        table(name).is().empty();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 78,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 576,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has row with \\\"([^\\\"]*)\\\" in column \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has row with \\\"([^\\\"]*)\\\" in column \\\"([^\\\"]*)\\\"$\")\n    public void assertHasRowContainValue(String name, String value, String column) {\n        table(name).has().rowThat(containsValue(value, inColumn(column)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 83,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 577,
+    "annotation": "\n    @Then(\"^all rows of the \\\"([^\\\"]*)\\\" (?:table |)contains \\\"([^\\\"]*)\\\" in column \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^all rows of the \\\"([^\\\"]*)\\\" (?:table |)contains \\\"([^\\\"]*)\\\" in column \\\"([^\\\"]*)\\\"$\")\n    public void assertAllRowsContainValue(String name, String value, String column) {\n        table(name).assertThat().all().rows(containsValue(value, inColumn(column)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 88,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 578,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has no rows which has \\\"([^\\\"]*)\\\" in column \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has no rows which has \\\"([^\\\"]*)\\\" in column \\\"([^\\\"]*)\\\"$\")\n    public void assertNoRowsContainValue(String name, String value, String column) {\n        table(name).assertThat().no().rows(hasValue(value, inColumn(column)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 93,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 579,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has at least \\\"([^\\\"]*)\\\" rows which contains \\\"([^\\\"]*)\\\" in column \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has at least \\\"([^\\\"]*)\\\" rows which contains \\\"([^\\\"]*)\\\" in column \\\"([^\\\"]*)\\\"$\")\n    public void assertAtLeastRowsContainValue(String name, int rows, String value, String column) {\n        table(name).assertThat().atLeast(rows).rows(containsValue(value, inColumn(column)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 98,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 580,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has exact \\\"([^\\\"]*)\\\" rows which contains \\\"([^\\\"]*)\\\" in column \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has exact \\\"([^\\\"]*)\\\" rows which contains \\\"([^\\\"]*)\\\" in column \\\"([^\\\"]*)\\\"$\")\n    public void assertExactRowsContainValue(String name, int rows, String value, String column) {\n        table(name).assertThat().exact(rows).rows(containsValue(value, inColumn(column)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 103,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 581,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has exact \\\"([^\\\"]*)\\\" rows with \\\"([^\\\"]*)\\\" in column \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)has exact \\\"([^\\\"]*)\\\" rows with \\\"([^\\\"]*)\\\" in column \\\"([^\\\"]*)\\\"$\")\n    public void assertExactRowsHaveValue(String name, int rows, String value, String column) {\n        table(name).assertThat().exact(rows).rows(hasValue(value, inColumn(column)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 108,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 582,
+    "annotation": "\n    @Then(\"^the cell \\\\(([^\\\\)]*)\\\\) in the \\\"([^\\\"]*)\\\" (?:table |)is selected$\")",
+    "glue_code": "    @Then(\"^the cell \\\\(([^\\\\)]*)\\\\) in the \\\"([^\\\"]*)\\\" (?:table |)is selected$\")\n    public void isCellSelected(String cellPair, String name) {\n        cellIs(name, cellPair).selected();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 113,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 583,
+    "annotation": "\n    @Then(\"^the cell \\\\(([^\\\\)]*)\\\\) in the \\\"([^\\\"]*)\\\" (?:table |)is deselected$\")",
+    "glue_code": "    @Then(\"^the cell \\\\(([^\\\\)]*)\\\\) in the \\\"([^\\\"]*)\\\" (?:table |)is deselected$\")\n    public void isCellDeselected(String cellPair, String name) {\n        cellIs(name, cellPair).deselected();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 118,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 584,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)cell \\\\(([^\\\\)]*)\\\\) text equals to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)cell \\\\(([^\\\\)]*)\\\\) text equals to \\\"([^\\\"]*)\\\"$\")\n    public void isHasText(String name, String cellPair, String text) {\n        cellIs(name, cellPair).text(text);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 123,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 585,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)cell \\\\(([^\\\\)]*)\\\\) text contains \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)cell \\\\(([^\\\\)]*)\\\\) text contains \\\"([^\\\"]*)\\\"$\")\n    public void isTextContains(String name, String cellPair, String text) {\n        cellIs(name, cellPair).text(containsString(text));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 128,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 586,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)cell \\\\(([^\\\\)]*)\\\\) text matches to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" (?:table |)cell \\\\(([^\\\\)]*)\\\\) text matches to \\\"([^\\\"]*)\\\"$\")\n    public void isTextMatches(String name, String cellPair, String regex) {\n        cellIs(name, cellPair).text(matchesPattern(regex));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 133,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TableSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TableSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 587,
+    "annotation": "\n    @When(\"^(?:I |)input in the \\\"([^\\\"]*)\\\" line \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^(?:I |)input in the \\\"([^\\\"]*)\\\" line \\\"([^\\\"]*)\\\"$\")\n    public void addNewLine(String name, String line) {\n        textArea(name).addNewLine(line);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 21,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TextAreaSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TextAreaSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 600,
+    "annotation": "\n    @When(\"^(?:I |)input in the \\\"([^\\\"]*)\\\" lines$\")",
+    "glue_code": "    @When(\"^(?:I |)input in the \\\"([^\\\"]*)\\\" lines$\")\n    public void inputIn(String name, List<String> lines) {\n        textArea(name).setLines(lines.toArray(new String[0]));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 26,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TextAreaSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TextAreaSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 601,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" rows count equals \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" rows count equals \\\"([^\\\"]*)\\\"$\")\n    public void rowsCountEquals(String name, int rows) {\n        textArea(name).is().rowsCount(is(rows));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 31,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TextAreaSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TextAreaSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 602,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" columns count equals \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" columns count equals \\\"([^\\\"]*)\\\"$\")\n    public void colsCountEquals(String name, int cols) {\n        textArea(name).is().colsCount(is(cols));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 36,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TextAreaSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TextAreaSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 603,
+    "annotation": "\n    @Then(\"^the lines in the \\\"([^\\\"]*)\\\" are equal$\")",
+    "glue_code": "    @Then(\"^the lines in the \\\"([^\\\"]*)\\\" are equal$\")\n    public void linesInTextAreaAreEqual(String name, DataTable providedLines) {\n        List<String> fixedLines = providedLines.values().stream().map(s -> {\n            if (s == null) {\n                return \"\";\n            } else {\n                return s;\n            }\n        }).collect(Collectors.toList());\n        textArea(name).has().lines(fixedLines);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 41,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TextAreaSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TextAreaSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 604,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" minimal length equals \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" minimal length equals \\\"([^\\\"]*)\\\"$\")\n    public void minLengthEquals(String name, int minLength) {\n        textArea(name).is().minlength(is(minLength));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 53,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TextAreaSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TextAreaSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 605,
+    "annotation": "\n    @Then(\"^the \\\"([^\\\"]*)\\\" maximal length equals \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the \\\"([^\\\"]*)\\\" maximal length equals \\\"([^\\\"]*)\\\"$\")\n    public void maxLengthEquals(String name, int maxLength) {\n        textArea(name).is().maxlength(is(maxLength));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 58,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/TextAreaSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "TextAreaSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 588,
+    "annotation": "    @When(\"^(?:I |)scroll to the bottom of the page$\")",
+    "glue_code": "    public void scrollToBottomOfPage() {\n        scrollToBottom();\n    }\n\n    @When(\"^(?:I |)scroll to the top of the page$\")\n    public void scrollToTopOfPage() {",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 21,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/WebPageSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "WebPageSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 589,
+    "annotation": "\n    @When(\"^(?:I |)scroll to the top of the page$\")",
+    "glue_code": "    @When(\"^(?:I |)scroll to the top of the page$\")\n    public void scrollToTopOfPage() {\n        scrollToTop();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 25,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/WebPageSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "WebPageSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 590,
+    "annotation": "\n    @When(\"^(?:I |)scroll \\\"([0-9]+)\\\" px down$\")",
+    "glue_code": "    @When(\"^(?:I |)scroll \\\"([0-9]+)\\\" px down$\")\n    public void scrollNPxDownAndNPxUp(int x) {\n        scrollDown(x);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 30,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/WebPageSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "WebPageSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 591,
+    "annotation": "\n    @When(\"^(?:I |)scroll \\\"([0-9]+)\\\" px up$\")",
+    "glue_code": "    @When(\"^(?:I |)scroll \\\"([0-9]+)\\\" px up$\")\n    public void scrollNPxUp(int x) {\n        scrollUp(x);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 35,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/WebPageSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "WebPageSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 592,
+    "annotation": "\n    @When(\"^(?:I |)scroll \\\"([0-9]+)\\\" px right$\")",
+    "glue_code": "    @When(\"^(?:I |)scroll \\\"([0-9]+)\\\" px right$\")\n    public void scrollNPxRight(int x) {\n        scrollRight(x);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 40,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/WebPageSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "WebPageSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 593,
+    "annotation": "\n    @When(\"^(?:I |)scroll \\\"([0-9]+)\\\" px left$\")",
+    "glue_code": "    @When(\"^(?:I |)scroll \\\"([0-9]+)\\\" px left$\")\n    public void scrollNPxLeft(int x) {\n        scrollLeft(x);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 45,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/WebPageSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "WebPageSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 594,
+    "annotation": "\n    @When(\"^(?:I |)zoom in \\\"([0-9]+)\\\" times$\")",
+    "glue_code": "    @When(\"^(?:I |)zoom in \\\"([0-9]+)\\\" times$\")\n    public void zoomIn(int x) {\n        zoom(x);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 50,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/WebPageSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "WebPageSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 595,
+    "annotation": "    @Then(\"^the bottom of the page is reached$\")",
+    "glue_code": "    public void bottomOfPageReached() {\n        boolean execResult = isBottomOfThePage();\n        assertThat(execResult, is(true));\n    }\n\n    @Then(\"^the top of the page is reached$\")\n    public void topOfPageReached() {",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 57,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/WebPageSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "WebPageSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 596,
+    "annotation": "\n    @Then(\"^the top of the page is reached$\")",
+    "glue_code": "    @Then(\"^the top of the page is reached$\")\n    public void topOfPageReached() {\n        boolean execResult = isTopOfThePage();\n        assertThat(execResult, is(true));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 62,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/WebPageSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "WebPageSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 597,
+    "annotation": "\n    @Then(\"^the page scrolled by \\\"([0-9]+)\\\" px down$\")",
+    "glue_code": "    @Then(\"^the page scrolled by \\\"([0-9]+)\\\" px down$\")\n    public void pageScrolledDown(int y) {\n        int execResult = getInt(jsExecute(\"return window.scrollY;\"));\n        assertThat(execResult, greaterThan(SCROLLY + y-2));\n        assertThat(execResult, lessThan(SCROLLY + y+1));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 68,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/WebPageSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "WebPageSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 598,
+    "annotation": "\n    @Then(\"^the page scrolled by \\\"([0-9]+)\\\" px right$\")",
+    "glue_code": "    @Then(\"^the page scrolled by \\\"([0-9]+)\\\" px right$\")\n    public void pageScrolledRight(int x) {\n        int execResult = getInt(jsExecute(\"return Math.ceil(window.scrollX);\"));\n        assertThat(execResult, greaterThan(SCROLLX + x-2));\n        assertThat(execResult, lessThan(SCROLLX + x+1));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 75,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/WebPageSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "WebPageSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 599,
+    "annotation": "\n    @Then(\"^the page is zoomed \\\"([0-9]+)\\\" times$\")",
+    "glue_code": "    @Then(\"^the page is zoomed \\\"([0-9]+)\\\" times$\")\n    public void pageIsZoomed(double x) {\n        assertThat(zoomLevel(), is(x));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 82,
+    "file_info": {
+      "path": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs/WebPageSteps.java",
+      "directory": "jdi-bdd/src/main/java/com/epam/jdi/bdd/stepdefs",
+      "filename": "WebPageSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 606,
+    "annotation": "    @Given(\"^CUSTOM \\\"([^\\\"]*)\\\" STEP$\")",
+    "glue_code": "    public void customStep(String name) {\n    }\n}",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 6,
+    "file_info": {
+      "path": "test-examples/jdi-bdd-no-po-tests/src/test/java/cucumberTests/steps/UserStepdefs.java",
+      "directory": "test-examples/jdi-bdd-no-po-tests/src/test/java/cucumberTests/steps",
+      "filename": "UserStepdefs.java",
+      "extension": ".java"
+    }
+  }
+]

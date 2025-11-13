@@ -1,0 +1,6179 @@
+[
+  {
+    "feature": "Alert",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "alert text equals",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When click on \"Red Button\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 439
+          },
+          {
+            "step": "And accept alert",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 505
+          },
+          {
+            "step": "And click on \"Red Button\"",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 439
+          },
+          {
+            "step": "Then the Alert text equals to \"Red button\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 507
+          }
+        ]
+      },
+      {
+        "scenario_name": "alert text contains",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When click on \"Red Button\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 439
+          },
+          {
+            "step": "And dismiss alert",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 506
+          },
+          {
+            "step": "And click on \"Red Button\"",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 439
+          },
+          {
+            "step": "Then the Alert text contains \"Red b\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 508
+          }
+        ]
+      },
+      {
+        "scenario_name": "alert text matches",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When click on \"Red Button\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 439
+          },
+          {
+            "step": "Then the Alert text matches to \"\\w{3} \\w{6}\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 509
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "BaseUIElement",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "click",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I click on \"Red Button\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the Alert text equals to \"Red button\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 507
+          }
+        ]
+      },
+      {
+        "scenario_name": "jsclick",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When click with JS on \"Red Button\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 444
+          },
+          {
+            "step": "Then the Alert text equals to \"Red button\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 507
+          }
+        ]
+      },
+      {
+        "scenario_name": "value",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Red Button\" text equals to \"Big Red Button-Input\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "labelText",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Your Name\" label text equals to \"Your name:\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "sendKeys",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I send keys \"simple 1234\" to \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Your Name\" text matches to \"\\w{6} \\d{4}\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 463
+          }
+        ]
+      },
+      {
+        "scenario_name": "check",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When check \"Accept Conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 441
+          },
+          {
+            "step": "Then the \"Accept Conditions\" is selected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 464
+          }
+        ]
+      },
+      {
+        "scenario_name": "uncheck",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When uncheck \"Accept Conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 442
+          },
+          {
+            "step": "Then the \"Accept Conditions\" is deselected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 465
+          }
+        ]
+      },
+      {
+        "scenario_name": "clear",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When clear \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 443
+          },
+          {
+            "step": "When send keys \"simple text\" to \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 440
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"simple text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When I clear \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "css",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Your Name\" css \"font-size\" equals to \"14px\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 475
+          }
+        ]
+      },
+      {
+        "scenario_name": "input",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When clear \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 443
+          },
+          {
+            "step": "When send keys \"simple text\" to \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 440
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"simple text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When input \"Input text\" in \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 445
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"Input text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "placeholder",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Your Name\" placeholder equals to \"Input name\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 466
+          }
+        ]
+      },
+      {
+        "scenario_name": "getValue",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When input \"simple text\" in \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 445
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"simple text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "getText",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Blue Button\" text equals to \"BIG BLUE BUTTON\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "getAttribute",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Red Button\" attribute \"value\" contains \"Red\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 473
+          }
+        ]
+      },
+      {
+        "scenario_name": "isEnabled",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Your Name\" is enabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 495
+          }
+        ]
+      },
+      {
+        "scenario_name": "isDisabled",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Disabled Button\" is disabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 496
+          }
+        ]
+      },
+      {
+        "scenario_name": "isHidden",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Logout\" is hidden",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 498
+          }
+        ]
+      },
+      {
+        "scenario_name": "doesntNotAppear",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Logout\" does not appear",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 500
+          }
+        ]
+      },
+      {
+        "scenario_name": "isDisplayed",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Your Name\" is displayed",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 497
+          }
+        ]
+      },
+      {
+        "scenario_name": "setText",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When input \"simple text\" in \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 445
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"simple text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When set text \"Input text\" in \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 448
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"Input text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "select",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When select \"Pirate\" field from \"Dress Code\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 446
+          },
+          {
+            "step": "Then the \"Dress Code\" text equals to \"Pirate\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Button",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\" page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 436
+          },
+          {
+            "step": "Then the \"Red Button\" text equals to \"Big Red Button-Input\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Click and alert",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\" page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 436
+          },
+          {
+            "step": "When click on \"Red Button\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 439
+          },
+          {
+            "step": "Then the Alert text equals to \"Red button\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 507
+          },
+          {
+            "step": "When click on \"Blue Button\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 439
+          },
+          {
+            "step": "Then the Alert text equals to \"Blue button\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 507
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validation",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\" page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 436
+          },
+          {
+            "step": "Then the \"Red Button\" is displayed",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 497
+          },
+          {
+            "step": "And the \"Red Button\" is enabled",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 495
+          },
+          {
+            "step": "And the \"Red Button\" text equals to \"Big Red Button-Input\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "And the \"Red Button\" text contains \"Red Button\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 462
+          },
+          {
+            "step": "And the \"Red Button\" css \"font-size\" equals to \"14px\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 475
+          },
+          {
+            "step": "And the \"Red Button\" attribute \"type\" equals to \"button\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 472
+          },
+          {
+            "step": "And the \"Blue Button\" text contains \"BLUE BUTTON\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 462
+          },
+          {
+            "step": "And the \"Disabled Button\" is disabled",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 496
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "CheckList",
+    "background": [
+      {
+        "step": "Given I should be logged in",
+        "original_keyword": "Given",
+        "keyword": "Given",
+        "template": "I should be logged in",
+        "simple_template": "I should be logged in",
+        "regex_to_link_to_step": "^I\\ should\\ be\\ logged\\ in$",
+        "step_definition_id": 432
+      },
+      {
+        "step": "And I open \"Html5 Page\"",
+        "original_keyword": "And",
+        "keyword": "Given",
+        "template": "I open \"Html5 Page\"",
+        "simple_template": "I open \"Html5 Page\"",
+        "regex_to_link_to_step": "^I\\ open\\ (.+?)$",
+        "step_definition_id": 435
+      },
+      {
+        "step": "And I check element \"Hot option\" in \"Weather\" checklist",
+        "original_keyword": "And",
+        "keyword": "Given",
+        "template": "I check element \"Hot option\" in \"Weather\" checklist",
+        "simple_template": "I check element \"Hot option\" in \"Weather\" checklist",
+        "regex_to_link_to_step": "^I\\ check\\ element\\ (.+?)\\ in\\ (.+?)\\ checklist$",
+        "step_definition_id": -1
+      }
+    ],
+    "scenarios": [
+      {
+        "scenario_name": "Check text test:",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Weather\" checklist value is \"Hot option\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 492
+          }
+        ]
+      },
+      {
+        "scenario_name": "Check elements test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I check elements in \"Weather\" checklist:\n| Hot option |\n| Cold |",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then in \"Weather\" checklist \"Cold\" is checked",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 489
+          }
+        ]
+      },
+      {
+        "scenario_name": "Uncheck elements test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I check elements in \"Weather\" checklist:\n| Rainy day |\n| Sunny |",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then count of selected elements in \"Weather\" checklist is 2",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then in the \"Weather\" checklist checked elements are:\n| Rainy day |\n| Sunny |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 491
+          },
+          {
+            "step": "And I uncheck in \"Weather\" checklist elements:\n| Rainy day |\n| Sunny |",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then count of selected elements in \"Weather\" checklist is 2",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then in the \"Weather\" checklist checked elements are:\n| Hot option |\n| Cold |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 491
+          }
+        ]
+      },
+      {
+        "scenario_name": "Select checkbox test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I Select fields from \"Weather\":\n| Cold |\n| Hot option |",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then in \"Weather\" checklist \"Cold\" is checked",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 489
+          }
+        ]
+      },
+      {
+        "scenario_name": "Check element via numbers test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I check in \"Weather\" checklist elements by numbers:\n| 1 |\n| 4 |",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then in the \"Weather\" checklist checked elements are:\n| Hot option |\n| Sunny |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 491
+          }
+        ]
+      },
+      {
+        "scenario_name": "Uncheck element via number test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I check all elements in \"Weather\" checklist",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I uncheck in \"Weather\" checklist elements by numbers:\n| 1 |\n| 4 |",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then in the \"Weather\" checklist checked elements are:\n| Cold |\n| Rainy day |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 491
+          }
+        ]
+      },
+      {
+        "scenario_name": "Select checkbox via numbers",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I select elements in \"Weather\" checklist by numbers:\n| 1 |\n| 4 |",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then in \"Weather\" checklist \"Sunny\" is checked",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 489
+          }
+        ]
+      },
+      {
+        "scenario_name": "Disable element test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I select \"Weather\" disabled option \"Disabled\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 434
+          },
+          {
+            "step": "Then the \"Weather\" checklist value is \"Hot option\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 492
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Weather\" is displayed",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 497
+          },
+          {
+            "step": "And the \"Weather\" selected value is \"Hot option\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 550
+          },
+          {
+            "step": "And the \"Weather\" values has item \"Sunny\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 551
+          },
+          {
+            "step": "And the \"Weather\" has disabled item \"Disabled\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 552
+          },
+          {
+            "step": "And the \"Weather\" has enabled items:\n| Cold |\n| Sunny |",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 554
+          }
+        ]
+      },
+      {
+        "scenario_name": "Uncheck All test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I check elements in \"Weather\" checklist:\n| Rainy day |\n| Sunny |",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I uncheck all elements in \"Weather\" checklist",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then count of selected elements in \"Weather\" checklist is 0",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Check All test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I check all elements in \"Weather\" checklist",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then count of selected elements in \"Weather\" checklist is 4",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And in the \"Weather\" checklist checked elements are:\n| Hot option |\n| Cold |\n| Rainy day |\n| Sunny |",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 491
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Checkbox",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Get label text test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I check \"Accept Conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Accept Conditions\" label text equals to \"Accept terms and conditions\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "check test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I check \"Accept Conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I check \"Accept Conditions\"",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Accept Conditions\" is selected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 464
+          }
+        ]
+      },
+      {
+        "scenario_name": "Uncheck test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I check \"Accept Conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I uncheck \"Accept Conditions\"",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Accept Conditions\" is deselected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 465
+          }
+        ]
+      },
+      {
+        "scenario_name": "Click test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I check \"Accept Conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Accept Conditions\" is selected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 464
+          },
+          {
+            "step": "When I click on \"Accept Conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Accept Conditions\" is deselected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 465
+          }
+        ]
+      },
+      {
+        "scenario_name": "Is validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I check \"Accept Conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Accept Conditions\" is selected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 464
+          },
+          {
+            "step": "When I click on \"Accept Conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Accept Conditions\" is deselected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 465
+          },
+          {
+            "step": "And the \"Accept Conditions\" is enabled",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 495
+          },
+          {
+            "step": "And the \"Accept Conditions\" is displayed",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 497
+          }
+        ]
+      },
+      {
+        "scenario_name": "Label test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I check \"Accept Conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Accept Conditions\" label text equals to \"Accept terms and conditions\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "And the \"Accept Conditions\" label text contains \"terms and conditions\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "ColorPicker",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Color picker get color test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "And the \"Color Picker\" was set to \"#ffd7a6\" color",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 514
+          },
+          {
+            "step": "Then the \"Color Picker\" has color \"#ffd7a6\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 516
+          }
+        ]
+      },
+      {
+        "scenario_name": "Color picker set color test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I set \"Color Picker\" to \"#ffd7a6\" color",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 515
+          },
+          {
+            "step": "Then the \"Color Picker\" has color \"#ffd7a6\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 516
+          }
+        ]
+      },
+      {
+        "scenario_name": "Color picker label assertion test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Color Picker\" label text equals to \"Select a color\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "Then the \"Color Picker\" label text contains \"color\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          },
+          {
+            "step": "Then the \"Color Picker\" label text matches to \"\\w{6} a color\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 463
+          }
+        ]
+      },
+      {
+        "scenario_name": "Color picker assertThat validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "And the \"Color Picker\" was set to \"#ffd7a6\" color",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 514
+          },
+          {
+            "step": "Then the \"Color Picker\" has color \"#ffd7a6\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 516
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Combobox",
+    "background": [
+      {
+        "step": "Given I should be logged in",
+        "original_keyword": "Given",
+        "keyword": "Given",
+        "template": "I should be logged in",
+        "simple_template": "I should be logged in",
+        "regex_to_link_to_step": "^I\\ should\\ be\\ logged\\ in$",
+        "step_definition_id": 432
+      },
+      {
+        "step": "And I open \"Html5 Page\"",
+        "original_keyword": "And",
+        "keyword": "Given",
+        "template": "I open \"Html5 Page\"",
+        "simple_template": "I open \"Html5 Page\"",
+        "regex_to_link_to_step": "^I\\ open\\ (.+?)$",
+        "step_definition_id": 435
+      },
+      {
+        "step": "When input \"Coconut\" in \"Ice Cream\"",
+        "original_keyword": "When",
+        "keyword": "When",
+        "template": "input \"Coconut\" in \"Ice Cream\"",
+        "simple_template": "input \"Coconut\" in \"Ice Cream\"",
+        "regex_to_link_to_step": "^input\\ (.+?)\\ in\\ (.+?)$",
+        "step_definition_id": 445
+      }
+    ],
+    "scenarios": [
+      {
+        "scenario_name": "Get combobox value test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Ice Cream\" selected value is \"Coconut\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 550
+          }
+        ]
+      },
+      {
+        "scenario_name": "select combobox value test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When input \"Chocolate\" in \"Ice Cream\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 445
+          },
+          {
+            "step": "Then the \"Ice Cream\" selected value is \"Chocolate\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 550
+          }
+        ]
+      },
+      {
+        "scenario_name": "select num combobox value test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When select index 5 in \"Ice Cream\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Ice Cream\" selected value is \"Vanilla\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 550
+          }
+        ]
+      },
+      {
+        "scenario_name": "Selected combobox value test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Ice Cream\" selected value is \"Coconut\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 550
+          }
+        ]
+      },
+      {
+        "scenario_name": "Combobox label test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Ice Cream\" label text equals to \"Choose your lovely icecream\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "And the \"Ice Cream\" label text contains \"lovely icecream\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Combobox is validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Ice Cream\" is enabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 495
+          },
+          {
+            "step": "And the \"Ice Cream\" text equals to \"Coconut\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When input \"Vanilla\" in \"Ice Cream\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 445
+          },
+          {
+            "step": "Then the \"Ice Cream\" text contains \"Van\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Assert validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Ice Cream\" text equals to \"Coconut\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Send keys test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When input \"Chocolate\" in \"Ice Cream\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 445
+          },
+          {
+            "step": "When I send keys \"Test\" to \"Ice Cream\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Ice Cream\" text equals to \"ChocolateTest\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Input test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I input \"New text\" in \"Ice Cream\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Ice Cream\" text equals to \"New text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Clear text",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I clear \"Ice Cream\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Ice Cream\" text equals to \"\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Check placeholder",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Ice Cream\" placeholder equals to \"Ice cream\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 466
+          },
+          {
+            "step": "Then the \"Ice Cream\" placeholder contains \"cream\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 467
+          },
+          {
+            "step": "And the \"Ice Cream\" placeholder matches to \"(.*)cream\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 468
+          }
+        ]
+      },
+      {
+        "scenario_name": "Focus",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I focus on \"Ice Cream\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Datalist",
+    "background": [
+      {
+        "step": "Given I should be logged in",
+        "original_keyword": "Given",
+        "keyword": "Given",
+        "template": "I should be logged in",
+        "simple_template": "I should be logged in",
+        "regex_to_link_to_step": "^I\\ should\\ be\\ logged\\ in$",
+        "step_definition_id": 432
+      },
+      {
+        "step": "And I open \"Html5 Page\"",
+        "original_keyword": "And",
+        "keyword": "Given",
+        "template": "I open \"Html5 Page\"",
+        "simple_template": "I open \"Html5 Page\"",
+        "regex_to_link_to_step": "^I\\ open\\ (.+?)$",
+        "step_definition_id": 435
+      },
+      {
+        "step": "When select \"Coconut\" field from \"Ice Cream\"",
+        "original_keyword": "When",
+        "keyword": "When",
+        "template": "select \"Coconut\" field from \"Ice Cream\"",
+        "simple_template": "select \"Coconut\" field from \"Ice Cream\"",
+        "regex_to_link_to_step": "^select\\ (.+?)\\ field\\ from\\ (.+?)$",
+        "step_definition_id": 446
+      }
+    ],
+    "scenarios": [
+      {
+        "scenario_name": "Get datalist value test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Ice Cream\" selected value is \"Coconut\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 550
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "DateTimeSelector, INPUT TYPE DATE",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Get date value test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Birth Date\" text equals to \"1985-06-18\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get label of input type datetime test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Birth Date\" label text equals to \"Birth date\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get attribute \"min\" of input type datetime test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Birth Date\" min equals to \"1970-01-01\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 510
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get attribute \"max\" of input type datetime test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Birth Date\" max equals to \"2030-12-31\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 511
+          }
+        ]
+      },
+      {
+        "scenario_name": "Date validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Birth Date\" is enabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 495
+          },
+          {
+            "step": "Then the \"Birth Date\" text equals to \"1985-06-18\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Label validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Birth Date\" label text equals to \"Birth date\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "Then the \"Birth Date\" label text contains \"Birth\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Date contains year test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Birth Date\" text contains \"1985\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Set date",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Birth Date\" text equals to \"1985-06-18\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When I set date \"2018-11-13\" in the \"Birth Date\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Birth Date\" text equals to \"2018-11-13\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "DateTimeSelector, INPUT TYPE DATETIME-LOCAL",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Get date value test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Party Time\" text equals to \"2018-06-12T19:30\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get label of input type datetime test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Party Time\" label text equals to \"Date/time:\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get attribute \"min\" of input type datetime test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Party Time\" min equals to \"2018-05-07T00:00\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 510
+          },
+          {
+            "step": "Then the \"Party Time\" max equals to \"2018-06-14T00:00\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 511
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get attribute \"max\" of input type datetime test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Party Time\" max equals to \"2018-06-14T00:00\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 511
+          }
+        ]
+      },
+      {
+        "scenario_name": "Date validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Party Time\" is enabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 495
+          },
+          {
+            "step": "Then the \"Party Time\" text equals to \"2018-06-12T19:30\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Label validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Party Time\" label text equals to \"Date/time:\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "Then the \"Party Time\" label text contains \"time:\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Date contains text test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Party Time\" text contains \"2018\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Set date",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Party Time\" text equals to \"2018-06-12T19:30\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When I set date \"2017-05-10T00:00\" in the \"Party Time\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Party Time\" text equals to \"2017-05-10T00:00\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "DropDown",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Selected Test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I select \"Pirate\" field from \"Dress Code\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Pirate\" in \"Dress Code\" is selected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 517
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "File Input element functionality",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Label text of file input element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Avatar\" label text equals to \"Profile picture:\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "Then the \"Avatar\" label text contains \"picture\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Attribute of file input element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Avatar\" attribute \"id\" equals to \"avatar\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 472
+          }
+        ]
+      },
+      {
+        "scenario_name": "Upload file by enabled file input element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I upload file \"/src/test/resources/steps_list\" by \"Avatar\" file input element",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 533
+          },
+          {
+            "step": "Then the \"Avatar\" text equals to \"C:\\fakepath\\steps_list\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "And the \"Avatar\" text contains \"steps_list\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Disabled file input element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Disabled File Input\" is disabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 496
+          }
+        ]
+      },
+      {
+        "scenario_name": "Upload file by disabled file input element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I try to upload file \"/src/test/resources/steps_list\" by \"Disabled File Input\" file input element",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 433
+          },
+          {
+            "step": "Then the \"Disabled File Input\" text equals to \"\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Form",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "fill Contact Form from json",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Contact Form Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When submit form \"Contact Form\" with \"Roman Contacts\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the form \"Contact Form\" data equals to \"Roman Contacts\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 526
+          }
+        ]
+      },
+      {
+        "scenario_name": "fill Contact Form",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Contact Form Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When submit form \"Contact Form\" with data:\n| firstName | Roman |\n| lastName | Iovlev |\n| position | ChiefQA |\n| passportNumber | 654321 |\n| passportSeria | 1234 |\n| description | JDI - awesome UI automation tool |\n| acceptConditions | true |\n| gender | Female |\n| religion | Other |",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the form \"Contact Form\" data equals to:\n| firstName | Roman |\n| lastName | Iovlev |\n| position | ChiefQA |\n| passportNumber | 654321 |\n| passportSeria | 1234 |\n| description | JDI - awesome UI automation tool |\n| acceptConditions | true |\n| gender | Female |\n| religion | Other |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 525
+          }
+        ]
+      },
+      {
+        "scenario_name": "fill Contact Form Custom",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Contact Form Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When fill form \"Contact Form\" with data:\n| firstName | Roman |\n| lastName | Iovlev |\n| position | ChiefQA |\n| passportNumber | 654321 |\n| passportSeria | 1234 |\n| description | JDI - awesome UI automation tool |\n| acceptConditions | true |\n| gender | Female |\n| religion | Other |",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 519
+          },
+          {
+            "step": "And submit form",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the form \"Contact Form\" data equals to:\n| firstName | Roman |\n| lastName | Iovlev |\n| position | ChiefQA |\n| passportNumber | 654321 |\n| passportSeria | 1234 |\n| description | JDI - awesome UI automation tool |\n| acceptConditions | true |\n| gender | Female |\n| religion | Other |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 525
+          }
+        ]
+      },
+      {
+        "scenario_name": "is displayed",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Contact Form Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Contact Form\" is displayed",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 497
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Image",
+    "background": [
+      {
+        "step": "Given I should be logged in",
+        "original_keyword": "Given",
+        "keyword": "Given",
+        "template": "I should be logged in",
+        "simple_template": "I should be logged in",
+        "regex_to_link_to_step": "^I\\ should\\ be\\ logged\\ in$",
+        "step_definition_id": 432
+      }
+    ],
+    "scenarios": [
+      {
+        "scenario_name": "Check image source",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Jdi Logo\" attribute \"src\" equals to \"https://jdi-testing.github.io/jdi-light/images/jdi-logo.jpg\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 472
+          }
+        ]
+      },
+      {
+        "scenario_name": "Check image alt attribute",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Jdi Logo\" attribute \"alt\" equals to \"Jdi Logo 2\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 472
+          }
+        ]
+      },
+      {
+        "scenario_name": "Click at image and accept Alert",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When click on \"Jdi Logo\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 439
+          },
+          {
+            "step": "Then the Alert text equals to \"JDI Logo\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 507
+          }
+        ]
+      },
+      {
+        "scenario_name": "Image validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "And refresh webpage",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 438
+          },
+          {
+            "step": "Then the \"Jdi Logo\" attribute \"src\" contains \"jdi-logo.jpg\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 473
+          },
+          {
+            "step": "And the \"Jdi Logo\" attribute \"height\" contains \"100\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 473
+          },
+          {
+            "step": "And the \"Jdi Logo\" attribute \"width\" contains \"101\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 473
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Label",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Text equals",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Jdi Title\" text equals to \"JDI TESTING PLATFORM\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Text contains",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Jdi Title\" text contains \"TESTING\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Text matches",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Jdi Title\" text matches to \"\\w{3} \\w{7} \\w{8}\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 463
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Link",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Link text equivalence test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Github Link\" text equals to \"Github JDI\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Link text contains test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Github Link\" text contains \"Github\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Link reference equivalence test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Github Link\" reference equals to \"https://github.com/jdi-testing\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 527
+          }
+        ]
+      },
+      {
+        "scenario_name": "Link reference contains test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Github Link\" reference contains \"github\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 528
+          }
+        ]
+      },
+      {
+        "scenario_name": "Link alt text equivalence test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Github Link\" alt text equals to \"Github JDI Link\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 530
+          }
+        ]
+      },
+      {
+        "scenario_name": "Link alt text matching to RegExp",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Github Link\" alt text match to \"Git.* JE*DI Link\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 532
+          }
+        ]
+      },
+      {
+        "scenario_name": "Link alt text contains test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Github Link\" alt text contains \"JDI\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 531
+          }
+        ]
+      },
+      {
+        "scenario_name": "Click link test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When click on \"Github Link\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 439
+          },
+          {
+            "step": "Then the current page url is \"https://github.com/jdi-testing\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 503
+          }
+        ]
+      },
+      {
+        "scenario_name": "Link activity validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Github Link\" is enabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 495
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Menu",
+    "background": [
+      {
+        "step": "Given I open \"Html5 Page\"",
+        "original_keyword": "Given",
+        "keyword": "Given",
+        "template": "I open \"Html5 Page\"",
+        "simple_template": "I open \"Html5 Page\"",
+        "regex_to_link_to_step": "^I\\ open\\ (.+?)$",
+        "step_definition_id": 435
+      }
+    ],
+    "scenarios": [
+      {
+        "scenario_name": "Check selected item after page load",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I select \"Metals & Colors\" in \"Left Menu\" menu",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Metals & Colors\" in \"Left Menu\" menu is selected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 536
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "DateTimeSelector, INPUT TYPE MONTH",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Get date value test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Month Date\" text equals to \"2018-05\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get label of input type datetime test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Month Date\" label text equals to \"Month of Holidays\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get attribute \"min\" of input type datetime test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Month Date\" min equals to \"2015-03\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 510
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get attribute \"max\" of input type datetime test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Month Date\" max equals to \"2020-12\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 511
+          }
+        ]
+      },
+      {
+        "scenario_name": "Date validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Month Date\" is enabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 495
+          },
+          {
+            "step": "Then the \"Month Date\" text contains \"05\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Label validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Month Date\" label text equals to \"Month of Holidays\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "Then the \"Month Date\" label text contains \"Holidays\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Date contains text test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Month Date\" text contains \"2018\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Set date",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Month Date\" text equals to \"2018-05\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When I set date \"2018-10\" in the \"Month Date\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Month Date\" text equals to \"2018-10\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "MultiDropDown",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Check one value test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I check value \"Steam\" in the \"Multi Dropdown\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Multi Dropdown\" selected value is \"Steam\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 550
+          }
+        ]
+      },
+      {
+        "scenario_name": "Assert validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Multi Dropdown\" contains items:\n| Disabled | Wood | Steam | Electro | Metalic |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 555
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Multi Dropdown\" selected value is \"Steam\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 550
+          },
+          {
+            "step": "And the \"Multi Dropdown\" values has item \"Wood\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 551
+          },
+          {
+            "step": "And the \"Multi Dropdown\" has disabled item \"Disabled\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 552
+          },
+          {
+            "step": "And the \"Multi Dropdown\" has no enabled item \"Disabled\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 553
+          },
+          {
+            "step": "And the \"Multi Dropdown\" has enabled items:\n| Electro | Metalic |",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 554
+          }
+        ]
+      },
+      {
+        "scenario_name": "Check values test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I check in the \"Multi Dropdown\" values:\n| Electro | Metalic |",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Multi Dropdown\" selected values:\n| Electro | Metalic |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 547
+          }
+        ]
+      },
+      {
+        "scenario_name": "Check values by number test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I check in the \"Multi Dropdown\" values by number:\n| 1 | 5 |",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Multi Dropdown\" selected values:\n| Electro | Wood |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 547
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get label text tests",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Multi Dropdown\" label text equals to \"Multi dropdown:\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "And the \"Multi Dropdown\" label text contains \"dropdown:\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 462
+          },
+          {
+            "step": "And the \"Multi Dropdown\" label text matches to \"(.*)dropdown:\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 463
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get css tests",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Multi Dropdown\" css \"font-size\" equals to \"14px\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 475
+          },
+          {
+            "step": "And the \"Multi Dropdown\" css \"font-family\" contains \"Source Sans Pro\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 476
+          },
+          {
+            "step": "And the \"Multi Dropdown\" css \"font-family\" matches to \"(.*)sans-serif\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 494
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Multiselector",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Multiselector validation",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Ages\" selected value is \"Steam\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 550
+          },
+          {
+            "step": "And the \"Ages\" values has item \"Wood\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 551
+          },
+          {
+            "step": "And the \"Ages\" has disabled item \"Disabled\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 552
+          },
+          {
+            "step": "And the \"Ages\" has no enabled item \"Disabled\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 553
+          },
+          {
+            "step": "And the \"Ages\" has enabled items:\n| Electro | Metalic |",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 554
+          }
+        ]
+      },
+      {
+        "scenario_name": "Select value in multiselector",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I check value \"Steam\" in the \"Ages\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Ages\" selected value is \"Steam\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 550
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validate multiselector list of values",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Ages\" contains items:\n| Electro | Steam | Metalic | Disabled | Wood |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 555
+          }
+        ]
+      },
+      {
+        "scenario_name": "Multiple selection in multiselector",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I check in the \"Multi Dropdown\" values:\n| Electro | Metalic |",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Multi Dropdown\" selected values:\n| Electro | Metalic |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 547
+          }
+        ]
+      },
+      {
+        "scenario_name": "Select values by number in multiselector",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I check in the \"Multi Dropdown\" values by number:\n| 1 | 5 |",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Multi Dropdown\" selected values:\n| Electro | Wood |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 547
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "NumberSelector",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Get label text",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Height\" label text equals to \"Height (metres):\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "Then the \"Height\" label text contains \"Height\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Set number",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I set number \"2.1\" in \"Height\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Height\" text equals to \"2.1\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get minValue",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Height\" number selector min is \"0.3\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 539
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get maxValue",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Height\" number selector max is \"2.5\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 540
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get step",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Height\" number selector step is \"0.2\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 541
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get placeholder",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Height\" placeholder equals to \"20 cm increments. Range [0.3,2.5]\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 466
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validation",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I set number \"2.1\" in \"Height\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Height\" number selector min is \"0.3\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 539
+          },
+          {
+            "step": "And the \"Height\" number selector max is \"2.5\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 540
+          },
+          {
+            "step": "And the \"Height\" number selector step is \"0.2\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 541
+          },
+          {
+            "step": "And the \"Height\" placeholder contains \"20 cm increments\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 467
+          },
+          {
+            "step": "And the \"Height\" number selector value is greater or equal to \"0.3\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 542
+          },
+          {
+            "step": "And the \"Height\" number selector value less or equal to \"2.5\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 543
+          },
+          {
+            "step": "And the \"Height\" text equals to \"2.1\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "And the \"Height\" is enabled",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 495
+          }
+        ]
+      },
+      {
+        "scenario_name": "Assert validation",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I set number \"2.1\" in \"Height\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Height\" number selector value is greater than \"0.0\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 544
+          },
+          {
+            "step": "And the \"Height\" number selector value less than \"3.0\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 545
+          },
+          {
+            "step": "And the \"Height\" text equals to \"2.1\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "ProgressBar",
+    "background": [
+      {
+        "step": "Given I should be logged in",
+        "original_keyword": "Given",
+        "keyword": "Given",
+        "template": "I should be logged in",
+        "simple_template": "I should be logged in",
+        "regex_to_link_to_step": "^I\\ should\\ be\\ logged\\ in$",
+        "step_definition_id": 432
+      }
+    ],
+    "scenarios": [
+      {
+        "scenario_name": "check progress bar value",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\" page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 436
+          },
+          {
+            "step": "Then the \"Progress\" attribute \"value\" equals to \"70\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 472
+          }
+        ]
+      },
+      {
+        "scenario_name": "check max value of progress bar",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\" page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 436
+          },
+          {
+            "step": "Then the \"Progress\" attribute \"max\" equals to \"100\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 472
+          }
+        ]
+      },
+      {
+        "scenario_name": "progress bar validation",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\" page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 436
+          },
+          {
+            "step": "Then the \"Progress\" attribute \"max\" equals to \"100\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 472
+          },
+          {
+            "step": "And the \"Progress\" progress value greater or equal to 10",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And the \"Progress\" progress value less or equal to 100",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And the \"Progress\" attribute \"value\" equals to \"70\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 472
+          },
+          {
+            "step": "And the \"Progress\" is enabled",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 495
+          }
+        ]
+      },
+      {
+        "scenario_name": "label test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\" page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 436
+          },
+          {
+            "step": "Then the \"Progress\" label text equals to \"File progress\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "And the \"Progress\" label text contains \"progress\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "RadioButtons",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Select",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\" page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 436
+          },
+          {
+            "step": "And I select \"Blue\" field from \"Html5 Page.Colors\"",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Html5 Page.Colors\" text equals to \"Blue\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When I select the radio button with \"1\" index from \"Html5 Page.Colors\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Html5 Page.Colors\" text equals to \"Red\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Consist of",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\" page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 436
+          },
+          {
+            "step": "Then the \"Html5 Page.Colors\" consists of next values:\n| Red | Green | Blue | Yellow |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 557
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validate",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\" page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 436
+          },
+          {
+            "step": "And I select \"Blue\" field from \"Html5 Page.Colors\"",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Html5 Page.Colors\" text equals to \"Blue\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "And the \"Html5 Page.Colors\" contains \"Yellow\" radio button",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 558
+          },
+          {
+            "step": "And the \"Html5 Page.Colors\" contains \"Yellow\" disabled radio button",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 559
+          },
+          {
+            "step": "And the \"Html5 Page.Colors\" does not contain \"Yellow\" enabled radio button",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 560
+          },
+          {
+            "step": "And the \"Html5 Page.Colors\" contains next enabled values:\n| Green | Blue |",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 561
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Range",
+    "background": [
+      {
+        "step": "Given I should be logged in",
+        "original_keyword": "Given",
+        "keyword": "Given",
+        "template": "I should be logged in",
+        "simple_template": "I should be logged in",
+        "regex_to_link_to_step": "^I\\ should\\ be\\ logged\\ in$",
+        "step_definition_id": 432
+      },
+      {
+        "step": "And I open \"Html5 Page\" page",
+        "original_keyword": "And",
+        "keyword": "Given",
+        "template": "I open \"Html5 Page\" page",
+        "simple_template": "I open \"Html5 Page\" page",
+        "regex_to_link_to_step": "^I\\ open\\ (.+?)\\ page$",
+        "step_definition_id": 436
+      },
+      {
+        "step": "And set \"Volume\" value to 90",
+        "original_keyword": "And",
+        "keyword": "Given",
+        "template": "set \"Volume\" value to 90",
+        "simple_template": "set \"Volume\" value to 90",
+        "regex_to_link_to_step": "^set\\ (.+?)\\ value\\ to\\ 90$",
+        "step_definition_id": -1
+      }
+    ],
+    "scenarios": [
+      {
+        "scenario_name": "Check label text",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Volume\" label text equals to \"Volume\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validate value test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Volume\" attribute \"value\" equals to \"90\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 472
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validate minimum value",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Volume\" attribute \"min\" equals to \"10\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 472
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validate maximum value",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Volume\" attribute \"max\" equals to \"100\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 472
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validate step value",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Volume\" attribute \"step\" equals to \"5\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 472
+          }
+        ]
+      },
+      {
+        "scenario_name": "Change Volume value",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When set \"Volume\" value to 5",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Volume\" attribute \"value\" equals to \"10\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 472
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validation Volume element test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Volume\" is enabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 495
+          },
+          {
+            "step": "And the \"Volume\" attribute \"min\" equals to \"10\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 472
+          },
+          {
+            "step": "And the \"Volume\" attribute \"max\" equals to \"100\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 472
+          },
+          {
+            "step": "And the \"Volume\" attribute \"step\" equals to \"5\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 472
+          },
+          {
+            "step": "And the \"Volume\" range value greater or equal to 10",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And the \"Volume\" range value less or equal to 100",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And the \"Volume\" attribute \"value\" equals to \"90\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 472
+          }
+        ]
+      },
+      {
+        "scenario_name": "Label Test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Volume\" label text equals to \"Volume\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "And the \"Volume\" label text contains \"lume\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Table",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Get label text test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Users Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Users Table\" has \"4\" columns",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And the \"Users Table\" has \"6\" rows",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And the \"Users Table\" has header:\n| Number |\n| Type |\n| User |\n| Description |",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Preview test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Users Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Users Table\" table preview is:\n| Number | Type | User | Description |\n| 1 | Admin User Manager | Roman | Wolverine Vip |\n| 2 | Admin User Manager | Sergey Ivan | Spider Man Vip |\n| 3 | Admin User Manager | Vladzimir | Punisher Vip |\n| 4 | Admin User Manager | Helen Bennett | Captain America some description Vip |\n| 5 | Admin User Manager | Yoshi Tannamuri | Cyclope some description Vip |\n| 6 | Admin User Manager | Giovanni Rovelli | Hulk some description Vip |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Common matchers test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Users Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Users Table\" has \"6\" rows",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And the \"Users Table\" has at least \"3\" rows",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And the \"Users Table\" has not more than \"6\" rows",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And the \"Users Table\" table is not empty",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Row matcher test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Users Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Users Table\" has row with \"Ivan\" in column \"User\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Rows all test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Users Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then all rows of the \"Users Table\" contains \"Vip\" in column \"Description\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "No rows test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Users Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Users Table\" has no rows which has \"Vip\" in column \"Description\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "At least test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Users Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Users Table\" has at least \"3\" rows which contains \" \" in column \"User\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Exact matcher test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Users Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Users Table\" has exact \"2\" rows which contains \"R\" in column \"User\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Raw data exact matcher test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Users Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Users Table\" has exact \"1\" rows with \"Roman\" in column \"User\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Line by index test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Simple Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the cell (1,3) in the \"Simple Table\" is deselected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And the cell (2,2) in the \"Simple Table\" is deselected",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When I click the cell (1,3) in the \"Simple Table\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the cell (1,3) in the \"Simple Table\" is selected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And the cell (2,2) in the \"Simple Table\" is deselected",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When I click the cell (2,2) in the \"Simple Table\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the cell (2,2) in the \"Simple Table\" is selected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And the cell (1,3) in the \"Simple Table\" is deselected",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Text",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Get text test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Jdi Text\" text equals to \"Powerful Framework for UI Tests Automation. Suitable for any UI project: Web(Html5, Angular, React...), Mobile(Android IOs), Desktop(Win app) etc.\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Text validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Jdi Text\" is enabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 495
+          },
+          {
+            "step": "And the \"Jdi Text\" is displayed",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 497
+          },
+          {
+            "step": "And the \"Jdi Text\" text contains \"Powerful Framework for UI\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 462
+          },
+          {
+            "step": "And the \"Jdi Text\" text matches to \".+\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 463
+          },
+          {
+            "step": "And the \"Jdi Text\" css \"font-size\" equals to \"14px\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 475
+          },
+          {
+            "step": "And the \"Jdi Text\" css \"font-family\" contains \"Source Sans Pro\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 476
+          },
+          {
+            "step": "And the \"Jdi Text\" css \"font-family\" matches to \"(.*)sans-serif\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 494
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "TextField",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "sendKeys test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I send keys \"Lorem\" to \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"Lorem\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "setText test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I set text \"Lorem\" in \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"Lorem\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "clear test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "And I set text \"Lorem\" in \"Your Name\"",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When I clear \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "input test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I input \"Lorem\" in \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"Lorem\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "placeholder test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Your Name\" placeholder equals to \"Input name\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 466
+          }
+        ]
+      },
+      {
+        "scenario_name": "getText test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "And I set text \"Lorem\" in \"Your Name\"",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"Lorem\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Textarea",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Text equivalence test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I clear \"Text Area\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I set text \"This is draft `!@#$%ˆ*()_+˜@[№;:?-=]{}'/\\|<>\" in \"Text Area\"",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I set text \"Hello, I'm TextArea! `!@#$%ˆ*()_+˜@[№;:?-=]{}'/\\|<>\" in \"Text Area\"",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Text Area\" text equals to \"Hello, I'm TextArea! `!@#$%ˆ*()_+˜@[№;:?-=]{}'/\\|<>\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Text contains test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I clear \"Text Area\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I set text \"Text in TextArea, containing jedi power `!@#$%ˆ*()_+˜@[№;:?-=]{}'/\\|<>\" in \"Text Area\"",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Text Area\" text contains \"jedi power `!@#$%ˆ*()_+˜@[№;:?-=]{}'/\\|<>\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Text matches test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I clear \"Text Area\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I set text \"Text in TextArea, containing jedi power\" in \"Text Area\"",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Text Area\" text matches to \".*jedi power\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 463
+          }
+        ]
+      },
+      {
+        "scenario_name": "Send keys test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I clear \"Text Area\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When I send keys \"first\" to \"Text Area\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I send keys \" second `!@#$%ˆ*()_+˜@[№;:?-=]{}'/\\|<>\" to \"Text Area\"",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Text Area\" text equals to \"first second `!@#$%ˆ*()_+˜@[№;:?-=]{}'/\\|<>\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Input text test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When clear \"Text Area\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 443
+          },
+          {
+            "step": "When send keys \"Draft text\" to \"Text Area\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 440
+          },
+          {
+            "step": "Then the \"Text Area\" text equals to \"Draft text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When input \"Final text `!@#$%ˆ*()_+˜@[№;:?-=]{}'/\\|<>\" in \"Text Area\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 445
+          },
+          {
+            "step": "Then the \"Text Area\" text equals to \"Final text `!@#$%ˆ*()_+˜@[№;:?-=]{}'/\\|<>\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get lines test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When clear \"Text Area\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 443
+          },
+          {
+            "step": "When input in the \"Text Area\" lines\n| test 111 11 1 |\n| test2 |\n| test 3 |",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 600
+          },
+          {
+            "step": "Then the lines in the \"Text Area\" are equal\n| test 111 11 1 |\n| test2 |\n| test 3 |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 603
+          }
+        ]
+      },
+      {
+        "scenario_name": "Clear test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When clear \"Text Area\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 443
+          },
+          {
+            "step": "When send keys \"simple text\" to \"Text Area\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 440
+          },
+          {
+            "step": "Then the \"Text Area\" text equals to \"simple text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When I clear \"Text Area\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Text Area\" text equals to \"\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Add new line test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "When I clear \"Text Area\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When I input in the \"Text Area\" line \"line1\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I input in the \"Text Area\" line \"\"",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I input in the \"Text Area\" line \"line2\"",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the lines in the \"Text Area\" are equal\n| line1 |\n|  |\n| line2 |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 603
+          }
+        ]
+      },
+      {
+        "scenario_name": "Label text test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Text Area\" label text equals to \"Text example:\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "Then the \"Text Area\" label text contains \"example\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Count rows test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Text Area\" rows count equals \"3\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 601
+          }
+        ]
+      },
+      {
+        "scenario_name": "Count cols test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Text Area\" columns count equals \"33\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 602
+          }
+        ]
+      },
+      {
+        "scenario_name": "Minimal lenght test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Text Area\" minimal length equals \"10\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 604
+          }
+        ]
+      },
+      {
+        "scenario_name": "Maximal lenght test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Text Area\" maximal length equals \"200\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 605
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "DateTimeSelector, INPUT TYPE TIME",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Get date value test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Booking Time\" text equals to \"11:00\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get label of input type datetime test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Booking Time\" label text equals to \"Booking Time:\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get attribute \"min\" of input type datetime test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Booking Time\" min equals to \"9:00\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 510
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get attribute \"max\" of input type datetime test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Booking Time\" max equals to \"18:00\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 511
+          }
+        ]
+      },
+      {
+        "scenario_name": "Date validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Booking Time\" is enabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 495
+          },
+          {
+            "step": "Then the \"Booking Time\" text equals to \"11:00\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Label validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Booking Time\" label text equals to \"Booking Time:\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "Then the \"Booking Time\" label text contains \"Booking\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Date contains text test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Booking Time\" text contains \"11\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Set date",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Booking Time\" text equals to \"11:00\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "Then I set date \"05:00\" in the \"Booking Time\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Booking Time\" text equals to \"05:00\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Checking Basic WebPage Actions",
+    "background": [
+      {
+        "step": "Given I open \"Home Page\" page",
+        "original_keyword": "Given",
+        "keyword": "Given",
+        "template": "I open \"Home Page\" page",
+        "simple_template": "I open \"Home Page\" page",
+        "regex_to_link_to_step": "^I\\ open\\ (.+?)\\ page$",
+        "step_definition_id": 436
+      },
+      {
+        "step": "And I open url \"https://jdi-testing.github.io/jdi-light/superpage.html\"",
+        "original_keyword": "And",
+        "keyword": "Given",
+        "template": "I open url \"https://jdi-testing.github.io/jdi-light/superpage.html\"",
+        "simple_template": "I open url \"https://jdi-testing.github.io/jdi-light/superpage.html\"",
+        "regex_to_link_to_step": "^I\\ open\\ url\\ (.+?)$",
+        "step_definition_id": -1
+      }
+    ],
+    "scenarios": [
+      {
+        "scenario_name": "check URL",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the current page url is \"https://jdi-testing.github.io/jdi-light/superpage.html\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 503
+          }
+        ]
+      },
+      {
+        "scenario_name": "check page title",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the current page title is \"Superpage\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 504
+          }
+        ]
+      },
+      {
+        "scenario_name": "scroll to bottom test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I scroll to the bottom of the page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the bottom of the page is reached",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 595
+          }
+        ]
+      },
+      {
+        "scenario_name": "scroll to top test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I scroll to the top of the page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the top of the page is reached",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 596
+          }
+        ]
+      },
+      {
+        "scenario_name": "scroll down and up test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I scroll \"30\" px down",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I scroll \"20\" px up",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the page scrolled by \"10\" px down",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 597
+          }
+        ]
+      },
+      {
+        "scenario_name": "scroll right and left test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I scroll \"10\" px right",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I scroll \"5\" px left",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the page scrolled by \"5\" px right",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 598
+          }
+        ]
+      },
+      {
+        "scenario_name": "go back test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I go back",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the current page title is \"Home Page\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 504
+          }
+        ]
+      },
+      {
+        "scenario_name": "go forward test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I go forward",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the current page title is \"Superpage\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 504
+          }
+        ]
+      },
+      {
+        "scenario_name": "page refresh test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When refresh webpage",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 438
+          },
+          {
+            "step": "Then the current page title is \"Superpage\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 504
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "DateTimeSelector, INPUT TYPE WEEK",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Get date value test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Autumn Week\" text equals to \"2018-W40\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get label of input type datetime test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Autumn Week\" label text equals to \"Autumn\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get attribute \"min\" of input type datetime test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Autumn Week\" min equals to \"2018-W35\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 510
+          }
+        ]
+      },
+      {
+        "scenario_name": "Get attribute \"max\" of input type datetime test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Autumn Week\" max equals to \"2018-W48\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 511
+          }
+        ]
+      },
+      {
+        "scenario_name": "Date validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Autumn Week\" is enabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 495
+          },
+          {
+            "step": "Then the \"Autumn Week\" text equals to \"2018-W40\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Label validation test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Autumn Week\" label text equals to \"Autumn\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "Date contains text test",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Autumn Week\" text contains \"W40\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 462
+          }
+        ]
+      },
+      {
+        "scenario_name": "Set date",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I open \"Html5 Page\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 435
+          },
+          {
+            "step": "Then the \"Autumn Week\" text equals to \"2018-W40\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When I set date \"2018-W12\" in the \"Autumn Week\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Autumn Week\" text equals to \"2018-W12\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Form",
+    "background": [
+      {
+        "step": "Given I'm on \"Contacts Page\" page",
+        "original_keyword": "Given",
+        "keyword": "Given",
+        "template": "I'm on \"Contacts Page\" page",
+        "simple_template": "I'm on \"Contacts Page\" page",
+        "regex_to_link_to_step": "^I'm\\ on\\ (.+?)\\ page$",
+        "step_definition_id": -1
+      }
+    ],
+    "scenarios": [
+      {
+        "scenario_name": "fill Contact Form from json",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I fill form \"Contact Form\" with \"Roman Contacts\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And click on \"Submit Button\"",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 439
+          },
+          {
+            "step": "Then the form \"Contact Form\" data equals to \"Roman Contacts\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 526
+          }
+        ]
+      },
+      {
+        "scenario_name": "fill Contact Form from table",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I fill form \"Contact Form\" with data:\n| First Name | Roman |\n| Last Name | Iovlev |\n| Position | ChiefQA |\n| Passport Number | 654321 |\n| Passport Seria | 1234 |\n| Description | JDI - awesome UI automation tool |\n| Religion | Other |",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And click on \"Submit Button\"",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 439
+          },
+          {
+            "step": "Then the form \"Contact Form\" data equals to:\n| First Name | Roman |\n| Last Name | Iovlev |\n| Position | ChiefQA |\n| Passport Number | 654321 |\n| Passport Seria | 1234 |\n| Description | JDI - awesome UI automation tool |\n| Religion | Other |",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 525
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "JsonBasedPage",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "json based bootstrap page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I open \"Bootstrap Page\" page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 436
+          },
+          {
+            "step": "Then the \"Bootstrap Page\" page is opened",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "json based contacts page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I open \"Contacts Page\" page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 436
+          },
+          {
+            "step": "Then the \"Contacts Page\" page is opened",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "TestsWithLocators",
+    "background": [
+      {
+        "step": "Given Page with url \"https://jdi-testing.github.io/jdi-light/html5.html\" openned",
+        "original_keyword": "Given",
+        "keyword": "Given",
+        "template": "Page with url \"https://jdi-testing.github.io/jdi-light/html5.html\" openned",
+        "simple_template": "Page with url \"https://jdi-testing.github.io/jdi-light/html5.html\" openned",
+        "regex_to_link_to_step": "^Page\\ with\\ url\\ (.+?)\\ openned$",
+        "step_definition_id": 457
+      }
+    ],
+    "scenarios": [
+      {
+        "scenario_name": "click element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I click on \"[value*='Red Button']\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the Alert text equals to \"Red button\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 507
+          }
+        ]
+      },
+      {
+        "scenario_name": "jsClick element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When click with JS on \"[value*='Red Button']\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 444
+          },
+          {
+            "step": "Then the Alert text equals to \"Red button\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 507
+          }
+        ]
+      },
+      {
+        "scenario_name": "value element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"[value*='Red Button']\" text equals to \"Big Red Button-Input\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "labelText",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"#your-name\" label text equals to \"Your name:\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "input element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I input \"simple 1234\" in \"#your-name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"#your-name\" text matches to \"\\w{6} \\d{4}\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 463
+          }
+        ]
+      },
+      {
+        "scenario_name": "check element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When check \"#accept-conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 441
+          },
+          {
+            "step": "Then the \"#accept-conditions\" is selected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 464
+          }
+        ]
+      },
+      {
+        "scenario_name": "uncheck element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When uncheck \"#accept-conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 442
+          },
+          {
+            "step": "Then the \"#accept-conditions\" is deselected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 465
+          }
+        ]
+      },
+      {
+        "scenario_name": "clear element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I input \"simple text\" in \"#your-name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"#your-name\" text equals to \"simple text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When I clear \"#your-name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"#your-name\" text equals to \"\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "css element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"#your-name\" css \"font-size\" equals to \"14px\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 475
+          }
+        ]
+      },
+      {
+        "scenario_name": "placeholder element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"#your-name\" placeholder equals to \"Input name\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 466
+          }
+        ]
+      },
+      {
+        "scenario_name": "getValue element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When input \"simple text\" in \"#your-name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 445
+          },
+          {
+            "step": "Then the \"#your-name\" text equals to \"simple text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "getText element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"#blue-button\" text equals to \"BIG BLUE BUTTON\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "getAttribute element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"#disabled-name\" attribute \"id\" equals to \"disabled-name\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 472
+          }
+        ]
+      },
+      {
+        "scenario_name": "isEnabled element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"#your-name\" is enabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 495
+          }
+        ]
+      },
+      {
+        "scenario_name": "isDisabled element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"#disabled-name\" is disabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 496
+          }
+        ]
+      },
+      {
+        "scenario_name": "isHidden element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \".logout\" is hidden",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 498
+          }
+        ]
+      },
+      {
+        "scenario_name": "element does not appear",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \".logout\" does not appear",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 500
+          }
+        ]
+      },
+      {
+        "scenario_name": "isDisplayed element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"#your-name\" is displayed",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 497
+          }
+        ]
+      },
+      {
+        "scenario_name": "setText element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When input \"simple text\" in \"#your-name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 445
+          },
+          {
+            "step": "Then the \"#your-name\" text equals to \"simple text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When set text \"Input text\" in \"#your-name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 448
+          },
+          {
+            "step": "Then the \"#your-name\" text equals to \"Input text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "TestsWithName",
+    "background": [
+      {
+        "step": "Given I'm on \"Html5 Page\" page",
+        "original_keyword": "Given",
+        "keyword": "Given",
+        "template": "I'm on \"Html5 Page\" page",
+        "simple_template": "I'm on \"Html5 Page\" page",
+        "regex_to_link_to_step": "^I'm\\ on\\ (.+?)\\ page$",
+        "step_definition_id": -1
+      }
+    ],
+    "scenarios": [
+      {
+        "scenario_name": "click element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I click on \"[value*='Red Button']\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the Alert text equals to \"Red button\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 507
+          }
+        ]
+      },
+      {
+        "scenario_name": "jsClick element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When click with JS on \"[value*='Red Button']\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 444
+          },
+          {
+            "step": "Then the Alert text equals to \"Red button\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 507
+          }
+        ]
+      },
+      {
+        "scenario_name": "value element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"[value*='Red Button']\" text equals to \"Big Red Button-Input\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "labelText",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Your Name\" label text equals to \"Your name:\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "input element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I input \"simple 1234\" in \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Your Name\" text matches to \"\\w{6} \\d{4}\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 463
+          }
+        ]
+      },
+      {
+        "scenario_name": "check element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When check \"Accept Conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 441
+          },
+          {
+            "step": "Then the \"Accept Conditions\" is selected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 464
+          }
+        ]
+      },
+      {
+        "scenario_name": "uncheck element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When uncheck \"Accept Conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 442
+          },
+          {
+            "step": "Then the \"Accept Conditions\" is deselected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 465
+          }
+        ]
+      },
+      {
+        "scenario_name": "clear element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I input \"simple text\" in \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"simple text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When I clear \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "css element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Your Name\" css \"font-size\" equals to \"14px\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 475
+          }
+        ]
+      },
+      {
+        "scenario_name": "placeholder element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Your Name\" placeholder equals to \"Input name\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 466
+          }
+        ]
+      },
+      {
+        "scenario_name": "getValue element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When input \"simple text\" in \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 445
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"simple text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "getText element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Blue Button\" text equals to \"BIG BLUE BUTTON\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "getAttribute element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Disabled Name\" attribute \"id\" equals to \"disabled-name\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 472
+          }
+        ]
+      },
+      {
+        "scenario_name": "isEnabled element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Your Name\" is enabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 495
+          }
+        ]
+      },
+      {
+        "scenario_name": "isDisabled element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Disabled Name\" is disabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 496
+          }
+        ]
+      },
+      {
+        "scenario_name": "isHidden element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \".logout\" is hidden",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 498
+          }
+        ]
+      },
+      {
+        "scenario_name": "element does not appear",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \".logout\" does not appear",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 500
+          }
+        ]
+      },
+      {
+        "scenario_name": "isDisplayed element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Your Name\" is displayed",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 497
+          }
+        ]
+      },
+      {
+        "scenario_name": "setText element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When input \"simple text\" in \"#your-name[placeholder='Input name']\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 445
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"simple text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When set text \"Input text\" in \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 448
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"Input text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "TestsWithProperties",
+    "background": [
+      {
+        "step": "Given I'm on \"Html5 Page\" page",
+        "original_keyword": "Given",
+        "keyword": "Given",
+        "template": "I'm on \"Html5 Page\" page",
+        "simple_template": "I'm on \"Html5 Page\" page",
+        "regex_to_link_to_step": "^I'm\\ on\\ (.+?)\\ page$",
+        "step_definition_id": -1
+      }
+    ],
+    "scenarios": [
+      {
+        "scenario_name": "click element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I click on \"Red Button\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the Alert text equals to \"Red button\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 507
+          }
+        ]
+      },
+      {
+        "scenario_name": "jsClick element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When click with JS on \"Red Button\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 444
+          },
+          {
+            "step": "Then the Alert text equals to \"Red button\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 507
+          }
+        ]
+      },
+      {
+        "scenario_name": "value element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Red Button\" text equals to \"Big Red Button-Input\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "labelText",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Your Name\" label text equals to \"Your name:\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "input element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I input \"simple 1234\" in \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Your Name\" text matches to \"\\w{6} \\d{4}\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 463
+          }
+        ]
+      },
+      {
+        "scenario_name": "check element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When check \"Accept Conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 441
+          },
+          {
+            "step": "Then the \"Accept Conditions\" is selected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 464
+          }
+        ]
+      },
+      {
+        "scenario_name": "uncheck element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When uncheck \"Accept Conditions\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 442
+          },
+          {
+            "step": "Then the \"Accept Conditions\" is deselected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 465
+          }
+        ]
+      },
+      {
+        "scenario_name": "clear element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When I input \"simple text\" in \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"simple text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When I clear \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "css element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Your Name\" css \"font-size\" equals to \"14px\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 475
+          }
+        ]
+      },
+      {
+        "scenario_name": "placeholder element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Your Name\" placeholder equals to \"Input name\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 466
+          }
+        ]
+      },
+      {
+        "scenario_name": "getValue element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When input \"simple text\" in \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 445
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"simple text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "getText element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Blue Button\" text equals to \"BIG BLUE BUTTON\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      },
+      {
+        "scenario_name": "getAttribute element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Disabled Name\" attribute \"id\" equals to \"disabled-name\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 472
+          }
+        ]
+      },
+      {
+        "scenario_name": "isEnabled element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Your Name\" is enabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 495
+          }
+        ]
+      },
+      {
+        "scenario_name": "isDisabled element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Disabled Name\" is disabled",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 496
+          }
+        ]
+      },
+      {
+        "scenario_name": "isHidden element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Logout\" is hidden",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 498
+          }
+        ]
+      },
+      {
+        "scenario_name": "element does not appear",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Logout\" does not appear",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 500
+          }
+        ]
+      },
+      {
+        "scenario_name": "isDisplayed element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Then the \"Your Name\" is displayed",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 497
+          }
+        ]
+      },
+      {
+        "scenario_name": "setText element",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When input \"simple text\" in \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 445
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"simple text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          },
+          {
+            "step": "When set text \"Input text\" in \"Your Name\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 448
+          },
+          {
+            "step": "Then the \"Your Name\" text equals to \"Input text\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 461
+          }
+        ]
+      }
+    ]
+  }
+]

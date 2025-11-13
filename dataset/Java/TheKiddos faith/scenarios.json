@@ -1,0 +1,794 @@
+[
+  {
+    "feature": "Bid on Project",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Successful Bid",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given Bidding Freelancer logins",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 83
+          },
+          {
+            "step": "And user visits a public project page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 84
+          },
+          {
+            "step": "And Freelancer adds his bid",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 85
+          },
+          {
+            "step": "When Freelancer clicks the Bid button",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 86
+          },
+          {
+            "step": "Then Bid is added to project",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 87
+          },
+          {
+            "step": "And Project's owner is notified by email",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And Bidding Close Browser",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 94
+          }
+        ]
+      },
+      {
+        "scenario_name": "Successful Bid With Comment",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given Bidding Freelancer logins",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 83
+          },
+          {
+            "step": "And user visits a public project page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 84
+          },
+          {
+            "step": "And Freelancer adds his bid",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 85
+          },
+          {
+            "step": "And Freelancer adds a comment",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 88
+          },
+          {
+            "step": "When Freelancer clicks the Bid button",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 86
+          },
+          {
+            "step": "Then Bid is added to project",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 87
+          },
+          {
+            "step": "And Comment is added",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 89
+          },
+          {
+            "step": "And Project's owner is notified by email",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And Bidding Close Browser",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 94
+          }
+        ]
+      },
+      {
+        "scenario_name": "Stakeholder Comment on Bidding",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given Bidding Stakeholder logins",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 90
+          },
+          {
+            "step": "And user visits a public project page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 84
+          },
+          {
+            "step": "And stakeholder types a comment on a bidding",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 91
+          },
+          {
+            "step": "When stakeholder clicks add comment button",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 92
+          },
+          {
+            "step": "Then comment is saved",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 93
+          },
+          {
+            "step": "And Bidding Close Browser",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 94
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Close Project",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Close Project Successfully",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given Close Dashboard Stakeholder logins",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 95
+          },
+          {
+            "step": "And Close Dashboard Stakeholder goes to an open project dashboard",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 96
+          },
+          {
+            "step": "When Close Dashboard Stakeholder clicks the close project button for a project",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 97
+          },
+          {
+            "step": "Then Project Status Is Changed To Closed",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 98
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Edit Profile",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Successful Update",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given Freelancer logins",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 83
+          },
+          {
+            "step": "And Freelancer visits my profile page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 100
+          },
+          {
+            "step": "And Freelancer fills his details",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 101
+          },
+          {
+            "step": "When Freelancer clicks the update button",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 102
+          },
+          {
+            "step": "Then Freelancer profile is updated",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 103
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Create Project",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Public Project",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given Stakeholder logins",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 90
+          },
+          {
+            "step": "And Stakeholder visits my projects page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 130
+          },
+          {
+            "step": "And Stakeholder clicks add project buttons",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 120
+          },
+          {
+            "step": "And Stakeholder fills project details",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 121
+          },
+          {
+            "step": "And Stakeholder sets the project public",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 122
+          },
+          {
+            "step": "When Stakeholder clicks the submit button",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 123
+          },
+          {
+            "step": "Then Project is added with \"true\" for bidding",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 124
+          }
+        ]
+      },
+      {
+        "scenario_name": "Private Project",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given Stakeholder logins",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 90
+          },
+          {
+            "step": "And Stakeholder visits my projects page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 130
+          },
+          {
+            "step": "And Stakeholder clicks add project buttons",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 120
+          },
+          {
+            "step": "And Stakeholder fills project details",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 121
+          },
+          {
+            "step": "And Stakeholder sets the project private",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 125
+          },
+          {
+            "step": "When Stakeholder clicks the submit button",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 123
+          },
+          {
+            "step": "Then Project is added with \"false\" for bidding",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 124
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Project Dashboard",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Open Project Dashboard Successfully",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given Dashboard Stakeholder logins",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 95
+          },
+          {
+            "step": "And Dashboard Stakeholder visits my projects page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 130
+          },
+          {
+            "step": "When Stakeholder clicks dashboard button for a project",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 131
+          },
+          {
+            "step": "Then Stakeholder is redirected to project dashboard page",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 132
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Proposal Feature",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Stakeholder Sends Proposal",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given Proposal Stakeholder logs in",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 104
+          },
+          {
+            "step": "And stakeholder goes to a project dashboard",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 105
+          },
+          {
+            "step": "And stakeholder sets his proposal amount to a freelancer",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 106
+          },
+          {
+            "step": "When stakeholder clicks the send proposal button",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 107
+          },
+          {
+            "step": "Then proposal is saved",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 108
+          },
+          {
+            "step": "And freelancer is informed by email that a new proposal was sent",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 109
+          }
+        ]
+      },
+      {
+        "scenario_name": "Freelancer Accepts Proposal",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given Proposal Freelancer logs in",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 110
+          },
+          {
+            "step": "And freelancer visits my proposals page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 111
+          },
+          {
+            "step": "When Freelancer clicks the accept button",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 112
+          },
+          {
+            "step": "Then proposal status is changed to accepted",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 113
+          },
+          {
+            "step": "And stakeholder is informed by email that proposal was accepted",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 114
+          }
+        ]
+      },
+      {
+        "scenario_name": "Freelancer Rejects Proposal",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given Proposal Freelancer logs in",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 110
+          },
+          {
+            "step": "And freelancer visits my proposals page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 111
+          },
+          {
+            "step": "When Freelancer clicks the reject button",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 115
+          },
+          {
+            "step": "Then proposal status is changed to rejected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 116
+          },
+          {
+            "step": "And stakeholder is informed by email that proposal was rejected",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 117
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Public Projects",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Project Details",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given a user open list of available projects for bidding",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 126
+          },
+          {
+            "step": "When user clicks on a project",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 127
+          },
+          {
+            "step": "Then user is redirected to project details page",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 128
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Rating",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Getting Freelancer Rating",
+        "examples": [],
+        "steps": [
+          {
+            "step": "When Rating User Opens Homepage",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 133
+          },
+          {
+            "step": "Then He Can See Each Freelancer Rating",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 134
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Context Runs",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Start Browser",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given Open edge browser",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When User visits homepage",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 135
+          },
+          {
+            "step": "Then User will see homepage",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 136
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "User Login",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Forgot Password",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given a user visits forgot password page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 137
+          },
+          {
+            "step": "And user enters his email",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 138
+          },
+          {
+            "step": "When user clicks the submit button",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 139
+          },
+          {
+            "step": "Then a unique token is generated",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 140
+          },
+          {
+            "step": "And an email with instruction on how to reset the password is sent to the user",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 141
+          }
+        ]
+      },
+      {
+        "scenario_name": "Password Reset",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given a user with a token visits the password reset page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 142
+          },
+          {
+            "step": "And user enters his new password and password confirm",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 143
+          },
+          {
+            "step": "When user clicks the submit button",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 139
+          },
+          {
+            "step": "Then his password changes",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 144
+          },
+          {
+            "step": "And token is deleted",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 145
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "User Registration",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Successful Request Submission",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given A new user visits registration page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And User fills required info",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When User clicks submit button",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then Account is created and deactivated",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And Admin receives an email",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And User is redirected to thank you page",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 146
+          }
+        ]
+      },
+      {
+        "scenario_name": "Default Admin Account",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given User visits login page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 147
+          },
+          {
+            "step": "And User enters default admin credentials",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 148
+          },
+          {
+            "step": "When User Clicks the login button",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 149
+          },
+          {
+            "step": "Then User is redirected to admin panel",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 150
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Accepts Request",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given Admin visits users admin page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 151
+          },
+          {
+            "step": "When Admin clicks the activate button on a deactivated user",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 152
+          },
+          {
+            "step": "Then User is activated",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 153
+          },
+          {
+            "step": "And User receives an email",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 154
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Deletes Request",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given Admin visits users admin page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 151
+          },
+          {
+            "step": "When Admin clicks the reject button on a deactivated user",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 155
+          },
+          {
+            "step": "Then User receives an email with the \"Faith Account Deleted!\" Subject",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 156
+          },
+          {
+            "step": "And User is deleted",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 157
+          }
+        ]
+      }
+    ]
+  }
+]

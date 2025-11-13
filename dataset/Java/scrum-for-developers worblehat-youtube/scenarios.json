@@ -1,0 +1,559 @@
+[
+  {
+    "feature": "Adding a new book to the library",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Adding a new book",
+        "examples": [
+          {
+            "isbn": "0552131075",
+            "author": "Terry Pratchett",
+            "title": "Sourcery",
+            "edition": "1",
+            "year": "1989",
+            "description": ""
+          },
+          {
+            "isbn": "0552131075",
+            "author": "Terry Pratchett",
+            "title": "Sourcery",
+            "edition": "1",
+            "year": "1989",
+            "description": "A description"
+          },
+          {
+            "isbn": "9783827317247",
+            "author": "Andreas Thiel",
+            "title": "Komponentenmodelle",
+            "edition": "1",
+            "year": "2000",
+            "description": "Komponentenmodelle FTW"
+          }
+        ],
+        "steps": [
+          {
+            "step": "Given an empty library",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 62
+          },
+          {
+            "step": "When a librarian adds a book with \"<isbn>\", \"<title>\", \"<author>\", <edition>, \"<year>\", and \"<description>\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 75
+          },
+          {
+            "step": "Then the booklist contains a book with all the properties from the last inserted book",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 56
+          },
+          {
+            "step": "And for every book the booklist contains a cover",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 61
+          }
+        ]
+      },
+      {
+        "scenario_name": "Different books must have different properties (ISBN, title, author, edition)",
+        "examples": [
+          {
+            "isbn": "0552131075",
+            "author": "Jerry Pratchett",
+            "edition": "1",
+            "title": "Sourcery"
+          },
+          {
+            "isbn": "0552131075",
+            "author": "Terry Pratchett",
+            "edition": "1",
+            "title": "Mastery"
+          },
+          {
+            "isbn": "0552131075",
+            "author": "Terry Pratchett",
+            "edition": "2",
+            "title": "Sourcery"
+          }
+        ],
+        "steps": [
+          {
+            "step": "Given a library, containing only one book with isbn \"<isbn>\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When a librarian tries to add a similar book with different \"<title>\", \"<author>\" and <edition>",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 76
+          },
+          {
+            "step": "Then the new book \"CAN NOT\" be added",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 69
+          }
+        ]
+      },
+      {
+        "scenario_name": "Multiple copies of the same book must share common properties (ISBN, title, author, edition)",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given a library, containing only one book with isbn \"0552131075\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When a librarian tries to add a similar book with same title, author and edition",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 77
+          },
+          {
+            "step": "Then the new book \"CAN\" be added",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 69
+          },
+          {
+            "step": "And for every book the booklist contains a cover",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 61
+          }
+        ]
+      },
+      {
+        "scenario_name": "Whitespace is trimmed on book creation",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given an empty library",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 62
+          },
+          {
+            "step": "When a librarian adds a book with \" 9783827317247  \", \"Komponentenmodelle    \", \"Andreas Thiel   \", 1, \"2000      \", and \"Komponentenmodelle FTW      \"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the booklist contains a book with \"9783827317247\", \"Komponentenmodelle\", \"Andreas Thiel\", 1, \"2000\", and \"Komponentenmodelle FTW\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Show borrowed books from a single user",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Show borrowed books",
+        "examples": [
+          {
+            "borrower": "sandra@worblehat.net",
+            "isbns": "123456789X",
+            "borrowDate": "2020-10-01",
+            "dueDate": "2020-10-29",
+            "more_isbns": "342314162X",
+            "anotherBorrowDate": "2020-11-01",
+            "anotherDueDate": "2020-11-29"
+          },
+          {
+            "borrower": "sandra@worblehat.net",
+            "isbns": "123456789X",
+            "borrowDate": "2020-11-01",
+            "dueDate": "2020-11-29",
+            "more_isbns": "342314162X",
+            "anotherBorrowDate": "2020-10-01",
+            "anotherDueDate": "2020-10-29"
+          }
+        ],
+        "steps": [
+          {
+            "step": "Given a library, containing books with isbns \"<isbns> <more_isbns>\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And \"<borrower>\" has borrowed books \"<isbns>\" on <borrowDate>",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 65
+          },
+          {
+            "step": "And \"<borrower>\" has borrowed books \"<more_isbns>\" on <anotherBorrowDate>",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 65
+          },
+          {
+            "step": "When \"<borrower>\" requests list of borrowed books",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 80
+          },
+          {
+            "step": "Then the list shows the books \"<isbns>\" with due date <dueDate>",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 81
+          },
+          {
+            "step": "And the list shows the books \"<more_isbns>\" with due date <anotherDueDate>",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 81
+          },
+          {
+            "step": "And the list is sorted by dueDate in ascending order",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 82
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Using a book's details page",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Details page is available",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given a library, containing only one book with isbn \"0552131075\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I browse the list of all books",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 54
+          },
+          {
+            "step": "When I navigate to the detail page of the book with the isbn \"0552131075\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 70
+          },
+          {
+            "step": "Then I can see all book details for that book",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 72
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Testing for basic validation when adding new books",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Providing invalid input data for new books",
+        "examples": [
+          {
+            "isbn": "0XXXXXXXX5",
+            "author": "Terry Pratchett",
+            "title": "Sourcery",
+            "edition": "1",
+            "year": "1989",
+            "field": "isbn"
+          },
+          {
+            "isbn": "0552131075",
+            "author": "Terry Pratchett",
+            "title": "Sourcery",
+            "edition": "1",
+            "year": "1",
+            "field": "year"
+          }
+        ],
+        "steps": [
+          {
+            "step": "Given an empty library",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 62
+          },
+          {
+            "step": "When a librarian adds a book with \"<isbn>\", \"<title>\", \"<author>\", <edition>, and \"<year>\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 74
+          },
+          {
+            "step": "Then the page contains error message for field \"<field>\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 78
+          },
+          {
+            "step": "And The library contains no books",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 58
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Borrowing borrowed and available books",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Borrowed books cannot be borrowed again",
+        "examples": [
+          {
+            "isbn": "0552131075",
+            "user": "user@test.com",
+            "message": "The book is already borrowed."
+          }
+        ],
+        "steps": [
+          {
+            "step": "Given a library, containing only one book with isbn \"<isbn>\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When \"<user>\" borrows the book \"<isbn>\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 73
+          },
+          {
+            "step": "Then the booklist lists \"<user>\" as borrower for the book with isbn \"<isbn>\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 59
+          },
+          {
+            "step": "And there's an error \"<message>\", when \"<user>\" tries to borrow the book with isbn \"<isbn>\" again",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Borrow ignores whitespaces",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given a library, containing only one book with isbn \"0552131075\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When \"   test@me.com      \" borrows the book \"      0552131075\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 73
+          },
+          {
+            "step": "Then the booklist lists \"test@me.com\" as borrower for the book with isbn \"0552131075\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 59
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Remove a copy of a book from the library",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Remove a book",
+        "examples": [
+          {
+            "user1_isbns": "",
+            "removed_isbns": "123456789X",
+            "number_of_books": "0"
+          },
+          {
+            "user1_isbns": "9999999999",
+            "removed_isbns": "123456789X",
+            "number_of_books": "0"
+          },
+          {
+            "user1_isbns": "123456789X",
+            "removed_isbns": "123456789X",
+            "number_of_books": "1"
+          },
+          {
+            "user1_isbns": "9999999999",
+            "removed_isbns": "9999999999",
+            "number_of_books": "1"
+          },
+          {
+            "user1_isbns": "9999999999",
+            "removed_isbns": "8888888888",
+            "number_of_books": "1"
+          }
+        ],
+        "steps": [
+          {
+            "step": "Given a library, containing books with isbn \"123456789X <user1_isbns>\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And \"user1@discworld.dw\" has borrowed books \"<user1_isbns>\"",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 65
+          },
+          {
+            "step": "When a librarian removes book \"<removed_isbns>\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the library contains <number_of_books> books with \"123456789X\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And the library still contains all borrowed books \"<user1_isbns>\"",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 68
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Returning - giving back - borrowed books",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Returning all books at once",
+        "examples": [
+          {
+            "borrower1": "user1@dings.com",
+            "isbns1": "0321293533",
+            "borrower2": "",
+            "isbns2": ""
+          },
+          {
+            "borrower1": "user1@dings.com",
+            "isbns1": "0321293533",
+            "borrower2": "user2@dings.com",
+            "isbns2": "1234567962"
+          },
+          {
+            "borrower1": "user1@dings.com",
+            "isbns1": "0321293533 1234567962",
+            "borrower2": "",
+            "isbns2": ""
+          },
+          {
+            "borrower1": "user1@dings.com",
+            "isbns1": "0321293533 1234567962",
+            "borrower2": "user2@dings.com",
+            "isbns2": "7784484156 1126108624"
+          }
+        ],
+        "steps": [
+          {
+            "step": "Given a library, containing books with isbns \"<isbns1> <isbns2>\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And \"<borrower1>\" has borrowed books \"<isbns1>\"",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 65
+          },
+          {
+            "step": "And \"<borrower2>\" has borrowed books \"<isbns2>\"",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 65
+          },
+          {
+            "step": "When \"<borrower1>\" returns all books",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then books \"<isbns1>\" are \"not borrowed anymore\" by \"<borrower1>\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "But books \"<isbns2>\" are \"still borrowed\" by \"<borrower2>\"",
+            "original_keyword": "But",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Returning books ignores whitespaces",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given a library, containing books with isbns \"1234567962\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And \"test@me.com\" has borrowed book \"1234567962\"",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When \"      test@me.com       \" returns the book",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then book \"1234567962\" is \"not borrowed anymore\" by \"test@me.com\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      }
+    ]
+  }
+]

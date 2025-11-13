@@ -1,0 +1,5324 @@
+[
+  {
+    "feature": "Individual Application Steps Accessibility Checks",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Personal Info Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "When I am on the personal info page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1004
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "License Info Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the individual provider license info page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1005
+          },
+          {
+            "step": "When I indicate I am a provider at a Public Health Service Indian Hospital",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1006
+          },
+          {
+            "step": "And I open an add a license panel",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1046
+          },
+          {
+            "step": "And I open an add a license panel",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1046
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Practice Info Page (Own Private Practice)",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the individual provider practice info page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1008
+          },
+          {
+            "step": "When I indicate I maintain my own private practice",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1009
+          },
+          {
+            "step": "And I open the practice lookup modal",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1013
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Practice Info Page (Group Practice)",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the individual provider practice info page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1008
+          },
+          {
+            "step": "And I indicate I do not maintain my own private practice",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1010
+          },
+          {
+            "step": "And I indicate I am employed or independently contracted by a group practice",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1011
+          },
+          {
+            "step": "And I start to add a practice location",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1012
+          },
+          {
+            "step": "And I start to add a practice location",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1012
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Individual Summary Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "When I am on the individual summary page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1014
+          },
+          {
+            "step": "And I save as draft",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1053
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Individual Provider Statement Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the individual provider statement page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1015
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Individual Submit Application Modal",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the individual provider statement page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1015
+          },
+          {
+            "step": "When I enter my individual provider statement",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1055
+          },
+          {
+            "step": "And I submit the application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1057
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Organization Application Steps Accessibility Checks",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Select Provider Type Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Organization Info Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "When I am on the organization page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1044
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Facility Credentials Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "When I am on the facility credentials page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1045
+          },
+          {
+            "step": "And I open an add a license panel",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1046
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Individual Member Info Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "When I am on the individual member info page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1047
+          },
+          {
+            "step": "When I open an individual member panel",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1048
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Ownership Info Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "When I am on the ownership info page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1049
+          },
+          {
+            "step": "And I open the individual owner panel",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1050
+          },
+          {
+            "step": "And I open the business owner panel",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1051
+          },
+          {
+            "step": "And I have indicated that the owner has an interest in another Medicaid disclosing entity",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1059
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Organization Summary Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "When I am on the organization summary page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1052
+          },
+          {
+            "step": "And I save as draft",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1053
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Organization Provider Statement Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "When I am on the organization provider statement page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1054
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Organization Submit Application Modal",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the organization provider statement page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1054
+          },
+          {
+            "step": "When I enter my organization provider statement",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1056
+          },
+          {
+            "step": "And I submit the application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1057
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Data Coverage Checks",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Captures Contact Info for Organization",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "When I am on the organization page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1044
+          },
+          {
+            "step": "Then I should be asked to enter Applicant Name, Contact Person, Contact phone, Contact email",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Captures Medicaid number for Organization's contact",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "When I am on the organization page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1044
+          },
+          {
+            "step": "Then I should be asked to enter Medicaid number",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1027
+          }
+        ]
+      },
+      {
+        "scenario_name": "Captures Contact Info for Individual",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "When I am on the personal info page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1004
+          },
+          {
+            "step": "Then I should be asked to enter Applicant Name, Contact Person",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1026
+          }
+        ]
+      },
+      {
+        "scenario_name": "Captures Phone number and Medicaid number for Individual",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "When I am on the personal info page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1004
+          },
+          {
+            "step": "Then I should be asked to enter Contact phone, Medicaid number",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1029
+          }
+        ]
+      },
+      {
+        "scenario_name": "Captures Individual Beneficial Owner's City",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am entering ownership information",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1058
+          },
+          {
+            "step": "And I have indicated that the owner has an interest in another Medicaid disclosing entity",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1059
+          },
+          {
+            "step": "And I have entered a city for that other entity",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1060
+          },
+          {
+            "step": "When I click 'next' on the Ownership Info Page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then the city should be accepted",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1061
+          }
+        ]
+      },
+      {
+        "scenario_name": "Accepts valid individual provider personal information",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "When I am on the personal info page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1004
+          },
+          {
+            "step": "When I enter valid personal information",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1062
+          },
+          {
+            "step": "Then I can move on from the personal info page with no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1063
+          }
+        ]
+      },
+      {
+        "scenario_name": "Accepts license",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the individual provider license info page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1005
+          },
+          {
+            "step": "And I indicate I am not a provider at a Public Health Service Indian Hospital",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1007
+          },
+          {
+            "step": "When I enter valid license information",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1020
+          },
+          {
+            "step": "And I upload a valid license",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1024
+          },
+          {
+            "step": "Then the license is accepted",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1030
+          }
+        ]
+      },
+      {
+        "scenario_name": "Accepts practice information",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the individual provider practice info page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1008
+          },
+          {
+            "step": "When I enter a valid private practice",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1025
+          },
+          {
+            "step": "Then the practice information is accepted",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1032
+          },
+          {
+            "step": "And the summary page shows expected information",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1033
+          }
+        ]
+      },
+      {
+        "scenario_name": "Completes an application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the individual provider statement page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1015
+          },
+          {
+            "step": "When I enter my individual provider statement",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1055
+          },
+          {
+            "step": "And I submit the application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1057
+          },
+          {
+            "step": "Then the application is successfully submitted",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1034
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Editing and Submitting Applications",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Save as draft twice for Speech Language Pathologist application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the individual summary page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1014
+          },
+          {
+            "step": "And I save the application as a draft",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1016
+          },
+          {
+            "step": "And I save the application as a draft",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1016
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "Save as draft twice for Head Start application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the organization summary page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1052
+          },
+          {
+            "step": "And I save the application as a draft",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1016
+          },
+          {
+            "step": "And I save the application as a draft",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1016
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "Save and then submit Speech Language Pathologist application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the individual provider statement page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1015
+          },
+          {
+            "step": "And I save the application as a draft",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1016
+          },
+          {
+            "step": "When I enter my individual provider statement",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1055
+          },
+          {
+            "step": "And I submit the application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1057
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "Save and then submit Head Start application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the organization provider statement page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1054
+          },
+          {
+            "step": "And I save the application as a draft",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1016
+          },
+          {
+            "step": "When I enter my organization provider statement",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1056
+          },
+          {
+            "step": "And I submit the application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1057
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin approve Speech Language Pathologist application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "When I am on the Review Application Page for '0000000006'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I Approve the Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1117
+          },
+          {
+            "step": "And I view the Reviewed Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1119
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Approved' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin approve Head Start application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "When I am on the Review Application Page for '1234567893'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I Approve the Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1117
+          },
+          {
+            "step": "And I view the Reviewed Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1119
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Approved' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Edit, save, and resubmit approved Speech Language Pathologist application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "When I edit the Individual Application '0000000006'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I save the application as a draft",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1016
+          },
+          {
+            "step": "And I submit the application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1057
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Pending' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Edit, save, and resubmit approved Head Start application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "When I edit the Organizational Application '1234567893'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I save the application as a draft",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1016
+          },
+          {
+            "step": "And I submit the application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1057
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Pending' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Applications for different Provider Types",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Personal Care Assistant Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am going to enroll as a Personal Care Assistant",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1017
+          },
+          {
+            "step": "When I create and submit an application using the PCA workflow",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1018
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "Durable Medical Equipment Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am going to enroll as a Durable Medical Equipment provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1064
+          },
+          {
+            "step": "And I am going to use NPI '0762668180'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When I create and submit an application using the generic organization workflow",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1066
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "Child and Teen Checkup Clinic Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am going to enroll as a Child and Teen Checkup Clinic",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1067
+          },
+          {
+            "step": "And I am going to use NPI '1747598328'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When I create and submit an application using the organization with healthboard workflow",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1068
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "County Contracted Mental Health Rehab Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am going to enroll as a County Contracted Mental Health Rehab",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1065
+          },
+          {
+            "step": "And I am going to use NPI '1906926187'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When I create and submit an application using the county contracted mental health rehab workflow",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1069
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "Approve Durable Medical Equipment Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "When I am on the Review Application Page for '0762668180'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I Approve the Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1117
+          },
+          {
+            "step": "And I view the Reviewed Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1119
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Approved' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Approve Child and Teen Checkup Clinic Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "When I am on the Review Application Page for '1747598328'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I Approve the Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1117
+          },
+          {
+            "step": "And I view the Reviewed Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1119
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Approved' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Approve County Contracted Mental Health Rehab Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "When I am on the Review Application Page for '1906926187'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I Approve the Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1117
+          },
+          {
+            "step": "And I view the Reviewed Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1119
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Approved' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Application Reject Workflow",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Provider Create Individual Workflow Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the individual provider statement page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1015
+          },
+          {
+            "step": "And I enter my individual provider statement",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1055
+          },
+          {
+            "step": "And I submit the application",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1057
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Reject Individual Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "When I am on the Review Application Page for '0000000006'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I Reject the Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1118
+          },
+          {
+            "step": "And I view the Reviewed Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1119
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Denied' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Application Renew Workflow",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Provider Create Individual Workflow Application For Review",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the individual provider statement page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1015
+          },
+          {
+            "step": "And I enter my individual provider statement",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1055
+          },
+          {
+            "step": "And I submit the application",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1057
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Create Organization Workflow Application For Review",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the organization provider statement page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1054
+          },
+          {
+            "step": "And I enter my organization provider statement",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1056
+          },
+          {
+            "step": "And I submit the application",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1057
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Approve Organizational Application For Review",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "When I am on the Review Application Page for '1234567893'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I Approve the Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1117
+          },
+          {
+            "step": "And I view the Reviewed Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1119
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Approved' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Approve Individual Application For Review",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "When I am on the Review Application Page for '0000000006'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I Approve the Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1117
+          },
+          {
+            "step": "And I view the Reviewed Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1119
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Approved' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Renew Individual Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "When I renew Individual Application '0000000006'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Pending' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Approve Individual Reviewed Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "When I am on the Review Application Page for '0000000006'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I Approve the Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1117
+          },
+          {
+            "step": "And I view the Reviewed Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1119
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Approved' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Renew Organizational Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "When I renew Organizational Application '1234567893'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Pending' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Approve Organizational Reviewed Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "When I am on the Review Application Page for '1234567893'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I Approve the Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1117
+          },
+          {
+            "step": "And I view the Reviewed Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1119
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Approved' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Renew, Save, and Submit Individual Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "When I start to renew Individual Application '0000000006'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I save the application as a draft",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1016
+          },
+          {
+            "step": "And I enter my individual provider statement",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1055
+          },
+          {
+            "step": "And I submit the application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1057
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Pending' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Renew, Save, and Submit Organizational Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "When I start to renew Organizational Application '1234567893'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I save the application as a draft",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1016
+          },
+          {
+            "step": "And I enter my organization provider statement",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1056
+          },
+          {
+            "step": "And I submit the application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1057
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Pending' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Application Update Workflow",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Provider Create Individual Workflow Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the individual provider statement page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1015
+          },
+          {
+            "step": "And I enter my individual provider statement",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1055
+          },
+          {
+            "step": "And I submit the application",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1057
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Create Organization Workflow Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the organization provider statement page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1054
+          },
+          {
+            "step": "And I enter my organization provider statement",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1056
+          },
+          {
+            "step": "And I submit the application",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1057
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Edit Pending Individual Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "When I update Individual Application '0000000006'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Pending' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Edit Pending Organizational Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "When I update Organizational Application '1234567893'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Pending' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Approve Organizational Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "When I am on the Review Application Page for '1234567893'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I Approve the Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1117
+          },
+          {
+            "step": "And I view the Reviewed Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1119
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Approved' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Approve Individual Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "When I am on the Review Application Page for '0000000006'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I Approve the Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1117
+          },
+          {
+            "step": "And I view the Reviewed Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1119
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Approved' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Update Individual Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "When I update Individual Application '0000000006'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Pending' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Approve Updated Individual Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "When I am on the Review Application Page for '0000000006'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I Approve the Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1117
+          },
+          {
+            "step": "And I view the Reviewed Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1119
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Approved' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Update Organizational Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "When I update Organizational Application '1234567893'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Pending' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Approve Updated Organizational Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "When I am on the Review Application Page for '1234567893'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I Approve the Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1117
+          },
+          {
+            "step": "And I view the Reviewed Application",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": 1119
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And The Application should be in the 'Approved' state",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Form and Field Validations",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Validate Tax ID Number",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the organization page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1044
+          },
+          {
+            "step": "And I enter an 8 digit FEIN",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "When I click 'next' on the organization info page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should get an FEIN error",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1038
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validate minimum age",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the personal info page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1004
+          },
+          {
+            "step": "When I enter a date of birth less than eighteen years ago",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1036
+          },
+          {
+            "step": "And I click 'next' on the personal info page",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should get a provider too young error",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1039
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validate individual provider license renewal date",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the individual provider license info page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1005
+          },
+          {
+            "step": "And I indicate I am not a provider at a Public Health Service Indian Hospital",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1007
+          },
+          {
+            "step": "When I enter license info where renewal date is before issue date",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1023
+          },
+          {
+            "step": "And I click 'next' on the license info page",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should get a renewal date error",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1040
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validate organizational provider license renewal date",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "When I am on the facility credentials page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1045
+          },
+          {
+            "step": "When I enter license info where renewal date is before issue date",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1023
+          },
+          {
+            "step": "And I click 'next' on the license info page",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should get a renewal date error",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1040
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validate individual provider email address contact",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the personal info page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1004
+          },
+          {
+            "step": "And I enter valid personal information",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1062
+          },
+          {
+            "step": "When I enter an empty email address on the personal info page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1037
+          },
+          {
+            "step": "And I click 'next' on the personal info page",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should get a same as above email error",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1041
+          }
+        ]
+      },
+      {
+        "scenario_name": "Validate individual provider email address is required",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have started an application",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1043
+          },
+          {
+            "step": "And I am on the personal info page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1004
+          },
+          {
+            "step": "And I enter valid personal information",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1062
+          },
+          {
+            "step": "When I enter an empty email address on the personal info page",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1037
+          },
+          {
+            "step": "And I click 'next' on the personal info page",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should see email address is required",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1042
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "General Accessibility Checks",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Login Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have the application open in my browser",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1077
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Register New Account Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am on the Register New Account page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1086
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Forgot Password Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am on the Forgot Password page",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1087
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider All Applications Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "When I open the filter panel",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Draft Applications Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "And I am on the provider Draft page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1092
+          },
+          {
+            "step": "When I open the filter panel",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          },
+          {
+            "step": "And I should see applications",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1003
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Pending Applications Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "And I am on the provider Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1093
+          },
+          {
+            "step": "When I open the filter panel",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          },
+          {
+            "step": "And I should see applications",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1003
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Approved Applications Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "And I am on the provider Approved page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1094
+          },
+          {
+            "step": "When I open the filter panel",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          },
+          {
+            "step": "And I should see applications",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1003
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Denied Applications Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "And I am on the provider Denied page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1095
+          },
+          {
+            "step": "When I open the filter panel",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          },
+          {
+            "step": "And I should see applications",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1003
+          }
+        ]
+      },
+      {
+        "scenario_name": "My Profile Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "When I click on My Profile",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1071
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Update Password Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "And I am on the Update Password page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1075
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Account Setup Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "And I am on the Account Setup page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1076
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Advanced Search Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "And I am on the Advanced Search page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1084
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Provider changes their own Password",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Change Password Option",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "And I am on the All Applications page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1070
+          },
+          {
+            "step": "When I click on My Profile",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1071
+          },
+          {
+            "step": "Then I should see the Change Password link",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1072
+          }
+        ]
+      },
+      {
+        "scenario_name": "Visit Update Password Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "And I click on My Profile",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1071
+          },
+          {
+            "step": "When I click on Change Password",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1073
+          },
+          {
+            "step": "Then I should see the Update Password page",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1074
+          }
+        ]
+      },
+      {
+        "scenario_name": "Change Provider Password",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "And I am on the Update Password page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1075
+          },
+          {
+            "step": "When I enter a new password",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And the correct old password",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should get a confirmation message",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Log into the Application as Provider",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Should Log in",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I have the application open in my browser",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1077
+          },
+          {
+            "step": "And I enter my username and password",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1078
+          },
+          {
+            "step": "When I click on Login",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1079
+          },
+          {
+            "step": "Then I should be logged in",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1080
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Log out of the Application as Provider",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Should Log out",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "When I click on Logout",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1082
+          },
+          {
+            "step": "Then I should see the login page",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1083
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Provider Search Checks",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Provider Draft Page Filtered",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "And I am on the provider Draft page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1092
+          },
+          {
+            "step": "When I open the filter panel",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "And I filter by NPI '1111111112'",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And I should see search results",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1085
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Pending Page Filtered",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "And I am on the provider Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1093
+          },
+          {
+            "step": "When I open the filter panel",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "And I filter by NPI '1111111112'",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And I should see search results",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1085
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Approved Page Filtered",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "And I am on the provider Approved page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1094
+          },
+          {
+            "step": "When I open the filter panel",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "And I filter by NPI '1111111112'",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And I should see search results",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1085
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Denied Page Filtered",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "And I am on the provider Denied page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1095
+          },
+          {
+            "step": "When I open the filter panel",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "And I filter by NPI '1111111112'",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And I should see search results",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1085
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Quick Search",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "When I do a quick search for NPI '1111111112'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And I should see search results",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1085
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Advanced Search",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as a provider",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1081
+          },
+          {
+            "step": "And I am on the Advanced Search page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1084
+          },
+          {
+            "step": "When I do an advanced search for NPI '1111111112'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And I should see search results",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1085
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Accessibility Checks for Report Pages",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Reports Page Accessible",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the reports page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1104
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Applications by Reviewer Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the applications by reviewer page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1105
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Applications by Reviewer Page with No Results",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the applications by reviewer page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1105
+          },
+          {
+            "step": "And I search for applications by reviewer between '01/01/2001' and '01/02/2001'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Applications by Reviewer Page with Results",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the applications by reviewer page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1105
+          },
+          {
+            "step": "And I search for applications by reviewer between '01/01/2017' and '12/01/2017'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Draft Applications Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the draft applications page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1107
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Time to Review Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the time to review page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1108
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Provider Types Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the provider types page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1109
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Reviewed Documents Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the reviewed documents page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1110
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Risk Levels Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the risk levels page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1111
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Applications by Reviewer Report",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Search Applications by Reviewer with No Results",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the applications by reviewer page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1105
+          },
+          {
+            "step": "And I search for applications by reviewer between '01/01/2001' and '01/02/2001'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should see no applications by reviewer results",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1090
+          }
+        ]
+      },
+      {
+        "scenario_name": "Search Applications by Reviewer Page with Results",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the applications by reviewer page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1105
+          },
+          {
+            "step": "And I search for applications by reviewer between '01/01/2017' and '12/01/2017'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should see applications by reviewer results",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1091
+          }
+        ]
+      },
+      {
+        "scenario_name": "View Applications by Reviewer Application",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the applications by reviewer page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1105
+          },
+          {
+            "step": "And I search for applications by reviewer between '01/01/2017' and '12/01/2017'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I click on application '1006'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I am on the Personal Information page",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1131
+          }
+        ]
+      },
+      {
+        "scenario_name": "Search Applications by Reviewer Page without Dates with Results",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the applications by reviewer page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1105
+          },
+          {
+            "step": "And I search for applications by reviewer with cleared dates",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1089
+          },
+          {
+            "step": "Then I should see applications by reviewer results",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1091
+          }
+        ]
+      },
+      {
+        "scenario_name": "Download Applications by Reviewer CSV",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the applications by reviewer page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1105
+          },
+          {
+            "step": "And I search for applications by reviewer between '01/01/2017' and '12/01/2017'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I download the applications by reviewer report",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1088
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Draft Applications Report",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Can Access Draft Applications Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the draft applications page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1107
+          },
+          {
+            "step": "Then I should see the draft applications page",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1098
+          },
+          {
+            "step": "Then I should see some draft applications for '2017-08-01'",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Download Draft Applications CSV",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the draft applications page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1107
+          },
+          {
+            "step": "And I download the draft applications report",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1097
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Provider Types Report",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Can Access Provider Types Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the provider types page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1109
+          },
+          {
+            "step": "Then I should see the provider types page",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1099
+          },
+          {
+            "step": "Then I should see a provider types table with '2' applications for 'Licensed Professional Clinical Counselor' in month '2017-05-01'",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should see no results for month '2018-01-01'",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Can Filter Provider Types Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the provider types page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1109
+          },
+          {
+            "step": "And I select the provider type 'Speech Language Pathologist'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I select the provider type 'Licensed Professional Clinical Counselor'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I filter for provider types",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1100
+          },
+          {
+            "step": "Then I should see the provider types page",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1099
+          },
+          {
+            "step": "Then I should see provider type 'Speech Language Pathologist' selected",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should see a provider types table with '2' applications for 'Licensed Professional Clinical Counselor' in month '2017-05-01'",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should see no results for month '2017-07-01'",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Download Provider Types CSV",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the provider types page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1109
+          },
+          {
+            "step": "And I download the provider types report",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1101
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Base Reports",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Can Access Reports Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the reports page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1104
+          },
+          {
+            "step": "Then I should see the reports page",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1106
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Reviewed Documents Report",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Can Access Reviewed Documents Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the reviewed documents page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1110
+          },
+          {
+            "step": "Then I should see the reviewed documents page",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1102
+          },
+          {
+            "step": "Then I should see a reviewed documents row for '2017-05-01' with '2' documents",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should see a reviewed documents row for '2018-01-01' with '0' documents",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Download Reviewed Documents CSV",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the reviewed documents page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1110
+          },
+          {
+            "step": "And I download the reviewed documents report",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1103
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Risk Levels Report",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Can Access Risk Levels Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the risk levels page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1111
+          },
+          {
+            "step": "Then I should see the risk levels page",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1113
+          },
+          {
+            "step": "Then I should see a risk levels row for '2017-05-01' with '2' in the 'Limited' column",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should see a risk levels row for '2017-06-01' with '1' in the 'Moderate' column",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should see a risk levels row for '2018-01-01' with '0' in the 'High' column",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Download Risk levels CSV",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the risk levels page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1111
+          },
+          {
+            "step": "And I download the risk levels report",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1114
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Time to Review Report",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Can Access Time to Review Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the time to review page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1108
+          },
+          {
+            "step": "Then I should see the time to review page",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1115
+          },
+          {
+            "step": "Then I should see a time to review row for '2017-05-01' with 2 applications",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should see a N/A time to review row for '2018-01-01'",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Download Time to Review CSV",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the time to review page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1108
+          },
+          {
+            "step": "And I download the time to review report",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1116
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "General Accessibility Checks for Admins",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Admin Dashboard Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin All Applications Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin All Applications page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1121
+          },
+          {
+            "step": "And I open the filter panel",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "And I open the Write Note modal",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1126
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          },
+          {
+            "step": "And I should see applications",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1003
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Draft Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Draft page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1122
+          },
+          {
+            "step": "And I open the filter panel",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          },
+          {
+            "step": "And I should see applications",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1003
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Pending Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "And I open the filter panel",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          },
+          {
+            "step": "And I should see applications",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1003
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Approved Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Approved page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1124
+          },
+          {
+            "step": "And I open the filter panel",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          },
+          {
+            "step": "And I should see applications",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1003
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Denied Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Denied page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1125
+          },
+          {
+            "step": "And I open the filter panel",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          },
+          {
+            "step": "And I should see applications",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1003
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Review Application Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Review Application page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1127
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Screening Log Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Screening Log page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1129
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Screenings Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Screenings page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1130
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Review Application DMF Page - Individual",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I open the Review Application page for NPI '0000000006'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I open the DMF Details page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1128
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Review Application DMF Page - Group",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I open the Review Application page for NPI '1234567893'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I open the DMF Details page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1128
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Admin Functions Tab Pages",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Admin Functions Provider Types Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Functions Provider Types page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1132
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Functions View Provider Type Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Functions View Provider Type page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1133
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Functions Edit Provider Type Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Functions Edit Provider Type page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1134
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Functions Screening Schedules Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Functions Screening Schedules page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1135
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Functions Edit Screening Schedule Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Functions Edit Screening Schedule page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1136
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Functions Agreements and Addendums Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Functions Agreements and Addendums page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1137
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Functions Add Agreement Document Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Functions Add Agreement Document page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1138
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Functions Edit Agreement Document Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Functions Edit Agreement Document page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1139
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Functions View Agreement Document Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Functions View Agreement Document page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1140
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "View Application Accessibility Checks for Admins",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Admin View Application Organization Info Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the View Application Organization Info page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1143
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin View Application Facility Credentials Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the View Application Facility Credentials page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1144
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin View Application Individual Member Info Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the View Application Individual Member Info page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1145
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin View Application Ownership Info Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the View Application Ownership Info page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1146
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin View Application Provider Statement Page",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the View Application Provider Statement page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1147
+          },
+          {
+            "step": "Then I should have no accessibility issues",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Admin Provider Types Editing Pages",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Admin Provider Type Creation",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Functions Provider Types page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1132
+          },
+          {
+            "step": "And I create a Provider Type with Description 'Z - TEST PROVIDER TYPE'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should see a Provider Type with Description 'Z - TEST PROVIDER TYPE'",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I should have no errors",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Provider Type Creation with No Description",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Functions Provider Types page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1132
+          },
+          {
+            "step": "And I create a Provider Type with Description ''",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should see a Provider Type Description error 'Please specify a provider type'",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Provider Type Creation with Duplicate Description",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Functions Provider Types page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1132
+          },
+          {
+            "step": "And I create a Provider Type with Description 'Acupuncturist'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should see a Provider Type Description error 'Specified provider type already exists'",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Provider Type View",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Functions Provider Types page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1132
+          },
+          {
+            "step": "And I am on the Functions View Provider Type page for 'Z - TEST PROVIDER TYPE'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should see a Provider Type with Description 'Z - TEST PROVIDER TYPE'",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I should have no errors",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Provider Type Edit",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Functions Provider Types page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1132
+          },
+          {
+            "step": "And I am on the Functions Edit Provider Type page for 'Z - TEST PROVIDER TYPE'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I change the Provider Type Description to 'Z2 - TEST PROVIDER TYPE'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I add Provider Type Agreements and Licenses",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1141
+          },
+          {
+            "step": "And I submit the Provider Type Edit",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1142
+          },
+          {
+            "step": "Then I should see a Provider Type with Description 'Z2 - TEST PROVIDER TYPE'",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          },
+          {
+            "step": "And I should have no accessibility issues",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1019
+          },
+          {
+            "step": "And I should have no errors",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Provider Type Delete",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Functions Provider Types page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1132
+          },
+          {
+            "step": "And I delete the Provider Type 'Z2 - TEST PROVIDER TYPE'",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should not see a Provider Type with Description 'Z2 - TEST PROVIDER TYPE'",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Admin Search Checks",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Admin All Applications Page Filtered",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin All Applications page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1121
+          },
+          {
+            "step": "When I open the filter panel",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "And I filter by NPI '1111111112'",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And I should see search results",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1085
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Draft Page Filtered",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Draft page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1122
+          },
+          {
+            "step": "When I open the filter panel",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "And I filter by NPI '1111111112'",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And I should see search results",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1085
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Pending Page Filtered",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Pending page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1123
+          },
+          {
+            "step": "When I open the filter panel",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "And I filter by NPI '1111111112'",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And I should see search results",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1085
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Approved Page Filtered",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Approved page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1124
+          },
+          {
+            "step": "When I open the filter panel",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "And I filter by NPI '1111111112'",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And I should see search results",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1085
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Denied Page Filtered",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the admin Denied page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1125
+          },
+          {
+            "step": "When I open the filter panel",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 1096
+          },
+          {
+            "step": "And I filter by NPI '1111111112'",
+            "original_keyword": "And",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And I should see search results",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1085
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Quick Search",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "When I do a quick search for NPI '1111111112'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And I should see search results",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1085
+          }
+        ]
+      },
+      {
+        "scenario_name": "Admin Advanced Search",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given I am logged in as an admin",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 1120
+          },
+          {
+            "step": "And I am on the Advanced Search page",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 1084
+          },
+          {
+            "step": "When I do an advanced search for NPI '1111111112'",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then I should have no errors",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 1112
+          },
+          {
+            "step": "And I should see search results",
+            "original_keyword": "And",
+            "keyword": "Then",
+            "step_definition_id": 1085
+          }
+        ]
+      }
+    ]
+  }
+]

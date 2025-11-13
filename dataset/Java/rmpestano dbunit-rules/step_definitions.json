@@ -1,0 +1,366 @@
+[
+  {
+    "step_definition_id": 33,
+    "annotation": "\n\n    @Given(\"^Groovy script engine is on test classpath$\")",
+    "glue_code": "\n    @Given(\"^Groovy script engine is on test classpath$\")\n    public void Groovy_script_engine_is_on_test_classpath(String docstring) throws Throwable {\n        // Express the Regexp above with the code you wish you had\n        assertNotNull(docstring);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 12,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/GeneralSteps.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd",
+      "filename": "GeneralSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 34,
+    "annotation": "\n    @Then(\"^Dataset script should be interpreted while seeding the database$\")",
+    "glue_code": "    @Then(\"^Dataset script should be interpreted while seeding the database$\")\n    public void Dataset_script_should_be_interpreted_when_seeding_the_database() throws Throwable {\n        // Express the Regexp above with the code you wish you had\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 19,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/GeneralSteps.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd",
+      "filename": "GeneralSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 35,
+    "annotation": "\n    @Then(\"^Test must pass because database state is as in expected dataset.$\")",
+    "glue_code": "    @Then(\"^Test must pass because database state is as in expected dataset.$\")\n    public void Test_must_pass_because_dataBase_state_is_as_expected_in_dataset() throws Throwable {\n        // Express the Regexp above with the code you wish you had\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 24,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/GeneralSteps.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd",
+      "filename": "GeneralSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 36,
+    "annotation": "\n\n    @Then(\"^Test must fail with following error:$\")",
+    "glue_code": "\n    @Then(\"^Test must fail with following error:$\")\n    public void Test_must_fail_with_following_error(String docstring) throws Throwable {\n        assertNotNull(docstring);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 29,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/GeneralSteps.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd",
+      "filename": "GeneralSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 37,
+    "annotation": "\n    @Then(\"^Test must pass because inserted users are commited to database and database state matches expected dataset.$\")",
+    "glue_code": "    @Then(\"^Test must pass because inserted users are commited to database and database state matches expected dataset.$\")\n    public void Test_must_pass_because_inserted_users_are_commited_to_database_and_database_state_matches_in_expected_dataset() throws Throwable {\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 35,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/GeneralSteps.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd",
+      "filename": "GeneralSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 28,
+    "annotation": "\n\n    @Given(\"^DBUnit interceptor is enabled in your test beans.xml:$\")",
+    "glue_code": "\n    @Given(\"^DBUnit interceptor is enabled in your test beans.xml:$\")\n    public void DBUnit_interceptor_is_enabled_in_your_test_beans_xml(String docstring) throws Throwable {\n        assertTrue(true);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 15,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/cdi/CDISeedDatabaseStepdefs.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd/cdi",
+      "filename": "CDISeedDatabaseStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 29,
+    "annotation": "\n    @And(\"^The following dataset$\")",
+    "glue_code": "    @And(\"^The following dataset$\")\n    public void The_following_dataset(String docstring) throws Throwable {\n        assertNotNull(docstring);\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 21,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/cdi/CDISeedDatabaseStepdefs.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd/cdi",
+      "filename": "CDISeedDatabaseStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 30,
+    "annotation": "\n    @When(\"^The following test is executed:$\")",
+    "glue_code": "    @When(\"^The following test is executed:$\")\n    public void The_test_below_is_executed(String docstring) throws Throwable {\n        assertNotNull(docstring);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 26,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/cdi/CDISeedDatabaseStepdefs.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd/cdi",
+      "filename": "CDISeedDatabaseStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 31,
+    "annotation": "\n    @Then(\"^The database should be seeded with the dataset content before test execution$\")",
+    "glue_code": "    @Then(\"^The database should be seeded with the dataset content before test execution$\")\n    public void The_database_should_be_seeded_with_the_dataset_content() throws Throwable {\n\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 31,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/cdi/CDISeedDatabaseStepdefs.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd/cdi",
+      "filename": "CDISeedDatabaseStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 32,
+    "annotation": "\n    @Then(\"^The database should be seeded with the dataset content before test execution$\")",
+    "glue_code": "    @Then(\"^The database should be seeded with the dataset content before test execution$\")\n    @DataSet(\"yml/users.yml\")\n    public void The_database_should_be_seeded_with_the_dataset_content() throws Throwable {\n        List<User> users = em.createQuery(\"select u from User u order by u.id asc\").getResultList();\n        User user1 = new User(1);\n        User user2 = new User(2);\n        Tweet tweetUser1 = new Tweet();\n        tweetUser1.setId(\"abcdef12345\");\n        Tweet tweetUser2 = new Tweet();\n        tweetUser2.setId(\"abcdef12233\");\n        assertThat(users).isNotNull().hasSize(2).contains(user1, user2);\n        List<Tweet> tweetsUser1 = users.get(0).getTweets();\n        assertThat(tweetsUser1).isNotNull().hasSize(1).contains(tweetUser1);\n\n        List<Tweet> tweetsUser2 = users.get(1).getTweets();\n        assertThat(tweetsUser2).isNotNull().hasSize(2).contains(tweetUser2);\n\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 38,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/cdi/CDISeedDatabaseStepdefs.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd/cdi",
+      "filename": "CDISeedDatabaseStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 42,
+    "annotation": "\n\n    @Given(\"^The following junit rules$\")",
+    "glue_code": "\n    @Given(\"^The following junit rules$\")\n    public void the_following_junit_rules(String docString) throws Throwable {\n\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 9,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/core/CoreSeedDatabaseStepdefs.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd/core",
+      "filename": "CoreSeedDatabaseStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 38,
+    "annotation": "\n\n\n    @Given(\"^The following feature$\")",
+    "glue_code": "\n\n    @Given(\"^The following feature$\")\n    public void The_following_feature(String docstring) throws Throwable {\n        assertNotNull(docstring);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 15,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/cucumber/CucumberDBUnitRulesStepdefs.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd/cucumber",
+      "filename": "CucumberDBUnitRulesStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 39,
+    "annotation": "\n    @And(\"^The following Cucumber test$\")",
+    "glue_code": "    @And(\"^The following Cucumber test$\")\n    public void The_following_Cucumber_test(String docstring) throws Throwable {\n      assertNotNull(docstring);\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 22,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/cucumber/CucumberDBUnitRulesStepdefs.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd/cucumber",
+      "filename": "CucumberDBUnitRulesStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 40,
+    "annotation": "\n    @When(\"^The following cucumber steps are executed$\")",
+    "glue_code": "    @When(\"^The following cucumber steps are executed$\")\n    public void The_following_cucumber_steps_are_executed(String docstring) throws Throwable {\n        assertNotNull(docstring);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 27,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/cucumber/CucumberDBUnitRulesStepdefs.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd/cucumber",
+      "filename": "CucumberDBUnitRulesStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 41,
+    "annotation": "\n    @Then(\"^The database should be seeded with the dataset content before step execution$\")",
+    "glue_code": "    @Then(\"^The database should be seeded with the dataset content before step execution$\")\n    public void The_database_should_be_seeded_with_the_dataset_content_before_step_execution() throws Throwable {\n        // Express the Regexp above with the code you wish you had\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 32,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/cucumber/CucumberDBUnitRulesStepdefs.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd/cucumber",
+      "filename": "CucumberDBUnitRulesStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 43,
+    "annotation": "\n\n\n    @Given(\"^The following junit5 test is executed$\")",
+    "glue_code": "\n\n    @Given(\"^The following junit5 test is executed$\")\n    public void the_following_junit_rules(String docString) throws Throwable {\n\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 9,
+    "file_info": {
+      "path": "core/src/test/java/com/github/dbunit/rules/bdd/junit5/JUnit5SeedDatabaseStepdefs.java",
+      "directory": "core/src/test/java/com/github/dbunit/rules/bdd/junit5",
+      "filename": "JUnit5SeedDatabaseStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 44,
+    "annotation": "\n    @When(\"^^we search contacts by name \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^^we search contacts by name \\\"([^\\\"]*)\\\"$\")\n    public void we_search_contacts_by_name_(String name) throws Throwable {\n        Contact contact = new Contact();\n        contact.setName(name);\n        count = contactRepository.countLike(contact, Contact_.name);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 24,
+    "file_info": {
+      "path": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/ContactSteps.java",
+      "directory": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber",
+      "filename": "ContactSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 45,
+    "annotation": "\n\n    @Then(\"^we should find (\\\\d+) contacts$\")",
+    "glue_code": "\n    @Then(\"^we should find (\\\\d+) contacts$\")\n    public void we_should_find_result_contacts(Long result) throws Throwable {\n        assertEquals(result, count);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 31,
+    "file_info": {
+      "path": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/ContactSteps.java",
+      "directory": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber",
+      "filename": "ContactSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 46,
+    "annotation": "\n    @Given(\"^we have a list of contacts$\")",
+    "glue_code": "    @Given(\"^we have a list of contacts$\")\n    @DataSet(\"datasets/contacts.yml\") //<2>\n    public void given() {\n        assertEquals(contactRepository.count(), new Long(3));\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 37,
+    "file_info": {
+      "path": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/ContactSteps.java",
+      "directory": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber",
+      "filename": "ContactSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 47,
+    "annotation": "\n    @When(\"^we delete contact by id (\\\\d+)$\")",
+    "glue_code": "    @When(\"^we delete contact by id (\\\\d+)$\")\n    public void we_delete_contact_by_id(long id) throws Throwable {\n        contactRepository.remove(contactRepository.findBy(id));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 43,
+    "file_info": {
+      "path": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/ContactSteps.java",
+      "directory": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber",
+      "filename": "ContactSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 48,
+    "annotation": "\n    @Then(\"^we should not find contact (\\\\d+)$\")",
+    "glue_code": "    @Then(\"^we should not find contact (\\\\d+)$\")\n    public void we_should_not_find_contacts_in_database(long id) throws Throwable {\n        assertNull(contactRepository.findBy(id));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 48,
+    "file_info": {
+      "path": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/ContactSteps.java",
+      "directory": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber",
+      "filename": "ContactSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 49,
+    "annotation": "\n\n    @Given(\"^we have a list of contacts2$\")",
+    "glue_code": "\n    @Given(\"^we have a list of contacts2$\")\n    public void given() {\n        dbunitExecutor.createDataSet(new DataSetConfig(\"contacts.yml\"));\n        assertEquals(em().createQuery(\"select count(c.id) from Contact c\").getSingleResult(), new Long(3));\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 36,
+    "file_info": {
+      "path": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/withoutcdi/ContactStepsWithoutCDI.java",
+      "directory": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/withoutcdi",
+      "filename": "ContactStepsWithoutCDI.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 50,
+    "annotation": "\n    @When(\"^^we search contacts by name \\\"([^\\\"]*)\\\"2$\")",
+    "glue_code": "    @When(\"^^we search contacts by name \\\"([^\\\"]*)\\\"2$\")\n    public void we_search_contacts_by_name_(String name) throws Throwable {\n        Contact contact = new Contact();\n        contact.setName(name);\n        Query query = em().createQuery(\"select count(c.id) from Contact c where UPPER(c.name) like :name\");\n        query.setParameter(\"name\", \"%\" + name.toUpperCase() + \"%\");\n        count = (Long) query.getSingleResult();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 43,
+    "file_info": {
+      "path": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/withoutcdi/ContactStepsWithoutCDI.java",
+      "directory": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/withoutcdi",
+      "filename": "ContactStepsWithoutCDI.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 51,
+    "annotation": "\n\n    @Then(\"^we should find (\\\\d+) contacts2$\")",
+    "glue_code": "\n    @Then(\"^we should find (\\\\d+) contacts2$\")\n    public void we_should_find_result_contacts(Long result) throws Throwable {\n        assertEquals(result, count);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 52,
+    "file_info": {
+      "path": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/withoutcdi/ContactStepsWithoutCDI.java",
+      "directory": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/withoutcdi",
+      "filename": "ContactStepsWithoutCDI.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 52,
+    "annotation": "\n\n    @When(\"^we delete contact by id (\\\\d+) 2$\")",
+    "glue_code": "\n    @When(\"^we delete contact by id (\\\\d+) 2$\")\n    public void we_delete_contact_by_id(long id) throws Throwable {\n        tx().begin();\n        em().remove(em().find(Contact.class, id));\n        tx().commit();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 58,
+    "file_info": {
+      "path": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/withoutcdi/ContactStepsWithoutCDI.java",
+      "directory": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/withoutcdi",
+      "filename": "ContactStepsWithoutCDI.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 53,
+    "annotation": "\n    @Then(\"^we should not find contact (\\\\d+) 2$\")",
+    "glue_code": "    @Then(\"^we should not find contact (\\\\d+) 2$\")\n    public void we_should_not_find_contacts_in_database(long id) throws Throwable {\n        assertNull(em().find(Contact.class, id));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 66,
+    "file_info": {
+      "path": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/withoutcdi/ContactStepsWithoutCDI.java",
+      "directory": "examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/withoutcdi",
+      "filename": "ContactStepsWithoutCDI.java",
+      "extension": ".java"
+    }
+  }
+]

@@ -1,0 +1,394 @@
+[
+  {
+    "step_definition_id": 0,
+    "annotation": "\n    @Given(\"^I have a web application with the config locations \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Given(\"^I have a web application with the config locations \\\"([^\\\"]*)\\\"$\")\n    public void I_have_a_web_applications_with_the_config_locations(String locations) throws Throwable {\n        I_have_a_web_application_configured_locations_servletPath_contextPath(locations,\"\",\"\");\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 46,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1,
+    "annotation": "\n\n    @Given(\"^I have a web application configured locations \\\"([^\\\"]*)\\\" servletPath \\\"([^\\\"]*)\\\" contextPath \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "\n    @Given(\"^I have a web application configured locations \\\"([^\\\"]*)\\\" servletPath \\\"([^\\\"]*)\\\" contextPath \\\"([^\\\"]*)\\\"$\")\n    public void I_have_a_web_application_configured_locations_servletPath_contextPath(String locations, String servletPath, String contextPath) throws Throwable {\n\n        this.servletPath = servletPath;\n        this.contextPath = contextPath;\n\n        MockServletContext sc = new MockServletContext();\n        sc.setContextPath(contextPath);\n\n        this.wac = new XmlWebApplicationContext();\n        this.wac.setServletContext(sc);\n        this.wac.setConfigLocations(locations.split(\",\"));\n        this.wac.refresh();\n\n        this.hm = this.wac.getBean(RouterHandlerMapping.class);\n        this.ha = this.wac.getBean(RequestMappingHandlerAdapter.class);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 51,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 2,
+    "annotation": "\n    @Given(\"^I have a web application with javaconfig in package \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Given(\"^I have a web application with javaconfig in package \\\"([^\\\"]*)\\\"$\")\n    public void I_have_a_web_application_with_javaconfig_in_package(String scanPackage) throws Throwable {\n        MockServletContext sc = new MockServletContext(\"\");\n        AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();\n        appContext.scan(scanPackage);\n        appContext.setServletContext(sc);\n        appContext.refresh();\n\n        this.wac = appContext;\n\n        this.hm = appContext.getBean(RouterHandlerMapping.class);\n        this.ha = appContext.getBean(RequestMappingHandlerAdapter.class);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 70,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 3,
+    "annotation": "\n    @Given(\"^a current request \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\" with servlet path \\\"([^\\\"]*)\\\" and context path \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Given(\"^a current request \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\" with servlet path \\\"([^\\\"]*)\\\" and context path \\\"([^\\\"]*)\\\"$\")\n    public void a_current_request_with_servlet_path_and_context_path(String method, String url, String servletPath, String contextPath) throws Throwable {\n\n        MockServletContext sc = new MockServletContext();\n        sc.setContextPath(contextPath);\n\n        int pathLength = 0;\n        if(contextPath.length() > 0) {\n            pathLength += contextPath.length();\n        }\n\n        if(servletPath.length() > 0) {\n            pathLength += servletPath.length();\n        }\n\n        request = new MockHttpServletRequest(sc, method, url);\n        request.setContextPath(contextPath);\n        request.setServletPath(servletPath);\n        request.addHeader(\"host\", host);\n\n        request.setPathInfo(url.substring(pathLength));\n\n\t    ServletRequestAttributes requestAttributes = new ServletRequestAttributes(request);\n\t    RequestContextHolder.setRequestAttributes(requestAttributes);\n\n        HTTPRequestAdapter.parseRequest(request);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 84,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 4,
+    "annotation": "\n\n\n    @When(\"^I send the HTTP request \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "\n\n    @When(\"^I send the HTTP request \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\"$\")\n    public void I_send_the_HTTP_request(String method, String url) throws Throwable {\n\n        int pathLength = 0;\n        if(this.contextPath.length() > 0) {\n            pathLength += this.contextPath.length();\n        }\n\n        if(this.servletPath.length() > 0) {\n            pathLength += this.servletPath.length();\n        }\n\n        request = new MockHttpServletRequest(this.wac.getServletContext(),method, url);\n        request.setContextPath(this.contextPath);\n        request.setServletPath(this.servletPath);\n        request.addHeader(\"host\", host);\n\n\t    ServletRequestAttributes requestAttributes = new ServletRequestAttributes(request);\n\t    RequestContextHolder.setRequestAttributes(requestAttributes);\n\n        for (HTTPHeader header : headers) {\n            request.addHeader(header.name, header.value);\n        }\n\n        for (HTTPParam param : queryParams) {\n            request.addParameter(param.name, param.value);\n        }\n\n        request.setPathInfo(url.substring(pathLength));\n        chain = this.hm.getHandler(request);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 112,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 5,
+    "annotation": "\n    @When(\"^I send the HTTP request \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\" with a null pathInfo$\")",
+    "glue_code": "    @When(\"^I send the HTTP request \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\" with a null pathInfo$\")\n    public void I_send_the_HTTP_request_with_a_null_pathInfo(String method, String url) throws Throwable {\n\n        request = new MockHttpServletRequest(this.wac.getServletContext());\n        request.setMethod(method);\n        request.setContextPath(this.contextPath);\n        request.setServletPath(url.replaceFirst(this.contextPath,\"\"));\n        request.addHeader(\"host\", host);\n\n        for (HTTPHeader header : headers) {\n            request.addHeader(header.name, header.value);\n        }\n\n        for (HTTPParam param : queryParams) {\n            request.addParameter(param.name, param.value);\n        }\n\n        request.setPathInfo(null);\n\n\t    ServletRequestAttributes requestAttributes = new ServletRequestAttributes(request);\n\t    RequestContextHolder.setRequestAttributes(requestAttributes);\n\n        chain = this.hm.getHandler(request);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 146,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 6,
+    "annotation": "\n\n\n    @When(\"^I send the HTTP request \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\" to host \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "\n\n    @When(\"^I send the HTTP request \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\" to host \\\"([^\\\"]*)\\\"$\")\n    public void I_send_the_HTTP_request_to_host(String method, String url, String host) throws Throwable {\n\n        this.host = host;\n        I_send_the_HTTP_request(method,url);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 171,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 7,
+    "annotation": "\n    @When(\"^I send the HTTP request \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\" with query params:$\")",
+    "glue_code": "    @When(\"^I send the HTTP request \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\" with query params:$\")\n    public void I_send_the_HTTP_request_with_query_params(String method, String url, List<HTTPParam> queryParams) throws Throwable {\n\n        this.queryParams = queryParams;\n        I_send_the_HTTP_request(method,url);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 180,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 8,
+    "annotation": "\n    @When(\"^I send the HTTP request \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\" with headers:$\")",
+    "glue_code": "    @When(\"^I send the HTTP request \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\" with headers:$\")\n    public void I_send_the_HTTP_request_with_headers(String method, String url, List<HTTPHeader> headers) throws Throwable {\n\n        this.headers = headers;\n        I_send_the_HTTP_request(method,url);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 187,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 9,
+    "annotation": "\n    @When(\"^I build a link for controller \\\"([^\\\"]*)\\\" and action \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^I build a link for controller \\\"([^\\\"]*)\\\" and action \\\"([^\\\"]*)\\\"$\")\n    public void I_build_a_link_for_controller_and_action(String controller, String action) throws Throwable {\n\n         linkBuilder = RouterLinkBuilder.linkTo(controller,action);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 194,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 10,
+    "annotation": "\n    @When(\"^I add an argument named \\\"([^\\\"]*)\\\" with value \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^I add an argument named \\\"([^\\\"]*)\\\" with value \\\"([^\\\"]*)\\\"$\")\n    public void I_add_a_argument_named_with_value(String name, String value) throws Throwable {\n        linkBuilder = linkBuilder.slash(name, value);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 200,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 11,
+    "annotation": "\n    @When(\"^I add an argument \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^I add an argument \\\"([^\\\"]*)\\\"$\")\n    public void I_add_a_argument(String argument) throws Throwable {\n        linkBuilder = linkBuilder.slash(argument);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 205,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 12,
+    "annotation": "\n    @Then(\"^no handler should be found$\")",
+    "glue_code": "    @Then(\"^no handler should be found$\")\n    public void no_handler_should_be_found() throws Throwable {\n\n        assertThat(chain).isNull();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 210,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 13,
+    "annotation": "\n    @Then(\"^the request should be handled by \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the request should be handled by \\\"([^\\\"]*)\\\"$\")\n    public void the_request_should_be_handled_by(String controllerAction) throws Throwable {\n\n        assertThat(chain).isNotNull();\n        RouterHandler handler = (RouterHandler) chain.getHandler();\n\n        assertThat(handler).isNotNull();\n        assertThat(handler.getRoute()).isNotNull();\n        assertThat(handler.getRoute().action).isNotNull().isEqualToIgnoringCase(controllerAction);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 216,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 14,
+    "annotation": "\n\n    @Then(\"^the handler should raise a security exception$\")",
+    "glue_code": "\n    @Then(\"^the handler should raise a security exception$\")\n    public void the_handler_should_raise_a_security_exception() throws Throwable {\n\n        assertThat(chain).isNotNull();\n        RouterHandler handler = (RouterHandler) chain.getHandler();\n\n        Exception securityException = null;\n\n        try {\n            ha.handle(request, new MockHttpServletResponse(), handler);\n        } catch(Exception exc) {\n            securityException = exc;\n        }\n\n        assertThat(securityException).isNotNull().isInstanceOf(AuthenticationCredentialsNotFoundException.class);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 227,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 15,
+    "annotation": "\n    @Then(\"^the controller should respond with a ModelAndView containing:$\")",
+    "glue_code": "    @Then(\"^the controller should respond with a ModelAndView containing:$\")\n    public void the_controller_should_respond_with_a_ModelAndView_containing(List<MaVParams> mavparams) throws Throwable {\n\n        assertThat(chain).isNotNull();\n        RouterHandler handler = (RouterHandler) chain.getHandler();\n\n        ModelAndView mv = ha.handle(request, new MockHttpServletResponse(), handler);\n\n        for (MaVParams param : mavparams) {\n            assertThat(param.value).isEqualTo(mv.getModel().get(param.key).toString());\n        }\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 245,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 16,
+    "annotation": "\n    @Then(\"^the server should send an HTTP response with status \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the server should send an HTTP response with status \\\"([^\\\"]*)\\\"$\")\n    public void the_server_should_send_an_HTTP_response_with_status(int status) throws Throwable {\n\n        RouterHandler handler = null;\n        MockHttpServletResponse response = new MockHttpServletResponse();\n\n        if(chain != null) {\n            handler = (RouterHandler) chain.getHandler();\n        }\n\n        HandlerInterceptor[] interceptors = chain.getInterceptors();\n\n        for(HandlerInterceptor interceptor : Arrays.asList(interceptors)) {\n            interceptor.preHandle(request,response, handler);\n        }\n\n        ha.handle(request, response, handler);\n        assertThat(response.getStatus()).isEqualTo(status);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 258,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 17,
+    "annotation": "\n    @Then(\"^the raw link should be \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^the raw link should be \\\"([^\\\"]*)\\\"$\")\n    public void the_raw_link_should_be(String link) throws Throwable {\n\n        assertThat(linkBuilder.toString()).isEqualTo(link);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 278,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 18,
+    "annotation": "\n    @Then(\"^the self rel link should be \\\"(.*)\\\"$\")",
+    "glue_code": "    @Then(\"^the self rel link should be \\\"(.*)\\\"$\")\n    public void the_self_rel_link_should_be(String link) throws Throwable {\n\n        assertThat(linkBuilder.withSelfRel().toString()).isEqualTo(link);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 284,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/HandlersStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "HandlersStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 19,
+    "annotation": "\n    @Given(\"^an empty Router$\")",
+    "glue_code": "    @Given(\"^an empty Router$\")\n    public void an_empty_Router() throws Throwable {\n        // clear routes from the static Router\n        Router.clear();\n\t    // clear RequestContextHolder from previous tests\n\t    MockHttpServletRequest request = new MockHttpServletRequest(\"GET\",\"http://localhost/\");\n\t    request.addHeader(\"host\", \"localhost\");\n\t    ServletRequestAttributes requestAttributes = new ServletRequestAttributes(request);\n\t    RequestContextHolder.setRequestAttributes(requestAttributes);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 26,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/ReverseRoutingStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "ReverseRoutingStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 20,
+    "annotation": "\n    @Given(\"^I have a route with method \\\"([^\\\"]*)\\\" path \\\"([^\\\"]*)\\\" action \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Given(\"^I have a route with method \\\"([^\\\"]*)\\\" path \\\"([^\\\"]*)\\\" action \\\"([^\\\"]*)\\\"$\")\n    public void I_have_a_route_with_method_url_action(String method, String path, String action) throws Throwable {\n        Router.prependRoute(method, path, action);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 37,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/ReverseRoutingStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "ReverseRoutingStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 21,
+    "annotation": "\n    @Given(\"^I have routes:$\")",
+    "glue_code": "    @Given(\"^I have routes:$\")\n    public void I_have_routes(List<RouteItem> routes) throws Throwable {\n        for(RouteItem item : routes) {\n            Router.addRoute(item.method,item.path,item.action,item.params,null);\n        }\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 42,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/ReverseRoutingStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "ReverseRoutingStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 22,
+    "annotation": "\n    @Given(\"^the current request is processed within a context path \\\"([^\\\"]*)\\\" and servlet path \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Given(\"^the current request is processed within a context path \\\"([^\\\"]*)\\\" and servlet path \\\"([^\\\"]*)\\\"$\")\n    public void the_current_request_is_processed_within_a_context_path_and_servlet_path(String contextPath, String servletPath) throws Throwable {\n\n        MockHttpServletRequest request = new MockHttpServletRequest(\"GET\", \"/reverse-routing\");\n        request.addHeader(\"host\",\"example.org\");\n        request.setContextPath(contextPath);\n        request.setServletPath(servletPath);\n\n\t    ServletRequestAttributes requestAttributes = new ServletRequestAttributes(request);\n\t    RequestContextHolder.setRequestAttributes(requestAttributes);\n\n        this.requestAdapter = HTTPRequestAdapter.parseRequest(request);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 49,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/ReverseRoutingStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "ReverseRoutingStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 23,
+    "annotation": "\n    @When(\"^I try to reverse route \\\"([^\\\"]*)\\\" with params:$\")",
+    "glue_code": "    @When(\"^I try to reverse route \\\"([^\\\"]*)\\\" with params:$\")\n    public void I_try_to_reverse_route_with_params(String path, List<ParamItem> params) throws Throwable {\n        Map<String,Object> routeParams = new HashMap<String, Object>();\n        for(ParamItem param : params) {\n              routeParams.put(param.key,param.value);\n        }\n        try {\n            resolvedAction = Router.reverse(path,routeParams);\n        } catch(Exception exc) {\n            this.thrownException = exc;\n        }\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 63,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/ReverseRoutingStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "ReverseRoutingStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 24,
+    "annotation": "\n    @When(\"^I try to reverse route \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^I try to reverse route \\\"([^\\\"]*)\\\"$\")\n    public void I_try_to_reverse_route(String action) throws Throwable {\n        resolvedAction = Router.reverse(action);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 76,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/ReverseRoutingStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "ReverseRoutingStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 25,
+    "annotation": "\n    @Then(\"^I should get an action with path \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^I should get an action with path \\\"([^\\\"]*)\\\"$\")\n    public void I_should_get_an_action_with_URL(String path) throws Throwable {\n         assertThat(path).isEqualTo(resolvedAction.url);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 81,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/ReverseRoutingStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "ReverseRoutingStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 26,
+    "annotation": "\n    @Then(\"^I should get an action with path \\\"([^\\\"]*)\\\" and host \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^I should get an action with path \\\"([^\\\"]*)\\\" and host \\\"([^\\\"]*)\\\"$\")\n    public void I_should_get_an_action_with_path_and_host(String path, String host) throws Throwable {\n        assertThat(path).isEqualTo(resolvedAction.url);\n        assertThat(host).isEqualTo(resolvedAction.host);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 86,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/ReverseRoutingStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "ReverseRoutingStepdefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 27,
+    "annotation": "\n    @Then(\"^no action should match$\")",
+    "glue_code": "    @Then(\"^no action should match$\")\n    public void no_action_should_match() throws Throwable {\n        assertThat(this.thrownException).isNotNull().isInstanceOf(NoHandlerFoundException.class);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 92,
+    "file_info": {
+      "path": "src/test/java/org/resthub/web/springmvc/router/test/ReverseRoutingStepdefs.java",
+      "directory": "src/test/java/org/resthub/web/springmvc/router/test",
+      "filename": "ReverseRoutingStepdefs.java",
+      "extension": ".java"
+    }
+  }
+]

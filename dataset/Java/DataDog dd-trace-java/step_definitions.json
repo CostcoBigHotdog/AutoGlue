@@ -1,0 +1,268 @@
+[
+  {
+    "step_definition_id": 1188,
+    "annotation": "\n  @Given(\"a calculator I just turned on\")",
+    "glue_code": "  @Given(\"a calculator I just turned on\")\n  public void a_calculator_I_just_turned_on() {\n    calc = new Calculator();\n  }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 16,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/cucumber/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/cucumber/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1189,
+    "annotation": "\n  @When(\"I add {int} and {int}\")",
+    "glue_code": "  @When(\"I add {int} and {int}\")\n  public void adding(int arg1, int arg2) {\n    calc.push(arg1);\n    calc.push(arg2);\n    calc.push(\"+\");\n  }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 21,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/cucumber/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/cucumber/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1190,
+    "annotation": "\n  @Then(\"the result is {int}\")",
+    "glue_code": "  @Then(\"the result is {int}\")\n  public void the_result_is(double expected) {\n    assertEquals(expected, calc.value());\n  }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 28,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/cucumber/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/cucumber/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1191,
+    "annotation": "\n  @Given(\"a calculator I just turned on\")",
+    "glue_code": "  @Given(\"a calculator I just turned on\")\n  public void a_calculator_I_just_turned_on() {\n    calc = new Calculator();\n  }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 16,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/junit-4.10/cucumber-junit-4/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/junit-4.10/cucumber-junit-4/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1192,
+    "annotation": "\n  @When(\"I add {int} and {int}\")",
+    "glue_code": "  @When(\"I add {int} and {int}\")\n  public void adding(int arg1, int arg2) {\n    calc.push(arg1);\n    calc.push(arg2);\n    calc.push(\"+\");\n  }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 21,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/junit-4.10/cucumber-junit-4/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/junit-4.10/cucumber-junit-4/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1193,
+    "annotation": "\n  @When(\"I slowly add {int} and {int}\")",
+    "glue_code": "  @When(\"I slowly add {int} and {int}\")\n  public void addingSlow(int arg1, int arg2) throws InterruptedException {\n    Thread.sleep(1100);\n    calc.push(arg1);\n    calc.push(arg2);\n    calc.push(\"+\");\n  }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 28,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/junit-4.10/cucumber-junit-4/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/junit-4.10/cucumber-junit-4/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1194,
+    "annotation": "\n  @Given(\"^I press (.+)$\")",
+    "glue_code": "  @Given(\"^I press (.+)$\")\n  public void I_press(String what) {\n    calc.push(what);\n  }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 36,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/junit-4.10/cucumber-junit-4/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/junit-4.10/cucumber-junit-4/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1195,
+    "annotation": "\n  @Then(\"the result is {int}\")",
+    "glue_code": "  @Then(\"the result is {int}\")\n  public void the_result_is(double expected) {\n    assertEquals(expected, calc.value());\n  }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 41,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/junit-4.10/cucumber-junit-4/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/junit-4.10/cucumber-junit-4/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1196,
+    "annotation": "\n  @Given(\"the previous entries:\")",
+    "glue_code": "  @Given(\"the previous entries:\")\n  public void thePreviousEntries(List<Entry> entries) {\n    for (Entry entry : entries) {\n      calc.push(entry.first);\n      calc.push(entry.second);\n      calc.push(entry.operation);\n    }\n  }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 46,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/junit-4.10/cucumber-junit-4/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/junit-4.10/cucumber-junit-4/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1197,
+    "annotation": "\n  @Given(\"a calculator I just turned on\")",
+    "glue_code": "  @Given(\"a calculator I just turned on\")\n  public void a_calculator_I_just_turned_on() {\n    calc = new Calculator();\n  }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 18,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/junit-5.3/cucumber-junit-5/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/junit-5.3/cucumber-junit-5/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1198,
+    "annotation": "\n  @Given(\"a flaky calculator I just turned on\")",
+    "glue_code": "  @Given(\"a flaky calculator I just turned on\")\n  public void a_flaky_calculator_I_just_turned_on() {\n    calc = new Calculator(++flakyCounter < 3);\n  }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 23,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/junit-5.3/cucumber-junit-5/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/junit-5.3/cucumber-junit-5/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1199,
+    "annotation": "\n  @When(\"I add {int} and {int}\")",
+    "glue_code": "  @When(\"I add {int} and {int}\")\n  public void adding(int arg1, int arg2) {\n    calc.push(arg1);\n    calc.push(arg2);\n    calc.push(\"+\");\n  }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 28,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/junit-5.3/cucumber-junit-5/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/junit-5.3/cucumber-junit-5/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1200,
+    "annotation": "\n  @When(\"I slowly add {int} and {int}\")",
+    "glue_code": "  @When(\"I slowly add {int} and {int}\")\n  public void addingSlow(int arg1, int arg2) throws InterruptedException {\n    Thread.sleep(1100);\n    calc.push(arg1);\n    calc.push(arg2);\n    calc.push(\"+\");\n  }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 35,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/junit-5.3/cucumber-junit-5/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/junit-5.3/cucumber-junit-5/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1201,
+    "annotation": "\n  @Given(\"^I press (.+)$\")",
+    "glue_code": "  @Given(\"^I press (.+)$\")\n  public void I_press(String what) {\n    calc.push(what);\n  }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 43,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/junit-5.3/cucumber-junit-5/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/junit-5.3/cucumber-junit-5/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1202,
+    "annotation": "\n  @Then(\"the result is {int}\")",
+    "glue_code": "  @Then(\"the result is {int}\")\n  public void the_result_is(double expected) {\n    assertEquals(expected, calc.value());\n  }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 48,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/junit-5.3/cucumber-junit-5/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/junit-5.3/cucumber-junit-5/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1203,
+    "annotation": "\n  @Given(\"the previous entries:\")",
+    "glue_code": "  @Given(\"the previous entries:\")\n  public void thePreviousEntries(List<Entry> entries) {\n    for (Entry entry : entries) {\n      calc.push(entry.first);\n      calc.push(entry.second);\n      calc.push(entry.operation);\n    }\n  }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 53,
+    "file_info": {
+      "path": "dd-java-agent/instrumentation/junit-5.3/cucumber-junit-5/src/test/java/org/example/cucumber/calculator/CalculatorSteps.java",
+      "directory": "dd-java-agent/instrumentation/junit-5.3/cucumber-junit-5/src/test/java/org/example/cucumber/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1204,
+    "annotation": "\n  @Given(\"a calculator I just turned on\")",
+    "glue_code": "  @Given(\"a calculator I just turned on\")\n  public void a_calculator_I_just_turned_on() {\n    calc = new Calculator();\n  }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 16,
+    "file_info": {
+      "path": "dd-smoke-tests/maven/src/test/resources/test_successful_maven_run_with_cucumber/src/test/java/datadog/smoke/calculator/CalculatorSteps.java",
+      "directory": "dd-smoke-tests/maven/src/test/resources/test_successful_maven_run_with_cucumber/src/test/java/datadog/smoke/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1205,
+    "annotation": "\n  @When(\"I add {int} and {int}\")",
+    "glue_code": "  @When(\"I add {int} and {int}\")\n  public void adding(int arg1, int arg2) {\n    calc.push(arg1);\n    calc.push(arg2);\n    calc.push(\"+\");\n  }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 21,
+    "file_info": {
+      "path": "dd-smoke-tests/maven/src/test/resources/test_successful_maven_run_with_cucumber/src/test/java/datadog/smoke/calculator/CalculatorSteps.java",
+      "directory": "dd-smoke-tests/maven/src/test/resources/test_successful_maven_run_with_cucumber/src/test/java/datadog/smoke/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 1206,
+    "annotation": "  @Then(\"the result is {int}\")",
+    "glue_code": "  public void the_result_is(double expected) {\n    assertEquals(expected, calc.value());\n  }\n  static class Calculator {",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 28,
+    "file_info": {
+      "path": "dd-smoke-tests/maven/src/test/resources/test_successful_maven_run_with_cucumber/src/test/java/datadog/smoke/calculator/CalculatorSteps.java",
+      "directory": "dd-smoke-tests/maven/src/test/resources/test_successful_maven_run_with_cucumber/src/test/java/datadog/smoke/calculator",
+      "filename": "CalculatorSteps.java",
+      "extension": ".java"
+    }
+  }
+]

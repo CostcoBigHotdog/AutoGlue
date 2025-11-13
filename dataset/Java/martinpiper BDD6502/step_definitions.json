@@ -1,0 +1,2578 @@
+[
+  {
+    "step_definition_id": 248,
+    "annotation": "    @Given(\"^starting an automation process \\\"([^\\\"]*)\\\" with parameters \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    public void startingAnAutomationProcessWithParameters(String name, String parameters) throws Throwable {\n        // https://mmarquee.github.io/ui-automation/docs/developer.html\n        UIAutomation automation = UIAutomation.getInstance();\n        if (parameters.isEmpty()) {\n            // Empty parameters seems to generate an error internally?\n            application = new Application(new ElementBuilder().automation(automation).applicationPath(name));\n            application.launchOrAttach();\n        } else {\n            application = new Application(new ElementBuilder().automation(automation).applicationPath(name).applicationArguments(parameters));\n            application.launchOrAttach();\n        }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 52,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 249,
+    "annotation": "\n    @Given(\"^starting an automation process \\\"([^\\\"]*)\\\" with parameters: (.*)$\")",
+    "glue_code": "    @Given(\"^starting an automation process \\\"([^\\\"]*)\\\" with parameters: (.*)$\")\n    public void startingAnAutomationProcessWithParametersC(String arg0, String arg1) throws Throwable {\n        startingAnAutomationProcessWithParameters(arg0, arg1);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 65,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 250,
+    "annotation": "\n    @When(\"^automation wait for idle$\")",
+    "glue_code": "    @When(\"^automation wait for idle$\")\n    public void automationWaitForIdle() {\n        application.waitForInputIdle();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 70,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 251,
+    "annotation": "\n    @When(\"^automation find window from pattern \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^automation find window from pattern \\\"([^\\\"]*)\\\"$\")\n    public void automationFindWindowFromPattern(String arg0) throws Throwable {\n        UIAutomation automation = UIAutomation.getInstance();\n        currentWindow = automation.getDesktopWindow(Pattern.compile(arg0));\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 75,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 252,
+    "annotation": "\n    @When(\"^automation focus window$\")",
+    "glue_code": "    @When(\"^automation focus window$\")\n    public void automationFocusWindow() {\n        currentWindow.focus();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 81,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 253,
+    "annotation": "\n    @Then(\"^automation wait for window close$\")",
+    "glue_code": "    @Then(\"^automation wait for window close$\")\n    public void automationWaitForWindowClose() throws InterruptedException {\n\n        while (true) {\n            try {\n                if (!currentWindow.isEnabled()) break;\n            } catch (AutomationException e) {\n                System.out.println(\"Window closed!\");\n                return;\n            }\n            Thread.sleep(1000);\n            System.out.println(\"Waiting for window...\");\n        }\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 86,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 254,
+    "annotation": "    @When(\"^automation expand main menu item \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    public void automationExpandMainMenuItem(String name) throws Throwable {\n        // Write code here that turns the phrase above into concrete actions\n        currentMenuItem = currentWindow.getMainMenu().getMenuItem(name);\n        currentMenuItem.expand();\n    }\n\n    @When(\"^automation click current menu item \\\"([^\\\"]*)\\\"$\")\n    public void automationClickCurrentMenuItem(String pattern) throws Throwable {",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 103,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 255,
+    "annotation": "\n    @When(\"^automation click current menu item \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^automation click current menu item \\\"([^\\\"]*)\\\"$\")\n    public void automationClickCurrentMenuItem(String pattern) throws Throwable {\n        List<MenuItem> items = currentMenuItem.getItems();\n        for (MenuItem item : items) {\n            System.out.println(item.getName());\n        }\n        currentMenuItem = currentMenuItem.getMenuItem(Pattern.compile(pattern));\n        currentMenuItem.click();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 109,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 256,
+    "annotation": "\n    @Given(\"^add C64 display window to C64 keyboard buffer hook$\")",
+    "glue_code": "    @Given(\"^add C64 display window to C64 keyboard buffer hook$\")\n    public void addC64DisplayWindowToCKeyboardBufferHook() {\n        displayC64.enableKeyboardBufferHook();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 119,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 257,
+    "annotation": "    @Given(\"^add C64 regular IRQ trigger of \\\"(.*)\\\" cycles$\")",
+    "glue_code": "    public void addC64RegularIRQTriggerOfCyccles(String cycles) throws ParseException, ScriptException {\n        regularTimedIRQCyclesReset = valueToInt(PropertiesResolution.resolveInput(scenario, cycles));\n        regularTimedIRQCycles = regularTimedIRQCyclesReset;\n    }\n\n    @Given(\"^set the variable \\\"([^\\\"]*)\\\" equal to the cycle count$\")\n    public void setTheVariableEqualToTheCycleCount(String name) throws Throwable {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 127,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 258,
+    "annotation": "\n    @Given(\"^set the variable \\\"([^\\\"]*)\\\" equal to the cycle count$\")",
+    "glue_code": "    @Given(\"^set the variable \\\"([^\\\"]*)\\\" equal to the cycle count$\")\n    public void setTheVariableEqualToTheCycleCount(String name) throws Throwable {\n        name = PropertiesResolution.resolveInput(scenario, name);\n        System.setProperty(name , Integer.toString(machine.getCpu().getClockCycles()));\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 132,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 259,
+    "annotation": "\n    @Given(\"^the display has RGB background functionality$\")",
+    "glue_code": "    @Given(\"^the display has RGB background functionality$\")\n    public void theDisplayHasRGBBackground() {\n        displayBombJack.enableRGBBackgroundFunctionality();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 138,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 260,
+    "annotation": "\n    @Given(\"^the display has palette layer expansion$\")",
+    "glue_code": "    @Given(\"^the display has palette layer expansion$\")\n    public void theDisplayHasPaletteLayerExpansion() {\n        displayBombJack.enablePaletteLayerExpansionFunctionality();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 143,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 261,
+    "annotation": "    @Given(\"^I have a simple 6502 system$\")",
+    "glue_code": "    public void i_have_a_simple_6502_system() throws Throwable {\n        initMachine();\n    }\n\n    @Given(\"^I have a simple overclocked 6502 system$\")\n    public void i_have_a_simple_overclocked_6502_system() throws Throwable {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 347,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 262,
+    "annotation": "\n    @Given(\"^I have a simple overclocked 6502 system$\")",
+    "glue_code": "    @Given(\"^I have a simple overclocked 6502 system$\")\n    public void i_have_a_simple_overclocked_6502_system() throws Throwable {\n        initMachine();\n        machine.getCpu().setOverclock();\n        if (displayC64 != null) {\n            displayC64.setTheRAM(machine.getRam());\n        }\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 351,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 263,
+    "annotation": "\n    @Given(\"^clear all external devices$\")",
+    "glue_code": "    @Given(\"^clear all external devices$\")\n    public void clearDevices() {\n        devices.clear();\n        if (displayBombJack != null) {\n            displayBombJack.getWindow().dispatchEvent(new WindowEvent(displayBombJack.getWindow(), WindowEvent.WINDOW_CLOSING));\n        }\n        displayBombJack = null;\n        if (audioExpansion != null) {\n            audioExpansion.close();\n        }\n        audioExpansion = null;\n        userPort24BitAddress = null;\n\n        if (displayC64 != null) {\n            displayC64.getWindow().dispatchEvent(new WindowEvent(displayBombJack.getWindow(), WindowEvent.WINDOW_CLOSING));\n        }\n        displayC64 = null;\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 360,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 264,
+    "annotation": "\n    @Given(\"^I am using C64 processor port options$\")",
+    "glue_code": "    @Given(\"^I am using C64 processor port options$\")\n    public void i_am_using_C_processor_port_options() throws Throwable {\n        machine.getBus().setProcessorPort();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 400,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 265,
+    "annotation": "\n\n    @Given(\"^I fill memory with (.+)$\")",
+    "glue_code": "\n    @Given(\"^I fill memory with (.+)$\")\n    public void i_fill_memory_with(String arg1) throws Throwable {\n        Memory mem = machine.getRam();\n        mem.fill(valueToInt(arg1));\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 405,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 266,
+    "annotation": "\n    @When(\"^I enable uninitialised memory read protection$\")",
+    "glue_code": "    @When(\"^I enable uninitialised memory read protection$\")\n    public void i_enable_uninitialised_memory_read_protection() throws Throwable {\n        enableuninitialisedReadProtection = true;\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 412,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 267,
+    "annotation": "\n    @When(\"^I enable uninitialised memory read protection with immediate fail$\")",
+    "glue_code": "    @When(\"^I enable uninitialised memory read protection with immediate fail$\")\n    public void i_enable_uninitialised_memory_read_protection_with_immediate_fail() throws Throwable {\n        enableuninitialisedReadProtection = true;\n        enableuninitialisedReadProtectionWithFail = true;\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 417,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 268,
+    "annotation": "\n    @When(\"^I disable uninitialised memory read protection$\")",
+    "glue_code": "    @When(\"^I disable uninitialised memory read protection$\")\n    public void i_disable_uninitialised_memory_read_protection() throws Throwable {\n        enableuninitialisedReadProtection = false;\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 423,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 269,
+    "annotation": "\n    @When(\"^I reset the uninitialised memory read flag$\")",
+    "glue_code": "    @When(\"^I reset the uninitialised memory read flag$\")\n    public void i_reset_uninitialised_memory_read_flag() throws Throwable {\n        machine.getRam().resetuninitialisedReadOccured();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 428,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 270,
+    "annotation": "\n    @Then(\"^I assert the uninitialised memory read flag is set$\")",
+    "glue_code": "    @Then(\"^I assert the uninitialised memory read flag is set$\")\n    public void i_assert_the_uninitialised_memory_read_flag_is_set() throws Throwable {\n        assertThat(machine.getRam().isuninitialisedReadOccured(), is(equalTo(true)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 433,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 271,
+    "annotation": "\n    @Then(\"^I assert the uninitialised memory read flag is clear$\")",
+    "glue_code": "    @Then(\"^I assert the uninitialised memory read flag is clear$\")\n    public void i_assert_the_uninitialised_memory_read_flag_is_clear() throws Throwable {\n        assertThat(machine.getRam().isuninitialisedReadOccured(), is(equalTo(false)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 438,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 272,
+    "annotation": "\n    @Given(\"^assert on read memory from (.+) to (.+)$\")",
+    "glue_code": "    @Given(\"^assert on read memory from (.+) to (.+)$\")\n    public void assertOnReadMemory(String arg1 , String arg2) throws Throwable {\n        int start = valueToInt(arg1);\n        int end = valueToInt(arg2);\n        machine.getRam().setAssertOnRead(start,end,true);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 443,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 273,
+    "annotation": "\n    @Given(\"^assert on write memory from (.+) to (.+)$\")",
+    "glue_code": "    @Given(\"^assert on write memory from (.+) to (.+)$\")\n    public void assertOnWriteMemory(String arg1 , String arg2) throws Throwable {\n        int start = valueToInt(arg1);\n        int end = valueToInt(arg2);\n        machine.getRam().setAssertOnWrite(start,end,true);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 450,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 274,
+    "annotation": "\n    @Given(\"^assert on exec memory from (.+) to (.+)$\")",
+    "glue_code": "    @Given(\"^assert on exec memory from (.+) to (.+)$\")\n    public void assertOnExecMemory(String arg1 , String arg2) throws Throwable {\n        int start = valueToInt(arg1);\n        int end = valueToInt(arg2);\n        machine.getRam().setAssertOnExec(start,end,true);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 457,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 275,
+    "annotation": "\n    @Given(\"^I start writing memory at (.+)$\")",
+    "glue_code": "    @Given(\"^I start writing memory at (.+)$\")\n    public void i_start_writing_memory_at(String arg1) throws Throwable {\n        writingAddress = valueToInt(arg1);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 464,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 276,
+    "annotation": "\n    @When(\"^I start comparing memory at (.+)$\")",
+    "glue_code": "    @When(\"^I start comparing memory at (.+)$\")\n    public void i_start_comparing_memory_at(String arg1) throws Throwable {\n        comparingAddress = valueToInt(arg1);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 469,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 277,
+    "annotation": "\n    @Given(\"^I write the following hex bytes$\")",
+    "glue_code": "    @Given(\"^I write the following hex bytes$\")\n    public void i_write_the_following_hex_bytes(List<String> arg1) throws Throwable {\n        for (String arg : arg1) {\n            String[] values = arg.split(\" \");\n            int i;\n            for (i = 0; i < values.length; i++) {\n                if (!values[i].isEmpty()) {\n                    machine.getBus().write(writingAddress++, Integer.parseInt(values[i], 16));\n                }\n            }\n        }\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 474,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 278,
+    "annotation": "\n    @When(\"^I assert the following hex bytes are the same$\")",
+    "glue_code": "    @When(\"^I assert the following hex bytes are the same$\")\n    public void i_assert_the_following_hex_bytes_are_the_same(List<String> arg1) throws Throwable {\n        for (String arg : arg1) {\n            String[] values = arg.split(\" \");\n            int i;\n            for (i = 0; i < values.length; i++) {\n                if (!values[i].isEmpty()) {\n                    int readValue = machine.getBus().read(comparingAddress, false);\n                    int expectedValue = Integer.parseInt(values[i], 16);\n                    assertThat(\"Address is $\" + Integer.toHexString(comparingAddress), readValue, is(equalTo(expectedValue)));\n                    comparingAddress++;\n                }\n            }\n        }\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 487,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 279,
+    "annotation": "\n    @Given(\"^I write the following bytes$\")",
+    "glue_code": "    @Given(\"^I write the following bytes$\")\n    public void i_write_the_following_bytes(List<String> arg1) throws Throwable {\n        for (String arg : arg1) {\n            machine.getBus().write(writingAddress++, valueToInt(arg));\n        }\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 503,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 280,
+    "annotation": "\n    @Given(\"^I assert the following bytes are the same$\")",
+    "glue_code": "    @Given(\"^I assert the following bytes are the same$\")\n    public void i_assert_the_following_bytes_are_the_same(List<String> arg1) throws Throwable {\n        for (String arg : arg1) {\n            int readValue = machine.getBus().read(comparingAddress, false);\n            int expectedValue = valueToInt(arg);\n            assertThat(\"Address is $\" + Integer.toHexString(comparingAddress), readValue, is(equalTo(expectedValue)));\n            comparingAddress++;\n        }\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 510,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 281,
+    "annotation": "\n    @Given(\"^I write memory at (.+) with (.+)$\")",
+    "glue_code": "    @Given(\"^I write memory at (.+) with (.+)$\")\n    public void i_write_memory_at_with(String arg1, String arg2) throws Throwable {\n        machine.getBus().write(valueToInt(arg1), valueToInt(arg2));\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 520,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 282,
+    "annotation": "\n    @Given(\"^I push a (.+) byte to the stack$\")",
+    "glue_code": "    @Given(\"^I push a (.+) byte to the stack$\")\n    public void i_push_byte_to_the_stack(String arg1) throws Throwable {\n        machine.getCpu().stackPush(valueToInt(arg1));\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 525,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 283,
+    "annotation": "\n    @Given(\"^I setup a (.+) byte stack slide$\")",
+    "glue_code": "    @Given(\"^I setup a (.+) byte stack slide$\")\n    public void i_setup_a_byte_stack_slide(String arg1) throws Throwable {\n        int i;\n        for (i = 0; i < valueToInt(arg1); i++) {\n            machine.getCpu().stackPush(0);\n        }\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 530,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 284,
+    "annotation": "\n    @Given(\"^That does fail on BRK$\")",
+    "glue_code": "    @Given(\"^That does fail on BRK$\")\n    public void that_does_fail_on_brk() throws Throwable {\n        machine.getCpu().setFailOnBreak();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 538,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 285,
+    "annotation": "\n    @Given(\"^That does exit on BRK$\")",
+    "glue_code": "    @Given(\"^That does exit on BRK$\")\n    public void that_does_exit_on_brk() throws Throwable {\n        machine.getCpu().setExitOnBreak();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 543,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 286,
+    "annotation": "\n    @Given(\"^I enable trace$\")",
+    "glue_code": "    @Given(\"^I enable trace$\")\n    public void i_enable_trace() throws Throwable {\n        traceOveride = true;\n        indentTrace = false;\n        lastStackValue = -1;\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 548,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 287,
+    "annotation": "\n    @Given(\"^I enable trace with indent$\")",
+    "glue_code": "    @Given(\"^I enable trace with indent$\")\n    public void i_enable_trace_with_indent() throws Throwable {\n        traceOveride = true;\n        indentTrace = true;\n        lastStackValue = -1;\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 555,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 288,
+    "annotation": "\n    @Given(\"^I disable trace$\")",
+    "glue_code": "    @Given(\"^I disable trace$\")\n    public void i_disable_trace() throws Throwable {\n        traceOveride = false;\n        indentTrace = false;\n        lastStackValue = -1;\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 562,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 289,
+    "annotation": "\n    @Given(\"^ignore address (.+) to (.+) for trace$\")",
+    "glue_code": "    @Given(\"^ignore address (.+) to (.+) for trace$\")\n    public void ignoreAddressForTrace(String addressStart, String addressEnd) throws Throwable {\n        for (int address = valueToInt(addressStart) ; address < valueToInt(addressEnd) ; address++) {\n            ignoreTraceForAddress.add(address);\n        }\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 569,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 290,
+    "annotation": "\n    @When(\"^I execute the procedure at (.+) for no more than (.+) instructions until PC = (.+)$\")",
+    "glue_code": "    @When(\"^I execute the procedure at (.+) for no more than (.+) instructions until PC = (.+)$\")\n    public void i_execute_the_procedure_at_for_no_more_than_instructions_until_pc(String arg1, String arg2, String arg3) throws Throwable {\n        machine.getCpu().setStackPointer(0xff);\n        executeProcedureAtForNoMoreThanInstructionsUntilPC(arg1, arg2, arg3);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 1353,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 291,
+    "annotation": "\n    @When(\"^I execute the procedure at (.+) for no more than (.+) instructions$\")",
+    "glue_code": "    @When(\"^I execute the procedure at (.+) for no more than (.+) instructions$\")\n    public void i_execute_the_procedure_at_for_no_more_than_instructions(String arg1, String arg2) throws Throwable {\n        machine.getCpu().setStackPointer(0xff);\n        executeProcedureAtForNoMoreThanInstructionsUntilPC(arg1, arg2, \"\");\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 1359,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 292,
+    "annotation": "\n    @When(\"^I continue executing the procedure for no more than (.+) instructions$\")",
+    "glue_code": "    @When(\"^I continue executing the procedure for no more than (.+) instructions$\")\n    public void i_continue_executing_the_procedure_at_for_no_more_than_instructions(String arg1) throws Throwable {\n        executeProcedureAtForNoMoreThanInstructionsUntilPC(\"\", arg1, \"\");\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 1365,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 293,
+    "annotation": "\n    @When(\"^I continue executing the procedure for no more than (.+) instructions until PC = (.+)$\")",
+    "glue_code": "    @When(\"^I continue executing the procedure for no more than (.+) instructions until PC = (.+)$\")\n    public void i_continue_executing_the_procedure_at_for_no_more_than_instructions_until_pc(String arg1, String arg2) throws Throwable {\n        executeProcedureAtForNoMoreThanInstructionsUntilPC(\"\", arg1, arg2);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 1370,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 294,
+    "annotation": "\n    @When(\"^I execute the procedure at (.+) until return$\")",
+    "glue_code": "    @When(\"^I execute the procedure at (.+) until return$\")\n    public void i_execute_the_procedure_at(String arg1) throws Throwable {\n        machine.getCpu().setStackPointer(0xff);\n        executeProcedureAtForNoMoreThanInstructionsUntilPC(arg1, \"\", \"\");\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 1375,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 295,
+    "annotation": "\n    @When(\"^I execute the indirect procedure at (.+) until return$\")",
+    "glue_code": "    @When(\"^I execute the indirect procedure at (.+) until return$\")\n    public void i_execute_the_indirect_procedure_at(String arg1) throws Throwable {\n        machine.getCpu().setStackPointer(0xff);\n        int addr = valueToInt(arg1);\n        int code = machine.getBus().read(addr) | (machine.getBus().read(addr + 1) << 8);\n        executeProcedureAtForNoMoreThanInstructionsUntilPC(Integer.toString(code), \"\", \"\");\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 1381,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 296,
+    "annotation": "\n    @When(\"^I execute the indirect procedure at (.+) until return or until PC = (.+)$\")",
+    "glue_code": "    @When(\"^I execute the indirect procedure at (.+) until return or until PC = (.+)$\")\n    public void i_execute_the_indirect_procedure_at_until_pc(String arg1 , String arg2) throws Throwable {\n        machine.getCpu().setStackPointer(0xff);\n        int addr = valueToInt(arg1);\n        int code = machine.getBus().read(addr) | (machine.getBus().read(addr + 1) << 8);\n        executeProcedureAtForNoMoreThanInstructionsUntilPC(Integer.toString(code), \"\", arg2);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 1389,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 297,
+    "annotation": "\n    @When(\"^I continue executing the procedure until return$\")",
+    "glue_code": "    @When(\"^I continue executing the procedure until return$\")\n    public void i_continue_executing_the_procedure_at_until_return() throws Throwable {\n        executeProcedureAtForNoMoreThanInstructionsUntilPC(\"\", \"\", \"\");\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 1397,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 298,
+    "annotation": "\n    @When(\"^I continue executing the procedure until return or until PC = (.+)$\")",
+    "glue_code": "    @When(\"^I continue executing the procedure until return or until PC = (.+)$\")\n    public void i_continue_executing_the_procedure_at_until_return_instructions_until_pc(String arg2) throws Throwable {\n        executeProcedureAtForNoMoreThanInstructionsUntilPC(\"\", \"\", arg2);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 1402,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 299,
+    "annotation": "\n    @When(\"^Until (.+) = (.+) execute from (.+)$\")",
+    "glue_code": "    @When(\"^Until (.+) = (.+) execute from (.+)$\")\n    public void until_equals_execute_from(String arg1, String arg2, String arg3) throws Throwable {\n        machine.getCpu().setStackPointer(0xff);\n        executeProcedureAtUntilMemEquals(arg3, arg1, arg2);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 1407,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 300,
+    "annotation": "\n    @When(\"^I continue executing until (.+) = (.+)$\")",
+    "glue_code": "    @When(\"^I continue executing until (.+) = (.+)$\")\n    public void i_continue_executing_until(String arg1, String arg2) throws Throwable {\n        executeProcedureAtUntilMemEquals(\"\", arg1, arg2);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 1413,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 301,
+    "annotation": "\n    @Then(\"^I expect to see (.+) equal (.+)$\")",
+    "glue_code": "    @Then(\"^I expect to see (.+) equal (.+)$\")\n    public void i_expect_to_see_equal(String arg1, String arg2) throws Throwable {\n        assertThat(machine.getBus().read(valueToInt(arg1), false), is(equalTo(valueToInt(arg2))));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1418,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 302,
+    "annotation": "\n    @Then(\"^I expect to see (.+) less than (.+)$\")",
+    "glue_code": "    @Then(\"^I expect to see (.+) less than (.+)$\")\n    public void i_expect_to_see_less_than(String arg1, String arg2) throws Throwable {\n        assertThat(machine.getBus().read(valueToInt(arg1), false), is(lessThan(valueToInt(arg2))));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1423,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 303,
+    "annotation": "\n    @Then(\"^I expect to see (.+) greater than (.+)$\")",
+    "glue_code": "    @Then(\"^I expect to see (.+) greater than (.+)$\")\n    public void i_expect_to_see_greater_than(String arg1, String arg2) throws Throwable {\n        assertThat(machine.getBus().read(valueToInt(arg1), false), is(greaterThan(valueToInt(arg2))));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1428,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 304,
+    "annotation": "\n    @Then(\"^I expect to see (.+) contain (.+)$\")",
+    "glue_code": "    @Then(\"^I expect to see (.+) contain (.+)$\")\n    public void i_expect_to_see_contain(String arg1, String arg2) throws Throwable {\n        assertThat(machine.getBus().read(valueToInt(arg1), false) & valueToInt(arg2), is(equalTo(valueToInt(arg2))));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1433,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 305,
+    "annotation": "\n    @Then(\"^I expect to see (.+) exclude (.+)$\")",
+    "glue_code": "    @Then(\"^I expect to see (.+) exclude (.+)$\")\n    public void i_expect_to_see_exclude(String arg1, String arg2) throws Throwable {\n        assertThat(machine.getBus().read(valueToInt(arg1), false) & valueToInt(arg2), is(equalTo(0)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1438,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 306,
+    "annotation": "\n    @Then(\"^I expect register (.+) equal (.+)$\")",
+    "glue_code": "    @Then(\"^I expect register (.+) equal (.+)$\")\n    public void i_expect_register_equal(String arg1, String arg2) throws Throwable {\n        int regValue = 0;\n\n        regValue = getRegValue(arg1);\n        assertThat(regValue, is(equalTo(valueToInt(arg2))));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1461,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 307,
+    "annotation": "\n    @Then(\"^I expect register (.+) to be less than (.+)$\")",
+    "glue_code": "    @Then(\"^I expect register (.+) to be less than (.+)$\")\n    public void i_expect_register_to_be_less_than(String arg1, String arg2) throws Throwable {\n        int regValue = 0;\n\n        regValue = getRegValue(arg1);\n        assertThat(regValue, is(lessThan(valueToInt(arg2))));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1469,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 308,
+    "annotation": "\n    @Then(\"^I expect register (.+) to be greater than (.+)$\")",
+    "glue_code": "    @Then(\"^I expect register (.+) to be greater than (.+)$\")\n    public void i_expect_register_to_be_greater_than(String arg1, String arg2) throws Throwable {\n        int regValue = 0;\n\n        regValue = getRegValue(arg1);\n        assertThat(regValue, is(greaterThan(valueToInt(arg2))));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1477,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 309,
+    "annotation": "\n    @Then(\"^I expect register (.+) contain (.+)$\")",
+    "glue_code": "    @Then(\"^I expect register (.+) contain (.+)$\")\n    public void i_expect_register_contain(String arg1, String arg2) throws Throwable {\n        int regValue = 0;\n\n        regValue = getRegValue(arg1);\n        assertThat(regValue & valueToInt(arg2), is(equalTo(valueToInt(arg2))));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1485,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 310,
+    "annotation": "\n    @Then(\"^I expect register (.+) exclude (.+)$\")",
+    "glue_code": "    @Then(\"^I expect register (.+) exclude (.+)$\")\n    public void i_expect_register_exclude(String arg1, String arg2) throws Throwable {\n        int regValue = 0;\n\n        regValue = getRegValue(arg1);\n        assertThat(regValue & valueToInt(arg2), is(equalTo(0)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1493,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 311,
+    "annotation": "\n    @When(\"^I set register (.+) to (.+)$\")",
+    "glue_code": "    @When(\"^I set register (.+) to (.+)$\")\n    public void i_set_register_to(String arg1, String arg2) throws Throwable {\n        if (arg1.equalsIgnoreCase(\"a\")) {\n            machine.getCpu().setAccumulator(valueToInt(arg2));\n        } else if (arg1.equalsIgnoreCase(\"x\")) {\n            machine.getCpu().setXRegister(valueToInt(arg2));\n        } else if (arg1.equalsIgnoreCase(\"y\")) {\n            machine.getCpu().setYRegister(valueToInt(arg2));\n        } else if (arg1.equalsIgnoreCase(\"st\")) {\n            machine.getCpu().setProcessorStatus(valueToInt(arg2));\n        } else {\n            throw new Exception(\"Unknown register \" + arg1);\n        }\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 1501,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 312,
+    "annotation": "    @Given(\"^I create file \\\"(.*?)\\\" with$\")",
+    "glue_code": "    public void i_create_file_with(String arg1, String arg2) throws Throwable {\n        arg1 = PropertiesResolution.resolveInput(scenario , arg1);\n        arg2 = PropertiesResolution.resolveInput(scenario , arg2);\n        BufferedWriter out = new BufferedWriter(new FileWriter(arg1));\n        out.write(arg2);\n        out.close();\n    }\n\n    @Given(\"^I run the command line: (.*)$\")\n    public void i_run_the_command_line(String arg1) throws Throwable {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1518,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 313,
+    "annotation": "\n    @Given(\"^I run the command line: (.*)$\")",
+    "glue_code": "    @Given(\"^I run the command line: (.*)$\")\n    public void i_run_the_command_line(String arg1) throws Throwable {\n        checkScenario();\n        String returnString = runProcessWithOutput(arg1 , true);\n        scenario.write(returnString);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1526,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 314,
+    "annotation": "\n    @Given(\"^I run the command line ignoring return code: (.*)$\")",
+    "glue_code": "    @Given(\"^I run the command line ignoring return code: (.*)$\")\n    public void i_run_the_command_line_ignore(String arg1) throws Throwable {\n        checkScenario();\n        String returnString = runProcessWithOutput(arg1 , false);\n        scenario.write(returnString);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1533,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 315,
+    "annotation": "\n    @Given(\"^I load prg \\\"(.*?)\\\"$\")",
+    "glue_code": "    @Given(\"^I load prg \\\"(.*?)\\\"$\")\n    public void i_load_prg(String arg1) throws Throwable {\n        FileInputStream in = null;\n        in = new FileInputStream(arg1);\n        int addr = in.read() + (in.read() * 256);\n        int c;\n        while ((c = in.read()) != -1) {\n            machine.getBus().write(addr++, c);\n        }\n        in.close();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1586,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 316,
+    "annotation": "\n    @Given(\"^I load crt \\\"(.*?)\\\"$\")",
+    "glue_code": "    @Given(\"^I load crt \\\"(.*?)\\\"$\")\n    public void i_load_crt(String arg1) throws Throwable {\n        FileInputStream in = null;\n        in = new FileInputStream(arg1);\n        in.skip(0x14);\n        int version = (in.read() * 256) + in.read();\n        int type = (in.read() * 256) + in.read();\n        int exrom = in.read();\n        int game = in.read();\n        in.skip(0x06);  // Unused\n        in.skip(0x20);  // Name\n\n        machine.getBus().addCRTInfo(type , exrom , game);\n\n        int c;\n        while ((c = in.read()) != -1) {\n            in.skip(0x03);\n            in.skip(0x02);\n            int chipLength = (in.read() * 256) + in.read();\n            int chipType = (in.read() * 256) + in.read();\n            int chipBank = (in.read() * 256) + in.read();\n            int chipAddress = (in.read() * 256) + in.read();\n            int chipSize = (in.read() * 256) + in.read();\n            Device chip = new Device(chipAddress , chipAddress + chipSize - 1 , \"CRTChip \" + chipBank + \":$\" + Integer.toHexString(chipAddress)) {\n                int chipData[] = new int[chipSize];\n                @Override\n                public void write(int address, int data) throws MemoryAccessException {\n                    chipData[address] = data;\n                }\n\n                @Override\n                public int read(int address, boolean logRead) throws MemoryAccessException {\n                    return chipData[address];\n                }\n\n                @Override\n                public String toString() {\n                    return null;\n                }\n            };\n            int addr = 0;\n            while (addr < chipSize) {\n                chip.write(addr,in.read());\n                addr++;\n            }\n            machine.getBus().addCRTChip(chip,chipBank);\n        }\n        in.close();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1598,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 317,
+    "annotation": "\n    @Given(\"^I load bin \\\"(.*?)\\\" at (.+)$\")",
+    "glue_code": "    @Given(\"^I load bin \\\"(.*?)\\\" at (.+)$\")\n    public void i_load_bin_at(String arg1, String arg2) throws Throwable {\n        FileInputStream in = null;\n        in = new FileInputStream(arg1);\n        int addr = valueToInt(arg2);\n        int c;\n        while ((c = in.read()) != -1) {\n            machine.getBus().write(addr++, c);\n        }\n        in.close();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1648,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 318,
+    "annotation": "\n    @Given(\"^I load labels \\\"(.*?)\\\"$\")",
+    "glue_code": "    @Given(\"^I load labels \\\"(.*?)\\\"$\")\n    public void i_load_labels(String arg1) throws Throwable {\n        loadLabels(arg1);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1660,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 319,
+    "annotation": "\n    @When(\"^I hex dump memory between (.+) and (.+)$\")",
+    "glue_code": "    @When(\"^I hex dump memory between (.+) and (.+)$\")\n    public void i_hex_dump_memory_between_$c_and_$c(String start, String end) throws Throwable {\n        start = PropertiesResolution.resolveInput(scenario, start);\n        end = PropertiesResolution.resolveInput(scenario, end);\n        checkScenario();\n        int addrStart = valueToInt(start);\n        int addrEnd = valueToInt(end);\n        int cr = 0;\n        String hexOutput = \"\";\n        String section = \"\";\n        while (addrStart < addrEnd) {\n            if (cr == 0) {\n                hexOutput += String.format(\"%2s:\", Integer.toHexString(addrStart).replace(' ', '0'));\n            }\n\n            if (cr == 8) {\n                hexOutput += \" \";\n            }\n\n            int theByte = machine.getBus().read(addrStart, false);\n            String hex = String.format(\"%2s\", Integer.toHexString(theByte)).replace(' ', '0');\n\n            if (CharUtils.isAsciiPrintable((char) theByte)) {\n                section += (char) theByte;\n            } else {\n                section += '.';\n            }\n\n            hexOutput += \" \" + hex;\n            cr += 1;\n            if (cr >= 16) {\n                hexOutput += \" : \" + section;\n                hexOutput += \"\\n\";\n                cr = 0;\n                section = \"\";\n            }\n\n            addrStart += 1;\n        }\n\n        if (!section.isEmpty()) {\n            hexOutput += \" : \" + section;\n        }\n\n        System.setProperty(\"test.BDD6502.lastHexDump\", hexOutput);\n        scenario.write(hexOutput);\n//\t\tSystem.out.print(hexOutput);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 1702,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 320,
+    "annotation": "\n    @Then(\"^I expect memory (.+) to equal memory (.+)$\")",
+    "glue_code": "    @Then(\"^I expect memory (.+) to equal memory (.+)$\")\n    public void i_expect_to_see_memory_equal_memory(String arg1, String arg2) throws Throwable {\n        assertThat(machine.getBus().read(valueToInt(arg1), false), is(equalTo(machine.getBus().read(valueToInt(arg2)))));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1751,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 321,
+    "annotation": "\n    @Then(\"^I expect memory (.+) to contain memory (.+)$\")",
+    "glue_code": "    @Then(\"^I expect memory (.+) to contain memory (.+)$\")\n    public void i_expect_to_see_memory_contain_memory(String arg1, String arg2) throws Throwable {\n        assertThat(machine.getBus().read(valueToInt(arg1), false) & machine.getBus().read(valueToInt(arg2), false), is(equalTo(machine.getBus().read(valueToInt(arg2), false))));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1756,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 322,
+    "annotation": "\n    @Then(\"^I expect memory (.+) to exclude memory (.+)$\")",
+    "glue_code": "    @Then(\"^I expect memory (.+) to exclude memory (.+)$\")\n    public void i_expect_to_see_memory_exclude_memory(String arg1, String arg2) throws Throwable {\n        assertThat(machine.getBus().read(valueToInt(arg1), false) & machine.getBus().read(valueToInt(arg2), false), is(equalTo(0)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1761,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 323,
+    "annotation": "\n    @Given(\"^I set label (.+) equal to (.+)$\")",
+    "glue_code": "    @Given(\"^I set label (.+) equal to (.+)$\")\n    public void iSetLabelFooEqualTo(String arg1, String arg2) throws Throwable {\n        int val = valueToInt(arg2);\n        String sval = Integer.toString(val);\n        labelMap.put(arg1, sval);\n        reverseLabelMap.put(new Integer(sval), arg1);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1766,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 324,
+    "annotation": "\n    @Then(\"^Joystick (\\\\d+) is (NONE|U|D|L|R|UL|UR|DL|DR|FIRE|UFIRE|ULFIRE|URFIRE|DFIRE|DLFIRE|DRFIRE|LFIRE|RFIRE)$\")",
+    "glue_code": "    @Then(\"^Joystick (\\\\d+) is (NONE|U|D|L|R|UL|UR|DL|DR|FIRE|UFIRE|ULFIRE|URFIRE|DFIRE|DLFIRE|DRFIRE|LFIRE|RFIRE)$\")\n    public void joystick_X_is_DIR(int arg1, String arg2) throws Throwable {\n        assertThat(arg1, is(lessThan(3)));\n        assertThat(arg1, is(greaterThan(0)));\n        int destMem = 0xDC00;\n        if (arg1 == 1) {\n            destMem = 0xDC01;\n        }\n        if (\"NONE\".equals(arg2)) {\n            machine.getBus().write(destMem, 255);\n        } else if (\"U\".equals(arg2)) {\n            machine.getBus().write(destMem, 254);\n        } else if (\"D\".equals(arg2)) {\n            machine.getBus().write(destMem, 253);\n        } else if (\"L\".equals(arg2)) {\n            machine.getBus().write(destMem, 251);\n        } else if (\"R\".equals(arg2)) {\n            machine.getBus().write(destMem, 247);\n        } else if (\"UL\".equals(arg2)) {\n            machine.getBus().write(destMem, 250);\n        } else if (\"UR\".equals(arg2)) {\n            machine.getBus().write(destMem, 246);\n        } else if (\"DL\".equals(arg2)) {\n            machine.getBus().write(destMem, 249);\n        } else if (\"DR\".equals(arg2)) {\n            machine.getBus().write(destMem, 245);\n        }\n\n        if (\"FIRE\".equals(arg2)) {\n            machine.getBus().write(destMem, 239);\n        } else if (\"UFIRE\".equals(arg2)) {\n            machine.getBus().write(destMem, 238);\n        } else if (\"DFIRE\".equals(arg2)) {\n            machine.getBus().write(destMem, 237);\n        } else if (\"LFIRE\".equals(arg2)) {\n            machine.getBus().write(destMem, 235);\n        } else if (\"RFIRE\".equals(arg2)) {\n            machine.getBus().write(destMem, 231);\n        } else if (\"ULFIRE\".equals(arg2)) {\n            machine.getBus().write(destMem, 234);\n        } else if (\"URFIRE\".equals(arg2)) {\n            machine.getBus().write(destMem, 230);\n        } else if (\"DLFIRE\".equals(arg2)) {\n            machine.getBus().write(destMem, 233);\n        } else if (\"DRFIRE\".equals(arg2)) {\n            machine.getBus().write(destMem, 229);\n        }\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1774,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 325,
+    "annotation": "\n    @When(\"^I reset the cycle count$\")",
+    "glue_code": "    @When(\"^I reset the cycle count$\")\n    public void iResetTheCycleCount() throws Throwable {\n        machine.getCpu().resetClockCycles();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 1823,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 326,
+    "annotation": "\n    @Then(\"^I expect the cycle count to be no more than (.+) cycles$\")",
+    "glue_code": "    @Then(\"^I expect the cycle count to be no more than (.+) cycles$\")\n    public void iExpectTheCycleCountToBeNoMoreThanCycles(String arg0) throws Throwable {\n        int iarg0 = valueToInt(arg0);\n        scenario.write(String.format(\"Checking cycles %d with %s delta %d percent %f%%\\n\", machine.getCpu().getClockCycles(), arg0, machine.getCpu().getClockCycles() - iarg0, 100.0f * machine.getCpu().getClockCycles() / iarg0));\n        assertThat(machine.getCpu().getClockCycles(), is(lessThanOrEqualTo(iarg0)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1828,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 327,
+    "annotation": "\n    @Then(\"^assert that \\\"([^\\\"]*)\\\" is true$\")",
+    "glue_code": "    @Then(\"^assert that \\\"([^\\\"]*)\\\" is true$\")\n    public void assert_that_true(String arg1) throws Throwable {\n        assertThat(valueToInt(arg1), is(equalTo(1)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1835,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 328,
+    "annotation": "\n    @Then(\"^assert that \\\"([^\\\"]*)\\\" is false$\")",
+    "glue_code": "    @Then(\"^assert that \\\"([^\\\"]*)\\\" is false$\")\n    public void assert_that_false(String arg1) throws Throwable {\n        assertThat(valueToInt(arg1), is(equalTo(0)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1840,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 329,
+    "annotation": "\n    @Given(\"^I enable trace (byte|word) at (.+)$\")",
+    "glue_code": "    @Given(\"^I enable trace (byte|word) at (.+)$\")\n    public void iEnableTraceByte_Word_atMem(String mode, String location) throws Throwable {\n        int address = valueToInt(location);\n        int currentValue = 0;\n        if (mode.equals(\"byte\")) {\n            currentValue = machine.getRam().read(address, false);\n            traceMapByte.put(address, currentValue);\n            scenario.write(\"initial value of trace \" + location + \" = \" + currentValue);\n        } else if (mode.equals(\"word\")) {\n            currentValue = machine.getRam().read(address, false) + (256 * machine.getRam().read(address + 1, false));\n\n            traceMapWord.put(address, currentValue);\n            scenario.write(\"initial value of trace \" + location + \" = \" + String.format(\"$%04X\", currentValue));\n        }\n\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1845,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 330,
+    "annotation": "\n    @Given(\"^I disable trace (byte|word) at (.+)$\")",
+    "glue_code": "    @Given(\"^I disable trace (byte|word) at (.+)$\")\n    public void iDisableTraceByte_Word_atMem(String mode, String location) throws Throwable {\n        int address = valueToInt(location);\n        if (mode.equals(\"byte\")) {\n            traceMapByte.remove(address);\n        } else if (mode.equals(\"word\")) {\n            traceMapWord.remove(address);\n        }\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1862,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 331,
+    "annotation": "\n    @Then(\"^I compare memory range (.+)-(.+) to (.+)$\")",
+    "glue_code": "    @Then(\"^I compare memory range (.+)-(.+) to (.+)$\")\n    public void iCompareMemoryRangeTo(String start, String end, String other) throws Throwable {\n        int startAddr = valueToInt(start);\n        int endAddr = valueToInt(end);\n        int compareAddr = valueToInt(other);\n        Memory ram = machine.getRam();\n        for (int addr = startAddr; addr <= endAddr; addr++, compareAddr++) {\n            assertThat(ram.read(addr, false), is(equalTo(ram.read(compareAddr, false))));\n        }\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1872,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 332,
+    "annotation": "\n    @Given(\"^I install PrintIODevice at (.+)$\")",
+    "glue_code": "    @Given(\"^I install PrintIODevice at (.+)$\")\n    public void iInstallPrintIODeviceAt(String location) throws Throwable {\n        int startAddr = valueToInt(location);\n        machine.getBus().addDevice(new PrintIODevice(startAddr, startAddr + 0xFF, \"IOPrint\", scenario));\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1883,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 333,
+    "annotation": "\n    @Then(\"^I expect IODevice buffer to equal \\\"(.+)\\\"$\")",
+    "glue_code": "    @Then(\"^I expect IODevice buffer to equal \\\"(.+)\\\"$\")\n    public void iExpectIODeviceBufferToEqual(String value) throws Throwable {\n        SortedSet<Device> devices = machine.getBus().getDevices();\n        assertThat(devices.isEmpty(), is(equalTo(false)));\n        Iterator<Device> it = devices.iterator();\n        boolean found = false;\n        while (it.hasNext()) {\n            Device d = it.next();\n            if (d.getName() == \"IOPrint\") {\n                found = true;\n                String buffer = d.toString();\n                assertThat(value, is(equalTo(buffer)));\n                break;\n            }\n        }\n        if (found == false) {\n            scenario.write(\"Unable to find IOPrint device\");\n            assertThat(0, is(not(1))); // force a fail\n        }\n\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1889,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 334,
+    "annotation": "\n    @When(\"^property \\\"([^\\\"]*)\\\" is set to string \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^property \\\"([^\\\"]*)\\\" is set to string \\\"([^\\\"]*)\\\"$\")\n    public void property_is_set_to(String arg1, String arg2) throws Throwable {\n        arg1 = PropertiesResolution.resolveInput(scenario, arg1);\n        arg2 = PropertiesResolution.resolveInput(scenario, arg2);\n\n        System.setProperty(arg1, arg2);\n        devicesUpdateProperties();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 1911,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 335,
+    "annotation": "\n    @Then(\"^property \\\"([^\\\"]*)\\\" must contain string \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^property \\\"([^\\\"]*)\\\" must contain string \\\"([^\\\"]*)\\\"$\")\n    public void property_must_contain(String arg1, String arg2) throws Throwable {\n        arg1 = PropertiesResolution.resolveInput(scenario, arg1);\n        arg2 = PropertiesResolution.resolveInput(scenario, arg2);\n\n        assertThat(System.getProperty(arg1), containsString(arg2));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1926,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 336,
+    "annotation": "\n    @Then(\"^property \\\"([^\\\"]*)\\\" must contain string ignoring whitespace \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^property \\\"([^\\\"]*)\\\" must contain string ignoring whitespace \\\"([^\\\"]*)\\\"$\")\n    public void property_must_contain_ignoring_whitespace(String arg1, String arg2) throws Throwable {\n        arg1 = PropertiesResolution.resolveInput(scenario, arg1);\n        arg2 = PropertiesResolution.resolveInput(scenario, arg2);\n\n        assertThat(System.getProperty(arg1).replaceAll(\"\\\\s+\", \"\"), containsString(arg2.replaceAll(\"\\\\s+\", \"\")));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 1934,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 337,
+    "annotation": "\n    @Given(\"^a new video display$\")",
+    "glue_code": "    @Given(\"^a new video display$\")\n    public void aNewVideoDisplay() throws IOException {\n        if (displayBombJack != null) {\n            displayBombJack.getWindow().dispatchEvent(new WindowEvent(displayBombJack.getWindow(), WindowEvent.WINDOW_CLOSING));\n        }\n        displayBombJack = new DisplayBombJack();\n        devices.add(displayBombJack);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1942,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 338,
+    "annotation": "\n    @Given(\"^set the video display to RGB colour (\\\\d+) (\\\\d+) (\\\\d+)$\")",
+    "glue_code": "    @Given(\"^set the video display to RGB colour (\\\\d+) (\\\\d+) (\\\\d+)$\")\n    public void set_the_video_display_to_RGB_colour(int r, int g, int b) throws Throwable {\n        displayBombJack.setRGBColour(r,g,b);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1951,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 339,
+    "annotation": "\n    @Given(\"^set the video display with (\\\\d+) palette banks$\")",
+    "glue_code": "    @Given(\"^set the video display with (\\\\d+) palette banks$\")\n    public void set_the_video_display_with_palette_banks(int numBanks) throws Throwable {\n        displayBombJack.setPaletteBanks(numBanks);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1956,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 340,
+    "annotation": "\n\n    @Given(\"^a new C64 video display$\")",
+    "glue_code": "\n    @Given(\"^a new C64 video display$\")\n    public void aNewC64VideoDisplay() throws IOException {\n        if (displayC64 != null) {\n            displayC64.getWindow().dispatchEvent(new WindowEvent(displayC64.getWindow(), WindowEvent.WINDOW_CLOSING));\n        }\n        displayC64 = new DisplayC64();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1961,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 341,
+    "annotation": "\n    @Given(\"^a new video display with 16 colours$\")",
+    "glue_code": "    @Given(\"^a new video display with 16 colours$\")\n    public void aNewVideoDisplay16Colours() throws IOException {\n        if (displayBombJack != null) {\n            displayBombJack.getWindow().dispatchEvent(new WindowEvent(displayBombJack.getWindow(), WindowEvent.WINDOW_CLOSING));\n        }\n        displayBombJack = new DisplayBombJack();\n        displayBombJack.make16Colours();\n        devices.add(displayBombJack);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1970,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 342,
+    "annotation": "\n    @Given(\"^a new video display with overscan and 16 colours$\")",
+    "glue_code": "    @Given(\"^a new video display with overscan and 16 colours$\")\n    public void aNewVideoOverscanDisplay16Colours() throws IOException {\n        if (displayBombJack != null) {\n            displayBombJack.getWindow().dispatchEvent(new WindowEvent(displayBombJack.getWindow(), WindowEvent.WINDOW_CLOSING));\n        }\n        displayBombJack = new DisplayBombJack();\n        displayBombJack.setWithOverscan(true);\n        displayBombJack.make16Colours();\n        devices.add(displayBombJack);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1980,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 343,
+    "annotation": "\n    @Given(\"^enable video display bus debug output$\")",
+    "glue_code": "    @Given(\"^enable video display bus debug output$\")\n    public void enableVideoBusDebug() throws IOException {\n        displayBombJack.enableDebugData();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1991,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 344,
+    "annotation": "\n    @Given(\"^enable user port bus debug output$\")",
+    "glue_code": "    @Given(\"^enable user port bus debug output$\")\n    public void enableUserPortBusDebug() throws IOException {\n        userPort24BitAddress.enableDebugData();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 1996,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 345,
+    "annotation": "\n    @Given(\"^a new audio expansion$\")",
+    "glue_code": "    @Given(\"^a new audio expansion$\")\n    public void aNewAudioExpansion() throws IOException {\n        if (audioExpansion != null) {\n            audioExpansion.close();\n        }\n        audioExpansion = new AudioExpansion();\n        audioExpansion.start();\n        devices.add(audioExpansion);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2001,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 346,
+    "annotation": "    @Given(\"^audio mix (.*)$\")",
+    "glue_code": "    public void audioMix(int mix) throws IOException {\n        audioExpansion.setMix(mix);\n    }\n\n        APUData apuData;\n    @Given(\"^enable APU mode$\")\n    public void enableAPUMode() throws IOException {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2020,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 347,
+    "annotation": "    @Given(\"^enable APU mode$\")",
+    "glue_code": "    public void enableAPUMode() throws IOException {\n        apuData = new APUData();\n        devices.add(apuData);\n        userPort24BitAddress.setEnableAPU(displayBombJack , apuData);\n    }\n\n    @Given(\"^APU clock divider (\\\\d+)$\")\n    public void apu_clock_divider(int divider) throws Throwable {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2026,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 348,
+    "annotation": "\n    @Given(\"^APU clock divider (\\\\d+)$\")",
+    "glue_code": "    @Given(\"^APU clock divider (\\\\d+)$\")\n    public void apu_clock_divider(int divider) throws Throwable {\n        userPort24BitAddress.setSetAPUClockDivider(divider);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2032,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 349,
+    "annotation": "\n    @Given(\"^APU memory clock divider (\\\\d+)$\")",
+    "glue_code": "    @Given(\"^APU memory clock divider (\\\\d+)$\")\n    public void apu_memory_clock_divider(int divider) throws Throwable {\n        userPort24BitAddress.setSetAPUMemoryClockDivider(divider);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2037,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 350,
+    "annotation": "\n    @Given(\"^show video window$\")",
+    "glue_code": "    @Given(\"^show video window$\")\n    public void showVideoWindow() {\n        displayBombJack.InitWindow();\n\n        if (displayC64 != null && displayC64.getWindow() != null) {\n            displayBombJack.getWindow().move(displayC64.getWindow().getWidth() , 0);\n        }\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2042,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 351,
+    "annotation": "\n    @Given(\"^show C64 video window$\")",
+    "glue_code": "    @Given(\"^show C64 video window$\")\n    public void showC64VideoWindow() {\n        displayC64.InitWindow();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2051,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 352,
+    "annotation": "\n    @Given(\"^render a video display frame$\")",
+    "glue_code": "    @Given(\"^render a video display frame$\")\n    public void renderAVideoDisplayFrame() {\n        displayBombJack.calculateAFrame();\n        displayBombJack.RepaintWindow();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2056,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 353,
+    "annotation": "\n    @Given(\"^render a C64 video display frame$\")",
+    "glue_code": "    @Given(\"^render a C64 video display frame$\")\n    public void renderAC64VideoDisplayFrame() {\n        displayC64.calculateAFrame();\n        displayC64.RepaintWindow();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2062,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 354,
+    "annotation": "\n    @Given(\"^render (.*) video display frames$\")",
+    "glue_code": "    @Given(\"^render (.*) video display frames$\")\n    public void renderVideoDisplayFrames(Integer numFrames) {\n        while (numFrames-- > 0) {\n            displayBombJack.calculateAFrame();\n            displayBombJack.RepaintWindow();\n        }\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2068,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 355,
+    "annotation": "\n    @Given(\"^render a video display until H=(.*) and V=(.*)$\")",
+    "glue_code": "    @Given(\"^render a video display until H=(.*) and V=(.*)$\")\n    public void renderAVideoDisplayUntilHV(String h, String v) throws Exception {\n        displayBombJack.calculatePixelsUntil(valueToInt(h),valueToInt(v));\n        displayBombJack.RepaintWindow();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2076,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 356,
+    "annotation": "\n    @Given(\"^render a video display until vsync$\")",
+    "glue_code": "    @Given(\"^render a video display until vsync$\")\n    public void renderAVideoDisplayUntilVSync() throws Exception {\n        displayBombJack.calculatePixelsUntilVSync();\n        displayBombJack.RepaintWindow();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2082,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 357,
+    "annotation": "\n    @Given(\"^a user port to 24 bit bus is installed$\")",
+    "glue_code": "    @Given(\"^a user port to 24 bit bus is installed$\")\n    public void aUserportToBitBusIsInstalled() throws MemoryRangeException {\n        userPort24BitAddress = new UserPortTo24BitAddress(scenario);\n        userPort24BitAddress.addDevice(displayBombJack);\n        userPort24BitAddress.addDevice(audioExpansion);\n        machine.getBus().addDevice(userPort24BitAddress);\n        displayBombJack.setCallbackUserPort(userPort24BitAddress);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2088,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 358,
+    "annotation": "\n    @Given(\"^a simple user port to 24 bit bus is installed$\")",
+    "glue_code": "    @Given(\"^a simple user port to 24 bit bus is installed$\")\n    public void aSimpleUserportToBitBusIsInstalled() throws MemoryRangeException {\n        aUserportToBitBusIsInstalled();\n        userPort24BitAddress.setSimpleMode(true);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2097,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 359,
+    "annotation": "\n    @Given(\"^a user port to 32 bit interface running at (.*)MHz and 24 bit bus is installed$\")",
+    "glue_code": "    @Given(\"^a user port to 32 bit interface running at (.*)MHz and 24 bit bus is installed$\")\n    public void aUserportTo32BitInterfaceAnd24BitIsInstalled(String MHz) throws MemoryRangeException {\n        double clockMultiplier = Double.parseDouble(MHz) / kVideoClockMHz;\n        aUserportToBitBusIsInstalled();\n        userPort24BitAddress.setAdd32Bit1Mode(true);\n        userPort24BitAddress.setClockMultiplier(clockMultiplier);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2103,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 360,
+    "annotation": "\n    @Given(\"^the layer has overscan$\")",
+    "glue_code": "    @Given(\"^the layer has overscan$\")\n    public void theLayerHasOverscan() {\n        displayBombJack.getLastLayerAdded().setWithOverscan(true);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2128,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 361,
+    "annotation": "\n    @And(\"^the layer displays a debug window$\")",
+    "glue_code": "    @And(\"^the layer displays a debug window$\")\n    public void theLayerDisplaysADebugWindow() throws IOException {\n        displayBombJack.getLastLayerAdded().setDisplayDebugWindow(true);\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 2133,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 362,
+    "annotation": "\n    @Given(\"^the layer uses exact address matching$\")",
+    "glue_code": "    @Given(\"^the layer uses exact address matching$\")\n    public void makeExactEBBSAddress() throws ScriptException {\n        displayBombJack.getLastLayerAdded().makeExactEBBSAddress();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2224,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 363,
+    "annotation": "\n    @Given(\"^the display uses exact address matching$\")",
+    "glue_code": "    @Given(\"^the display uses exact address matching$\")\n    public void makeDisplayExactEBBSAddress() throws ScriptException {\n        displayBombJack.makeExactEBBSAddress();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2229,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 364,
+    "annotation": "\n    @Given(\"^the audio expansion uses exact address matching$\")",
+    "glue_code": "    @Given(\"^the audio expansion uses exact address matching$\")\n    public void makeAudioExpansionExactEBBSAddress() throws ScriptException {\n        audioExpansion.makeExactEBBSAddress();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2234,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 365,
+    "annotation": "\n    @Given(\"^the APU uses exact address matching$\")",
+    "glue_code": "    @Given(\"^the APU uses exact address matching$\")\n    public void makeAPUExactEBBSAddress() throws ScriptException {\n        apuData.makeExactEBBSAddress();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2239,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 366,
+    "annotation": "\n\n    @Given(\"^the layer has 16 colours$\")",
+    "glue_code": "\n    @Given(\"^the layer has 16 colours$\")\n    public void make16Colours() throws ScriptException {\n        displayBombJack.getLastLayerAdded().make16Colours();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2244,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 367,
+    "annotation": "    @Given(\"^write data from file \\\"([^\\\"]*)\\\" to 24bit bus at '(.*)' and addressEx '(.*)'$\")",
+    "glue_code": "    public void writeDataFromFileToBitBusAtXCAndAddressExX(String filename, String address, String addressEx) throws Throwable {\n        currentUserPortWriteAddress = valueToInt(address);\n        currentUserPortWriteAddressEx = valueToInt(addressEx);\n        int len = 0;\n        for (MemoryBus device : devices) {\n            len = device.writeDataFromFile(currentUserPortWriteAddress, currentUserPortWriteAddressEx, filename);\n        }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2253,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 368,
+    "annotation": "\n    @Given(\"^write data offset from file \\\"([^\\\"]*)\\\" to 24bit bus at '(.*)' and addressEx '(.*)' offset '(.*)' length '(.*)'$\")",
+    "glue_code": "    @Given(\"^write data offset from file \\\"([^\\\"]*)\\\" to 24bit bus at '(.*)' and addressEx '(.*)' offset '(.*)' length '(.*)'$\")\n    public void writeDataFromFileToBitBusAtXCAndAddressExXOffsetLength(String filename, String address, String addressEx, String offset, String length) throws Throwable {\n        currentUserPortWriteAddress = valueToInt(address);\n        currentUserPortWriteAddressEx = valueToInt(addressEx);\n        int len = 0;\n        for (MemoryBus device : devices) {\n            len = device.writeDataFromFile(currentUserPortWriteAddress, currentUserPortWriteAddressEx, filename , valueToInt(offset) , valueToInt(length));\n        }\n        currentUserPortWriteAddress += len;\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2263,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 369,
+    "annotation": "\n    @When(\"^rendering the video until window closed$\")",
+    "glue_code": "    @When(\"^rendering the video until window closed$\")\n    public void renderingTheVideoUntilWindowClosed() throws InterruptedException {\n        displayBombJack.writeDebugBMPsToLeafFilename(null);\n        renderAVideoDisplayFrame();\n        displayUntilWindowClosed();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2311,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 370,
+    "annotation": "\n    @When(\"^display until window closed$\")",
+    "glue_code": "    @When(\"^display until window closed$\")\n    public void displayUntilWindowClosed() throws InterruptedException {\n        while (displayBombJack.isVisible()) {\n            displayBombJack.RepaintWindow();\n\n            if (audioExpansion != null) {\n                if (instructionsPerAudioRefresh > 0) {\n                    for (int i = 0; i < 100; i++) {\n                        audioExpansion.calculateSamples();\n                    }\n                }\n            }\n\n            Thread.sleep(1);\n        }\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2318,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 371,
+    "annotation": "\n    @Given(\"^video display saves debug BMP images to leaf filename \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Given(\"^video display saves debug BMP images to leaf filename \\\"([^\\\"]*)\\\"$\")\n    public void videoDisplaySavesDebugBMPImagesToLeafFilename(String leafFilename) throws Throwable {\n        displayBombJack.writeDebugBMPsToLeafFilename(leafFilename);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2335,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 372,
+    "annotation": "\n    @Given(\"^video display does not save debug BMP images$\")",
+    "glue_code": "    @Given(\"^video display does not save debug BMP images$\")\n    public void videoDisplayDoesNotSaveDebugBMPImages() throws Throwable {\n        displayBombJack.writeDebugBMPsToLeafFilename(null);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2340,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 373,
+    "annotation": "\n    @Given(\"^C64 video display saves debug BMP images to leaf filename \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Given(\"^C64 video display saves debug BMP images to leaf filename \\\"([^\\\"]*)\\\"$\")\n    public void C64videoDisplaySavesDebugBMPImagesToLeafFilename(String leafFilename) throws Throwable {\n        displayC64.writeDebugBMPsToLeafFilename(leafFilename);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2345,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 374,
+    "annotation": "\n    @Given(\"^C64 video display does not save debug BMP images$\")",
+    "glue_code": "    @Given(\"^C64 video display does not save debug BMP images$\")\n    public void C64videoDisplayDoesNotSaveDebugBMPImages() throws Throwable {\n        displayC64.writeDebugBMPsToLeafFilename(null);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2350,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 375,
+    "annotation": "\n    @Then(\"^expect image \\\"([^\\\"]*)\\\" to be identical to \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^expect image \\\"([^\\\"]*)\\\" to be identical to \\\"([^\\\"]*)\\\"$\")\n    public void expectImageToBeIdenticalTo(String expectedFilename, String testFilename) throws Throwable {\n        BufferedImage expected = ImageIO.read(new File(expectedFilename));\n        BufferedImage test = ImageIO.read(new File(testFilename));\n        // Vice \"scrsh\" command seems to lock the output file for a while?\n        // So we will retry\n        if (expected == null) {\n            Thread.sleep(500);\n            expected = ImageIO.read(new File(expectedFilename));\n        }\n        if (test == null) {\n            Thread.sleep(500);\n            test = ImageIO.read(new File(testFilename));\n        }\n\n        assertThat(\"Images differ\",bufferedImagesEqual(expected,test),is(true));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 2369,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 376,
+    "annotation": "\n    @Given(\"^video display processes (.*) pixels per instruction$\")",
+    "glue_code": "    @Given(\"^video display processes (.*) pixels per instruction$\")\n    public void videoDisplayProcessesPixelsPerInstruction(String numPixels) throws ScriptException {\n        pixelsPerInstruction = valueToInt(numPixels);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2387,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 377,
+    "annotation": "\n    @Given(\"^video display refresh window every (.*) instructions$\")",
+    "glue_code": "    @Given(\"^video display refresh window every (.*) instructions$\")\n    public void videoDisplayRefreshWindowEveryInstructions(String refreshEvery) throws ScriptException {\n        instructionsPerDisplayRefresh = valueToInt(refreshEvery);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2392,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 378,
+    "annotation": "\n    @Given(\"^audio refresh window every (.*) instructions$\")",
+    "glue_code": "    @Given(\"^audio refresh window every (.*) instructions$\")\n    public void audioRefreshWindowEveryInstructions(String refreshEvery) throws ScriptException {\n        instructionsPerAudioRefresh = valueToInt(refreshEvery);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2397,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 379,
+    "annotation": "\n    @Given(\"^audio refresh is independent$\")",
+    "glue_code": "    @Given(\"^audio refresh is independent$\")\n    public void audioRefreshIsIndependent() throws ScriptException {\n        audioExpansion.startThread();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2402,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 380,
+    "annotation": "    @Given(\"^limit video display to (.*) fps$\")",
+    "glue_code": "    public void limitVideoDisplayToFps(double arg0) {\n        displaySyncFrame = displayBombJack.getFrameNumberForSync();\n        lastFramesCount = displaySyncFrame;\n        startTime = System.currentTimeMillis();\n        displayLimitFPS = arg0;\n    }\n\n    @Given(\"^unlimit video display fps$\")\n    public void unlimitVideoDisplayToFps() {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2414,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 381,
+    "annotation": "\n    @Given(\"^unlimit video display fps$\")",
+    "glue_code": "    @Given(\"^unlimit video display fps$\")\n    public void unlimitVideoDisplayToFps() {\n        displayLimitFPS = 0;\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2421,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 382,
+    "annotation": "    @Given(\"^video display add joystick to port 1$\")",
+    "glue_code": "    public void addJoystickPort1() {\n        enableJoystick1 = true;\n    }\n\n    boolean enableJoystick2 = false;\n    @Given(\"^video display add joystick to port 2$\")\n    public void addJoystickPort2() {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2428,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 383,
+    "annotation": "    @Given(\"^video display add joystick to port 2$\")",
+    "glue_code": "    public void addJoystickPort2() {\n        enableJoystick2 = true;\n    }\n\n    boolean enableJoystick2Space = false;\n    @Given(\"^video display add space as joystick port 2$\")\n    public void addSpaceJoystickPort2() {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2434,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 384,
+    "annotation": "    @Given(\"^video display add space as joystick port 2$\")",
+    "glue_code": "    public void addSpaceJoystickPort2() {\n        enableJoystick2Space = true;\n    }\n\n    boolean enableCIA1RasterTimer = false;\n    int cia1RasterOffsetX = 0;\n    int cia1RasterOffsetY = 0;\n    @Given(\"^video display add CIA1 timers with raster offset (\\\\d+) , (\\\\d+)$\")\n    public void video_display_add_CIA_timers_with_raster_offset(int offsetX, int offsetY) throws Throwable {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2440,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 385,
+    "annotation": "    @Given(\"^video display add CIA1 timers with raster offset (\\\\d+) , (\\\\d+)$\")",
+    "glue_code": "    public void video_display_add_CIA_timers_with_raster_offset(int offsetX, int offsetY) throws Throwable {\n        enableCIA1RasterTimer = true;\n        cia1RasterOffsetX = offsetX;\n        cia1RasterOffsetY = cia1RasterOffsetY;\n    }\n\n    Socket remoteMonitor;\n    @Given(\"^connect to remote monitor at TCP \\\"([^\\\"]*)\\\" port \\\"([^\\\"]*)\\\"$\")\n    public void connect_to_remote_monitor_at_TCP_port(String host, Integer port) throws Throwable {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2448,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 386,
+    "annotation": "    @Given(\"^connect to remote monitor at TCP \\\"([^\\\"]*)\\\" port \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    public void connect_to_remote_monitor_at_TCP_port(String host, Integer port) throws Throwable {\n        remoteMonitor = new Socket(host, port);\n    }\n\n    int remoteMonitorTimeout = -1;\n    @Given (\"^set monitor reply timeout and continue to \\\"([^\\\"]*)\\\" seconds$\")\n    public void setMonitorTimeoutToSeconds(String seconds) throws Throwable {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2456,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 387,
+    "annotation": "    @Given (\"^set monitor reply timeout and continue to \\\"([^\\\"]*)\\\" seconds$\")",
+    "glue_code": "    public void setMonitorTimeoutToSeconds(String seconds) throws Throwable {\n        int iSeconds = Integer.parseInt(PropertiesResolution.resolveInput(scenario,seconds));\n        remoteMonitorTimeout = iSeconds;\n    }\n\n    int remoteMonitorLifetimeTimeout = -1;\n    Instant startLifetimeTimeout = null;\n    @Given (\"^set monitor lifetime timeout and error to \\\"([^\\\"]*)\\\" seconds$\")\n    public void setMonitorLifetimeTimeoutToSeconds(String seconds) throws Throwable {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2462,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 388,
+    "annotation": "    @Given (\"^set monitor lifetime timeout and error to \\\"([^\\\"]*)\\\" seconds$\")",
+    "glue_code": "    public void setMonitorLifetimeTimeoutToSeconds(String seconds) throws Throwable {\n        int iSeconds = Integer.parseInt(PropertiesResolution.resolveInput(scenario,seconds));\n        remoteMonitorLifetimeTimeout = iSeconds;\n        startLifetimeTimeout = Instant.now();\n    }\n\n    public void sendMonitorCommand(String command) throws IOException, InterruptedException, ParseException {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2470,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 389,
+    "annotation": "\n    @When(\"^send remote monitor command \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^send remote monitor command \\\"([^\\\"]*)\\\"$\")\n    public void send_remote_monitor_command(String command) throws Throwable {\n        sendMonitorCommand(command);\n        waitMonitorReply();\n        getMonitorReply();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2553,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 390,
+    "annotation": "\n    @When(\"^send remote monitor command without parsing \\\"(.*)\\\"$\")",
+    "glue_code": "    @When(\"^send remote monitor command without parsing \\\"(.*)\\\"$\")\n    public void send_remote_monitor_command_without_parsing(String command) throws Throwable {\n        sendMonitorCommand(command);\n        waitMonitorReply();\n        getMonitorReply();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2560,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 391,
+    "annotation": "\n    @When(\"^send remote monitor command \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^send remote monitor command \\\"([^\\\"]*)\\\" \\\"([^\\\"]*)\\\"$\")\n    public void send_remote_monitor_command2(String command, String param) throws Throwable {\n        command += \" $\";\n        command += Integer.toHexString(valueToInt(param));\n        sendMonitorCommand(command);\n        waitMonitorReply();\n        getMonitorReply();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2567,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 392,
+    "annotation": "\n    @When(\"^remote monitor wait for hit$\")",
+    "glue_code": "    @When(\"^remote monitor wait for hit$\")\n    public void remote_monitor_wait_for_hit() throws Throwable {\n        sendMonitorCommand(\"x\");\n        waitMonitorReply();\n        getMonitorReply();\n        // Then send a command to get a reply and sync the remote monitor\n        sendMonitorCommand(\"r\");\n        waitMonitorReply();\n        getMonitorReply();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2576,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 393,
+    "annotation": "\n    @When(\"^remote monitor wait for (.*) hits$\")",
+    "glue_code": "    @When(\"^remote monitor wait for (.*) hits$\")\n    public void remote_monitor_wait_for_hit(Integer numHits) throws Throwable {\n        while (numHits-- > 0) {\n            remote_monitor_wait_for_hit();\n        }\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2587,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 394,
+    "annotation": "\n    @When(\"^remote monitor continue without waiting$\")",
+    "glue_code": "    @When(\"^remote monitor continue without waiting$\")\n    public void remote_monitor_continue_without_waiting() throws Throwable {\n        sendMonitorCommand(\"x\");\n        getMonitorReply();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2594,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 395,
+    "annotation": "\n    @When(\"^disconnect remote monitor$\")",
+    "glue_code": "    @When(\"^disconnect remote monitor$\")\n    public void disconnect_remote_monitor() throws Throwable {\n        remoteMonitor.close();\n        remoteMonitor = null;\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2600,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 396,
+    "annotation": "\n    @Given(\"^wait for (\\\\d+) milliseconds$\")",
+    "glue_code": "    @Given(\"^wait for (\\\\d+) milliseconds$\")\n    public void waitForMilliseconds(int milliseconds) throws InterruptedException {\n        Thread.sleep(milliseconds);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2606,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 397,
+    "annotation": "\n    @When(\"^enable remote debugging$\")",
+    "glue_code": "    @When(\"^enable remote debugging$\")\n    public void enable_remote_debugging() {\n        RemoteDebugger.startRemoteDebugger();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2611,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 398,
+    "annotation": "\n    @When(\"^wait for debugger connection$\")",
+    "glue_code": "    @When(\"^wait for debugger connection$\")\n    public void wait_for_debugger_connection() throws InterruptedException {\n        System.out.println(\">> Waiting for debugger connection\");\n        while (RemoteDebugger.getRemoteDebugger().getNumConnections() <= 0) {\n            Thread.sleep(100);\n        }\n        System.out.println(\"<< Got debugger connection\");\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2616,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 399,
+    "annotation": "\n    @And(\"^wait for debugger command$\")",
+    "glue_code": "    @And(\"^wait for debugger command$\")\n    public void waitForDebuggerCommand() throws InterruptedException {\n        System.out.println(\">> Waiting for debugger command\");\n        while (!RemoteDebugger.getRemoteDebugger().isReceivedCommand()) {\n            Thread.sleep(100);\n        }\n        System.out.println(\"<< Got debugger command\");\n    }",
+    "original_keyword": "And",
+    "keyword": "When",
+    "line_in_the_file": 2625,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 400,
+    "annotation": "    @Given(\"^open file \\\"([^\\\"]*)\\\" for writing$\")",
+    "glue_code": "    public void open_file_for_writing(String outFilePath) throws Throwable {\n        outFilePath = PropertiesResolution.resolveInput(scenario, outFilePath);\n        fileWriting = new BufferedWriter(new FileWriter(outFilePath));\n    }\n\n    @When(\"^write to the file a line \\\"([^\\\"]*)\\\"$\")\n    public void write_to_the_file_a_line(String text) throws Throwable {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2636,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 401,
+    "annotation": "\n    @When(\"^write to the file a line \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^write to the file a line \\\"([^\\\"]*)\\\"$\")\n    public void write_to_the_file_a_line(String text) throws Throwable {\n        text = PropertiesResolution.resolveInput(scenario, text);\n        fileWriting.write(text);\n        fileWriting.newLine();\n        fileWriting.flush();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2641,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 402,
+    "annotation": "\n    @When(\"^close the writing file$\")",
+    "glue_code": "    @When(\"^close the writing file$\")\n    public void close_the_writing_file() throws Throwable {\n        fileWriting.close();\n        fileWriting = null;\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2649,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 403,
+    "annotation": "    @Given(\"^open file \\\"([^\\\"]*)\\\" for reading$\")",
+    "glue_code": "    public void open_file_for_reading(String filePath) throws FileNotFoundException, ParseException {\n        filePath = PropertiesResolution.resolveInput(scenario, filePath);\n\n        fileReading = new BufferedReader(new FileReader(filePath));\n\n        fileReadingIgnoreLinesContains = new HashSet<>();\n        ignoreEmptyLines = false;\n    }\n\n    @Given(\"^close current file$\")\n    public void close_current_file() throws IOException {",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2659,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 404,
+    "annotation": "\n    @Given(\"^close current file$\")",
+    "glue_code": "    @Given(\"^close current file$\")\n    public void close_current_file() throws IOException {\n        fileReading.close();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2668,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 405,
+    "annotation": "\n    @When(\"^ignoring lines that contain \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^ignoring lines that contain \\\"([^\\\"]*)\\\"$\")\n    public void ignoringLinesThatContain(String text) throws Throwable {\n        fileReadingIgnoreLinesContains.add(text);\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2673,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 406,
+    "annotation": "\n    @When(\"^ignoring empty lines$\")",
+    "glue_code": "    @When(\"^ignoring empty lines$\")\n    public void ignoringEmptyLines() {\n        ignoreEmptyLines = true;\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2678,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 407,
+    "annotation": "    @Then(\"^expect the next line to contain \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    public void expect_the_next_line_to_contain(String subString) throws IOException, ParseException {\n        getNextLineForComparison();\n\n        expectTheLineToContain(subString);\n    }\n\n    private void getNextLineForComparison() throws IOException {",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 2685,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 408,
+    "annotation": "\n    @Then(\"^accounting for transient values expect the next line to contain \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^accounting for transient values expect the next line to contain \\\"([^\\\"]*)\\\"$\")\n    public void accountingForTransientValuesExpectTheNextLineToContain(String subString) throws Throwable {\n        subString = PropertiesResolution.resolveInput(scenario, subString);\n\n        getNextLineForComparison();\n\n        if(currentLineRead.contains(subString)) {\n            return;\n        }\n\n        String line1 = currentLineRead;\n        getNextLineForComparison();\n        String line2 = currentLineRead;\n\n        // Ensure no named transient signals, i.e. those before any remaining $\n        int pos1 = line1.lastIndexOf('$');\n        int pos2 = line2.lastIndexOf('$');\n        assertThat(\"Named signals should not be transient: \" + line1 + \" : \" + line2, pos1, is(equalTo(pos2)));\n\n        if (pos1 >= 0 && pos2 >= 0) {\n            String namedSignals1 = line1.substring(0, pos1);\n            String namedSignals2 = line2.substring(0, pos2);\n\n            assertThat(namedSignals1, is(equalTo(namedSignals2)));\n\n            assertThat(line2, containsString(subString));\n        }\n\n        // Ensure the second line read is OK\n        assertThat(line2, containsString(subString));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 2715,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 409,
+    "annotation": "\n    @And(\"^skip line$\")",
+    "glue_code": "    @And(\"^skip line$\")\n    public void skipLine() throws IOException {\n        currentLineRead = fileReading.readLine();\n    }",
+    "original_keyword": "And",
+    "keyword": "Then",
+    "line_in_the_file": 2747,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 410,
+    "annotation": "\n    @Then(\"^expect end of file$\")",
+    "glue_code": "    @Then(\"^expect end of file$\")\n    public void expectEndOfFile() throws IOException {\n        currentLineRead = fileReading.readLine();\n        assertThat(currentLineRead, is(equalTo(null)));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 2752,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 411,
+    "annotation": "\n    @Then(\"^expect the line to contain \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^expect the line to contain \\\"([^\\\"]*)\\\"$\")\n    public void expectTheLineToContain(String subString) throws ParseException {\n        subString = PropertiesResolution.resolveInput(scenario, subString);\n        assertThat(currentLineRead, containsString(subString));\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 2758,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 412,
+    "annotation": "\n    @When(\"^processing each line in file \\\"([^\\\"]*)\\\" and only output to file \\\"([^\\\"]*)\\\" lines after finding a line containing \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^processing each line in file \\\"([^\\\"]*)\\\" and only output to file \\\"([^\\\"]*)\\\" lines after finding a line containing \\\"([^\\\"]*)\\\"$\")\n    public void processingEachLineInFileAndOnlyOutputToFileLinesAfterFindingALineContaining(String inFilePath, String outFilePath, String lineToMatch) throws Throwable {\n        inFilePath = PropertiesResolution.resolveInput(scenario, inFilePath);\n        outFilePath = PropertiesResolution.resolveInput(scenario, outFilePath);\n        lineToMatch = PropertiesResolution.resolveInput(scenario, lineToMatch);\n\n        BufferedReader fileReading = new BufferedReader(new FileReader(inFilePath));\n        BufferedWriter fileWriting = new BufferedWriter(new FileWriter(outFilePath));\n        String currentLine = \"\";\n        do {\n            currentLine = fileReading.readLine();\n        } while (currentLine != null && !currentLine.contains(lineToMatch));\n\n        // Skip this line\n        currentLine = fileReading.readLine();\n        while(currentLine != null) {\n            fileWriting.write(currentLine);\n            currentLine = fileReading.readLine();\n            fileWriting.newLine();\n        }\n        fileReading.close();\n        fileWriting.flush();\n        fileWriting.close();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2764,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 413,
+    "annotation": "\n    @When(\"^processing each line in file \\\"([^\\\"]*)\\\" and only output to file \\\"([^\\\"]*)\\\" lines that do not contain any lines from \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^processing each line in file \\\"([^\\\"]*)\\\" and only output to file \\\"([^\\\"]*)\\\" lines that do not contain any lines from \\\"([^\\\"]*)\\\"$\")\n    public void processingEachLineInFileAndOnlyOutputToFileLinesThatDoNotContainAnyLinesFrom(String inFilePath, String outFilePath, String matchFilePath) throws Throwable {\n        inFilePath = PropertiesResolution.resolveInput(scenario, inFilePath);\n        outFilePath = PropertiesResolution.resolveInput(scenario, outFilePath);\n        matchFilePath = PropertiesResolution.resolveInput(scenario, matchFilePath);\n\n        String currentLine = \"\";\n        BufferedReader fileReading = new BufferedReader(new FileReader(matchFilePath));\n        Set<String> toMatch = new HashSet<String>();\n        do {\n            currentLine = fileReading.readLine();\n            if (currentLine != null && !currentLine.isEmpty()) {\n                toMatch.add(currentLine);\n            }\n        } while (currentLine != null);\n        fileReading.close();\n\n        fileReading = new BufferedReader(new FileReader(inFilePath));\n        BufferedWriter fileWriting = new BufferedWriter(new FileWriter(outFilePath));\n        do {\n            currentLine = fileReading.readLine();\n            if (currentLine != null) {\n                boolean matched = false;\n                for (String line : toMatch) {\n                    if (currentLine.contains(line)) {\n                        matched = true;\n                        break;\n                    }\n                }\n                if (!matched) {\n                    fileWriting.write(currentLine);\n                    currentLine = fileReading.readLine();\n                    fileWriting.newLine();\n                }\n            }\n        } while (currentLine != null);\n\n        fileReading.close();\n        fileWriting.flush();\n        fileWriting.close();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2789,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 414,
+    "annotation": "\n    @Given(\"^a ROM from file \\\"([^\\\"]*)\\\" at (.*)$\")",
+    "glue_code": "    @Given(\"^a ROM from file \\\"([^\\\"]*)\\\" at (.*)$\")\n    public void a_ROM_from_file_at_$a(String filename, String address) throws Throwable {\n        File file = new File(filename);\n        int iaddr = valueToInt(address);\n        int flen = (int) file.length();\n        Memory memory = Memory.makeROM(iaddr , iaddr + flen - 1 , file);\n\n        machine.getCpu().getBus().addDevice(memory);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2831,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 415,
+    "annotation": "\n    @Given(\"^a CHARGEN ROM from file \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Given(\"^a CHARGEN ROM from file \\\"([^\\\"]*)\\\"$\")\n    public void a_CHARGEN_ROM_from_file(String filename) throws Throwable {\n        File file = new File(filename);\n        int flen = (int) file.length();\n        Memory memory = Memory.makeROM(0 , flen - 1 , file);\n\n        if (displayC64 != null) {\n            displayC64.setTheCHARGEN(memory);\n        }\n        // Not going to add this to the device memory map\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2841,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 416,
+    "annotation": "\n    @Given(\"^add C64 hardware$\")",
+    "glue_code": "    @Given(\"^add C64 hardware$\")\n    public void addC64Hardware() throws MemoryRangeException {\n        C64VICII deviceVIC = new C64VICII(scenario);\n        if (displayC64 != null) {\n            displayC64.setTheVICII(deviceVIC);\n        }\n        machine.getCpu().getBus().addDevice(deviceVIC , 1);\n\n        machine.getCpu().getBus().addDevice(new C64SID(scenario) , 1);\n\n        Device device = new C64ColourRAM(scenario);\n        if (displayC64 != null) {\n            displayC64.setTheColourRAM(device);\n        }\n        machine.getCpu().getBus().addDevice(device , 1);\n\n        device = new C64IO(scenario);\n        if (displayC64 != null) {\n            displayC64.setTheIO(device);\n        }\n        machine.getCpu().getBus().addDevice(device , 1);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2853,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 417,
+    "annotation": "\n    @Given(\"^randomly initialise all memory using seed (.*)$\")",
+    "glue_code": "    @Given(\"^randomly initialise all memory using seed (.*)$\")\n    public void randomlyInitialiseAllMemoryUsingSeed(String seedValue) throws ScriptException {\n        int seed = valueToInt(seedValue);\n\n        Random rand = new Random(seed);\n\n        for (MemoryBus device : devices) {\n            device.randomiseData(rand);\n        }\n\n        if (displayBombJack != null) {\n            displayBombJack.randomiseData(rand);\n        }\n        if (audioExpansion != null) {\n            audioExpansion.randomiseData(rand);\n        }\n        if (userPort24BitAddress != null) {\n            userPort24BitAddress.randomiseData(rand);\n        }\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2876,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 418,
+    "annotation": "\n    @And(\"^enable debug pixel picking$\")",
+    "glue_code": "    @And(\"^enable debug pixel picking$\")\n    public void enableDebugPixelPicking() {\n        if (displayBombJack != null) {\n            displayBombJack.setDebugDisplayPixels(true);\n        }\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 2897,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 419,
+    "annotation": "    @And(\"^disable debug pixel picking$\")",
+    "glue_code": "    public void disableDebugPixelPicking() {\n        if (displayBombJack != null) {\n            displayBombJack.setDebugDisplayPixels(false);\n        }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 2904,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 420,
+    "annotation": "\n    @Given(\"^profile start$\")",
+    "glue_code": "    @Given(\"^profile start$\")\n    public void profileStart() {\n        profileEnable = true;\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2913,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 421,
+    "annotation": "\n    @Given(\"^profile stop$\")",
+    "glue_code": "    @Given(\"^profile stop$\")\n    public void profileStop() {\n        profileEnable = false;\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2918,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 422,
+    "annotation": "\n    @Given(\"^profile clear$\")",
+    "glue_code": "    @Given(\"^profile clear$\")\n    public void profileClear() {\n        profileClear = true;\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2923,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 423,
+    "annotation": "\n    @Given(\"^profile print$\")",
+    "glue_code": "    @Given(\"^profile print$\")\n    public void profilePrint() {\n        profileCreateDebug(null);\n        scenario.write(debugProfile);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2928,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 424,
+    "annotation": "\n    @Given(\"^force C64 displayed bank to (\\\\d+)$\")",
+    "glue_code": "    @Given(\"^force C64 displayed bank to (\\\\d+)$\")\n    public void force_C64_displayed_bank_to(int bank) throws Throwable {\n        displayC64.setForceBank(bank);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2934,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 425,
+    "annotation": "\n    @Given(\"^avoid CPU wait during VBlank for address \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Given(\"^avoid CPU wait during VBlank for address \\\"([^\\\"]*)\\\"$\")\n    public void avoid_CPU_wait_during_VBlank_for_address(String arg1) throws Throwable {\n        int potential = valueToInt(arg1);\n        if (potential >= 0) {\n            if (pauseUntilNewVBlank == null) {\n                pauseUntilNewVBlank = new HashSet<>();\n            }\n            pauseUntilNewVBlank.add(potential);\n        }\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2939,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 426,
+    "annotation": "\n    @Then(\"^for memory from \\\"([^\\\"]*)\\\" to \\\"([^\\\"]*)\\\" expect a write to \\\"([^\\\"]*)\\\" with value \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @Then(\"^for memory from \\\"([^\\\"]*)\\\" to \\\"([^\\\"]*)\\\" expect a write to \\\"([^\\\"]*)\\\" with value \\\"([^\\\"]*)\\\"$\")\n    public void forMemoryBetweenAndExpectAWriteToWithValue(String startAddress, String endAddress, String toAddress, String value) throws Throwable {\n        int start = valueToInt(startAddress);\n        int end = valueToInt(endAddress);\n        int to = valueToInt(toAddress);\n        int ivalue = valueToInt(value);\n\n        machine.getRam().addExpectWrite(start, end, to, ivalue);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 2950,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 427,
+    "annotation": "\n\n    @Given(\"^load binary file \\\"([^\\\"]*)\\\" into temporary memory$\")",
+    "glue_code": "\n    @Given(\"^load binary file \\\"([^\\\"]*)\\\" into temporary memory$\")\n    public void loadBinaryFileIntoTemporaryMemory(String arg0) throws Throwable {\n        lastBinaryData = FileUtils.readFileToByteArray(new File(arg0));\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 2962,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 428,
+    "annotation": "\n    @And(\"^trim \\\"([^\\\"]*)\\\" bytes from the start of temporary memory$\")",
+    "glue_code": "    @And(\"^trim \\\"([^\\\"]*)\\\" bytes from the start of temporary memory$\")\n    public void trimBytesFromTheStartOfTemporaryMemory(String numBytes) throws Throwable {\n        int ivalue = valueToInt(numBytes);\n        lastBinaryData = Arrays.copyOfRange(lastBinaryData,ivalue , lastBinaryData.length);\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 2968,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 429,
+    "annotation": "\n    @Then(\"^for memory from \\\"([^\\\"]*)\\\" to \\\"([^\\\"]*)\\\" expect writes at \\\"([^\\\"]*)\\\" with temporary memory$\")",
+    "glue_code": "    @Then(\"^for memory from \\\"([^\\\"]*)\\\" to \\\"([^\\\"]*)\\\" expect writes at \\\"([^\\\"]*)\\\" with temporary memory$\")\n    public void forMemoryFromToExpectWritesAtWithTemporaryMemory(String startAddress, String endAddress, String toAddress) throws Throwable {\n        int start = valueToInt(startAddress);\n        int end = valueToInt(endAddress);\n        int to = valueToInt(toAddress);\n\n        for (byte value : lastBinaryData) {\n            machine.getRam().addExpectWrite(start, end, to, value);\n            to++;\n        }\n\n\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 2974,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 430,
+    "annotation": "\n    @When(\"^save 6502 memory without two byte header from \\\"([^\\\"]*)\\\" to \\\"([^\\\"]*)\\\" to file \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^save 6502 memory without two byte header from \\\"([^\\\"]*)\\\" to \\\"([^\\\"]*)\\\" to file \\\"([^\\\"]*)\\\"$\")\n    public void save_memory_without_two_byte_header_from_until_to_file(String startAddress, String endAddress, String filename) throws Throwable {\n        int start = valueToInt(PropertiesResolution.resolveInput(scenario,startAddress));\n        int end = valueToInt(PropertiesResolution.resolveInput(scenario,endAddress));\n\n        FileOutputStream fileOutputStream = FileUtils.openOutputStream(new File(PropertiesResolution.resolveInput(scenario, filename)));\n        for (int address = start ; address < end ; address++) {\n            int value = machine.getRam().read(address , false);\n            fileOutputStream.write(value);\n        }\n        fileOutputStream.close();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 2988,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 431,
+    "annotation": "\n    @When(\"^save 6502 memory with two byte header from \\\"([^\\\"]*)\\\" to \\\"([^\\\"]*)\\\" to file \\\"([^\\\"]*)\\\"$\")",
+    "glue_code": "    @When(\"^save 6502 memory with two byte header from \\\"([^\\\"]*)\\\" to \\\"([^\\\"]*)\\\" to file \\\"([^\\\"]*)\\\"$\")\n    public void save_memory_with_two_byte_header_from_until_to_file(String startAddress, String endAddress, String filename) throws Throwable {\n        int start = valueToInt(PropertiesResolution.resolveInput(scenario,startAddress));\n        int end = valueToInt(PropertiesResolution.resolveInput(scenario,endAddress));\n\n        FileOutputStream fileOutputStream = FileUtils.openOutputStream(new File(PropertiesResolution.resolveInput(scenario, filename)));\n        fileOutputStream.write(start & 0xff);\n        fileOutputStream.write((start>>8) & 0xff);\n        for (int address = start ; address < end ; address++) {\n            int value = machine.getRam().read(address , false);\n            fileOutputStream.write(value);\n        }\n        fileOutputStream.close();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 3001,
+    "file_info": {
+      "path": "src/main/java/TestGlue/Glue.java",
+      "directory": "src/main/java/TestGlue",
+      "filename": "Glue.java",
+      "extension": ".java"
+    }
+  }
+]

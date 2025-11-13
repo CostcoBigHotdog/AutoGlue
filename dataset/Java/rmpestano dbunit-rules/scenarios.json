@@ -1,0 +1,480 @@
+[
+  {
+    "feature": "Manage database with DBUnit Rules CDI",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Seed database using yml dataset",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given DBUnit interceptor is enabled in your test beans.xml:\n\"\"\"\n.src/test/resources/META-INF/beans.xml\n[source,xml]\n----\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<beans xmlns=\"http://java.sun.com/xml/ns/javaee\"\n     xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n     xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/beans_1_0.xsd\">\n\n     <interceptors>\n            <class>com.github.dbunit.rules.cdi.DBUnitInterceptorImpl</class>\n     </interceptors>\n</beans>\n----\n\n\"\"\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 28
+          },
+          {
+            "step": "And The following dataset\n\"\"\"\n.src/test/resources/dataset/yml/users.yml\n----\ninclude::../../../cdi/src/test/resources/datasets/yml/users.yml[]\n----\n\"\"\"",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 29
+          },
+          {
+            "step": "When The following test is executed:\n\"\"\"\n[source,java]\n----\ninclude::../../../cdi/src/test/java/com/github/dbunit/rules/cdi/DBUnitCDIIt.java[tags=seedDatabase]\n----\n\"\"\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 30
+          },
+          {
+            "step": "Then The database should be seeded with the dataset content before test execution",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 31
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Manage database with DBUnit Rules Core",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Seed database using yml dataset",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given The following junit rules\n\"\"\"\n[source,java]\n----\n@RunWith(JUnit4.class)\npublic class DBUnitRulesIt {\ninclude::../../src/test/java/com/github/dbunit/rules/DBUnitRulesIt.java[tags=rules]\n}\n----\n<1> https://github.com/rmpestano/dbunit-rules/blob/master/jpa/src/main/java/com/github/dbunit/rules/jpa/EntityManagerProvider.java[EntityManagerProvider^] is a simple Junit rule that creates a JPA entityManager for each test. DBUnit rule donâ€™t depend on EntityManagerProvider, it only needs a JDBC connection.\n<2> DBUnit rule responsible for reading `@DataSet` annotation and prepare the database for each test.\n\n\"\"\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 42
+          },
+          {
+            "step": "And The following dataset\n\"\"\"\n.src/test/resources/dataset/yml/users.yml\n----\ninclude::../../src/test/resources/datasets/yml/users.yml[]\n----\n\"\"\"",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 29
+          },
+          {
+            "step": "When The following test is executed:\n\"\"\"\n[source,java]\n----\ninclude::../../src/test/java/com/github/dbunit/rules/DBUnitRulesIt.java[tags=seedDatabase]\n----\n\"\"\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 30
+          },
+          {
+            "step": "Then The database should be seeded with the dataset content before test execution",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 31
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Manage database with DBUnit Rules Cucumber",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Seed database using DBUnit rules in Cucumber tests",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given The following feature\n\"\"\"\n----\ninclude::../../../examples/jpa-productivity-boosters/src/test/resources/features/contacts.feature[]\n----\n\"\"\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 38
+          },
+          {
+            "step": "And The following dataset\n\"\"\"\n----\ninclude::../../../examples/jpa-productivity-boosters/src/test/resources/datasets/contacts.yml[]\n----\n\"\"\"",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 29
+          },
+          {
+            "step": "And The following Cucumber test\n\"\"\"\n[source,java,linenums]\n----\ninclude::../../../examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/ContactFeature.java[]\n----\n\"\"\"",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 39
+          },
+          {
+            "step": "When The following cucumber steps are executed\n\"\"\"\n[source,java,linenums]\n----\ninclude::../../../examples/jpa-productivity-boosters/src/test/java/com/github/dbunit/rules/examples/cucumber/ContactSteps.java[]\n----\n<1> As the Cucumber cdi runner enables CDI, you can use injection into your Cucumber steps.\n<2> Here we use the DBUnit Rules CDI interceptor to seed the database before step execution.\n\"\"\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 40
+          },
+          {
+            "step": "Then The database should be seeded with the dataset content before step execution",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 41
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Dynamic data using scritable datasets",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Seed database with groovy script in dataset",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given Groovy script engine is on test classpath\n\"\"\"\n----\n<dependency>\n    <groupId>org.codehaus.groovy</groupId>\n    <artifactId>groovy-all</artifactId>\n    <version>2.4.6</version>\n    <scope>test</scope>\n</dependency>\n----\n\"\"\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 33
+          },
+          {
+            "step": "And The following dataset\n\"\"\"\n----\ninclude::../../../core/src/test/resources/datasets/yml/groovy-with-date-replacements.yml[]\n----\n<1> Groovy scripting is enabled by `groovy:` string.\n\"\"\"",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 29
+          },
+          {
+            "step": "When The following test is executed:\n\"\"\"\n[source,java,indent=0,linenums]\n----\ninclude::../../../core/src/test/java/com/github/dbunit/rules/ScriptReplacementsIt.java[tags=groovy]\n----\n\"\"\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 30
+          },
+          {
+            "step": "Then Dataset script should be interpreted while seeding the database",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 34
+          }
+        ]
+      },
+      {
+        "scenario_name": "Seed database with javascript in dataset",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given The following dataset\n\"\"\"\n----\ninclude::../../../core/src/test/resources/datasets/yml/js-with-calc-replacements.yml[]\n----\n<1> Javascript scripting is enabled by `js:` string.\n\"\"\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 29
+          },
+          {
+            "step": "When The following test is executed:\n\"\"\"\n[source,java,linenums,indent=0]\n----\ninclude::../../../core/src/test/java/com/github/dbunit/rules/ScriptReplacementsIt.java[tags=javascript-likes]\n----\n\"\"\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 30
+          },
+          {
+            "step": "Then Dataset script should be interpreted while seeding the database",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 34
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Database assertion using expected datasets",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Database assertion with yml dataset",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given The following dataset\n\"\"\"\n.expectedUsers.yml\n----\ninclude::../../../core/src/test/resources/datasets/yml/expectedUsers.yml[]\n----\n\"\"\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 29
+          },
+          {
+            "step": "When The following test is executed:\n\"\"\"\n[source,java,indent=0,linenums]\n----\ninclude::../../../core/src/test/java/com/github/dbunit/rules/ExpectedDataSetIt.java[tags=expectedDeclaration;expected]\n----\n<1> Clear database before to avoid conflict with other tests.\n\"\"\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 30
+          },
+          {
+            "step": "Then Test must pass because database state is as in expected dataset.",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 35
+          }
+        ]
+      },
+      {
+        "scenario_name": "Database assertion with regular expression in expected dataset",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given The following dataset\n\"\"\"\n.expectedUsersRegex.yml\n----\ninclude::../../../core/src/test/resources/datasets/yml/expectedUsersRegex.yml[]\n----\n\"\"\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 29
+          },
+          {
+            "step": "When The following test is executed:\n\"\"\"\n[source,java,indent=0,linenums]\n----\ninclude::../../../core/src/test/java/com/github/dbunit/rules/ExpectedDataSetIt.java[tags=expectedRegex]\n----\n\"\"\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 30
+          },
+          {
+            "step": "Then Test must pass because database state is as in expected dataset.",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 35
+          }
+        ]
+      },
+      {
+        "scenario_name": "Database assertion with seeding before test execution",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given The following dataset\n\"\"\"\n.user.yml\n----\ninclude::../../../core/src/test/resources/datasets/yml/user.yml[]\n----\n\"\"\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 29
+          },
+          {
+            "step": "And The following dataset\n\"\"\"\n.expectedUser.yml\n----\ninclude::../../../core/src/test/resources/datasets/yml/expectedUser.yml[]\n----\n\"\"\"",
+            "original_keyword": "And",
+            "keyword": "Given",
+            "step_definition_id": 29
+          },
+          {
+            "step": "When The following test is executed:\n\"\"\"\n[source,java,indent=0,linenums]\n----\ninclude::../../../core/src/test/java/com/github/dbunit/rules/ExpectedDataSetIt.java[tags=expectedWithSeeding]\n----\n\"\"\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 30
+          },
+          {
+            "step": "Then Test must pass because database state is as in expected dataset.",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 35
+          }
+        ]
+      },
+      {
+        "scenario_name": "Failling database assertion",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given The following dataset\n\"\"\"\n.expectedUsers.yml\n----\ninclude::../../../core/src/test/resources/datasets/yml/expectedUsers.yml[]\n----\n\"\"\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 29
+          },
+          {
+            "step": "When The following test is executed:\n\"\"\"\n[source,java,indent=0,linenums]\n----\ninclude::../../../core/src/test/java/com/github/dbunit/rules/ExpectedDataSetIt.java[tags=faillingExpected]\n----\n\"\"\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 30
+          },
+          {
+            "step": "Then Test must fail with following error:\n\"\"\"\nIMPORTANT: junit.framework.ComparisonFailure: value (table=USER, row=0, col=name) expected:<[]expected user1> but was:<[non ]expected user1>  at org.dbunit.assertion.JUnitFailureFactory.createFailure(JUnitFailureFactory.java:39) at org.dbunit.assertion.DefaultFailureHandler.createFailure(DefaultFailureHandler.java:97) at org.dbunit.assertion.DefaultFailureHandler.handle(DefaultFailureHandler.java:223) at ...\n\"\"\"",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 36
+          }
+        ]
+      },
+      {
+        "scenario_name": "Database assertion using automatic transaction",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given The following dataset\n\"\"\"\n.expectedUsersRegex.yml\n----\ninclude::../../../core/src/test/resources/datasets/yml/expectedUsersRegex.yml[]\n----\n\"\"\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 29
+          },
+          {
+            "step": "When The following test is executed:\n\"\"\"\n[source,java,indent=0,linenums]\n----\ninclude::../../../core/src/test/java/com/github/dbunit/rules/TransactionIt.java[tags=transaction]\n----\n\"\"\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 30
+          },
+          {
+            "step": "Then Test must pass because inserted users are commited to database and database state matches expected dataset.",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 37
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Manage database with DBUnit Rules and JUnit 5",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "Seed database using DBUnit rules in JUnit5 tests",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given The following dataset\n\"\"\"\n.src/test/resources/dataset/users.yml\n----\ninclude::../../../junit5/src/test/resources/datasets/users.yml[]\n----\n\"\"\"",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 29
+          },
+          {
+            "step": "When The following junit5 test is executed\n\"\"\"\n[source,java,linenums]\n----\ninclude::../../../junit5/src/test/java/com/github/dbunit/rules/junit5/DBUnitJUnit5It.java[tags=declaration;connectionField;test]\n----\n<1> Enables DBUnit;\n<2> JUnit 5 runner;\n<3> As JUnit5 requires *Java8* you can use lambdas in your tests;\n<4> DBUnitExtension will get connection by reflection so just declare a field or a method with `ConnectionHolder` as return type.\n\n\"\"\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 43
+          },
+          {
+            "step": "Then The database should be seeded with the dataset content before test execution",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 31
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Contacts test",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "search contacts without cdi",
+        "examples": [
+          {
+            "name": "delta",
+            "result": "1"
+          },
+          {
+            "name": "sp",
+            "result": "2"
+          },
+          {
+            "name": "querydsl",
+            "result": "1"
+          },
+          {
+            "name": "abcd",
+            "result": "0"
+          }
+        ],
+        "steps": [
+          {
+            "step": "Given we have a list of contacts2",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 49
+          },
+          {
+            "step": "When we search contacts by name \"<name>\"2",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 50
+          },
+          {
+            "step": "Then we should find <result> contacts2",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 51
+          }
+        ]
+      },
+      {
+        "scenario_name": "delete a contact without cdi",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given we have a list of contacts2",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 49
+          },
+          {
+            "step": "When we delete contact by id 1 2",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then we should not find contact 1 2",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "Contacts test",
+    "background": [],
+    "scenarios": [
+      {
+        "scenario_name": "search contacts",
+        "examples": [
+          {
+            "name": "delta",
+            "result": "1"
+          },
+          {
+            "name": "sp",
+            "result": "2"
+          },
+          {
+            "name": "querydsl",
+            "result": "1"
+          },
+          {
+            "name": "abcd",
+            "result": "0"
+          }
+        ],
+        "steps": [
+          {
+            "step": "Given we have a list of contacts",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 46
+          },
+          {
+            "step": "When we search contacts by name \"<name>\"",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": 44
+          },
+          {
+            "step": "Then we should find <result> contacts",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": 45
+          }
+        ]
+      },
+      {
+        "scenario_name": "delete a contact",
+        "examples": [],
+        "steps": [
+          {
+            "step": "Given we have a list of contacts",
+            "original_keyword": "Given",
+            "keyword": "Given",
+            "step_definition_id": 46
+          },
+          {
+            "step": "When we delete contact by id 1",
+            "original_keyword": "When",
+            "keyword": "When",
+            "step_definition_id": -1
+          },
+          {
+            "step": "Then we should not find contact 1",
+            "original_keyword": "Then",
+            "keyword": "Then",
+            "step_definition_id": -1
+          }
+        ]
+      }
+    ]
+  }
+]

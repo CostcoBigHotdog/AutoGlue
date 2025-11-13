@@ -1,0 +1,198 @@
+[
+  {
+    "step_definition_id": 607,
+    "annotation": "\n    @Given(\"^any graph$\")",
+    "glue_code": "    @Given(\"^any graph$\")\n    public void givenAnyGraph() {\n        createGraph();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 43,
+    "file_info": {
+      "path": "cypher/src/test/java/org/vertexium/cypher/glue/GraphGlue.java",
+      "directory": "cypher/src/test/java/org/vertexium/cypher/glue",
+      "filename": "GraphGlue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 608,
+    "annotation": "\n    @Given(\"^an empty graph$\")",
+    "glue_code": "    @Given(\"^an empty graph$\")\n    public void givenEmptyGraph() {\n        createGraph();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 48,
+    "file_info": {
+      "path": "cypher/src/test/java/org/vertexium/cypher/glue/GraphGlue.java",
+      "directory": "cypher/src/test/java/org/vertexium/cypher/glue",
+      "filename": "GraphGlue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 609,
+    "annotation": "\n    @Given(\"^the binary-tree-(\\\\d+) graph$\")",
+    "glue_code": "    @Given(\"^the binary-tree-(\\\\d+) graph$\")\n    public void givenTheBinaryTreeGraph(int number) throws Throwable {\n        createGraph();\n        String resourceName = String.format(\"/org/vertexium/cypher/tck/graphs/binary-tree-%d/binary-tree-%d.cypher\", number, number);\n        InputStream treeIn = this.getClass().getResourceAsStream(resourceName);\n        if (treeIn == null) {\n            throw new VertexiumException(\"Could not find '\" + resourceName + \"'\");\n        }\n        String cyp = IOUtils.toString(treeIn);\n        CypherCompilerContext compilerContext = new CypherCompilerContext(ctx.getFunctions());\n        VertexiumCypherQuery.parse(compilerContext, cyp).execute(ctx);\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 53,
+    "file_info": {
+      "path": "cypher/src/test/java/org/vertexium/cypher/glue/GraphGlue.java",
+      "directory": "cypher/src/test/java/org/vertexium/cypher/glue",
+      "filename": "GraphGlue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 610,
+    "annotation": "\n    @Given(\"^parameters are:$\")",
+    "glue_code": "    @Given(\"^parameters are:$\")\n    public void givenParametersAre(DataTable parameters) {\n        for (List<String> parameterRow : parameters.raw()) {\n            String key = parameterRow.get(0);\n            String valueString = parameterRow.get(1);\n            Object value = parseParameterValue(valueString);\n            ctx.setParameter(key, value);\n        }\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 72,
+    "file_info": {
+      "path": "cypher/src/test/java/org/vertexium/cypher/glue/GraphGlue.java",
+      "directory": "cypher/src/test/java/org/vertexium/cypher/glue",
+      "filename": "GraphGlue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 611,
+    "annotation": "\n    @When(\"^executing(.*)query:$\")",
+    "glue_code": "    @When(\"^executing(.*)query:$\")\n    public void whenExecutingQuery(String queryName, String queryString) {\n        ctx.clearCounts();\n        lastResultRows = null;\n        lastResultColumnNames = null;\n        lastCompileTimeException = null;\n        lastRuntimeException = null;\n        try {\n            CypherCompilerContext compilerContext = new CypherCompilerContext(ctx.getFunctions());\n            query = VertexiumCypherQuery.parse(compilerContext, queryString);\n            try {\n                VertexiumCypherResult results = query.execute(ctx);\n                lastResultRows = results\n                    .peek(row -> {\n                        try {\n                            Map<String, Object> scope = row.popScope();\n                            throw new VertexiumCypherException(\"Scope should be empty:\\n\"\n                                + scope.entrySet().stream().map(e -> e.getKey() + \": \" + e.getValue()).collect(Collectors.joining(\"\\n\"))\n                            );\n                        } catch (Exception ex) {\n                            // OK\n                        }\n                    })\n                    .collect(Collectors.toList());\n                lastResultColumnNames = results.getColumnNames();\n            } catch (Exception ex) {\n                lastRuntimeException = ex;\n            }\n        } catch (Exception ex) {\n            lastCompileTimeException = ex;\n        }\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 98,
+    "file_info": {
+      "path": "cypher/src/test/java/org/vertexium/cypher/glue/GraphGlue.java",
+      "directory": "cypher/src/test/java/org/vertexium/cypher/glue",
+      "filename": "GraphGlue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 612,
+    "annotation": "\n    @Given(\"^having executed:$\")",
+    "glue_code": "    @Given(\"^having executed:$\")\n    public void givenHavingExecuted(String queryString) {\n        CypherCompilerContext compilerContext = new CypherCompilerContext(ctx.getFunctions());\n        VertexiumCypherQuery.parse(compilerContext, queryString).execute(ctx).count();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 131,
+    "file_info": {
+      "path": "cypher/src/test/java/org/vertexium/cypher/glue/GraphGlue.java",
+      "directory": "cypher/src/test/java/org/vertexium/cypher/glue",
+      "filename": "GraphGlue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 613,
+    "annotation": "\n    @Then(\"^the result should be, in order:$\")",
+    "glue_code": "    @Then(\"^the result should be, in order:$\")\n    public void thenTheResultShouldBeInOrder(DataTable expected) throws Throwable {\n        thenTheResultShouldBe(expected);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 137,
+    "file_info": {
+      "path": "cypher/src/test/java/org/vertexium/cypher/glue/GraphGlue.java",
+      "directory": "cypher/src/test/java/org/vertexium/cypher/glue",
+      "filename": "GraphGlue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 614,
+    "annotation": "\n    @Then(\"^the result should be \\\\(ignoring element order for lists\\\\):$\")",
+    "glue_code": "    @Then(\"^the result should be \\\\(ignoring element order for lists\\\\):$\")\n    public void thenTheResultShouldBeIgnoringElementOrderForLists(DataTable expected) throws Throwable {\n        thenTheResultShouldBe(expected);\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 142,
+    "file_info": {
+      "path": "cypher/src/test/java/org/vertexium/cypher/glue/GraphGlue.java",
+      "directory": "cypher/src/test/java/org/vertexium/cypher/glue",
+      "filename": "GraphGlue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 615,
+    "annotation": "\n    @Then(\"^the result should be:$\")",
+    "glue_code": "    @Then(\"^the result should be:$\")\n    public void thenTheResultShouldBe(DataTable expected) throws Throwable {\n        if (lastCompileTimeException != null) {\n            throw lastCompileTimeException;\n        }\n        if (lastRuntimeException != null) {\n            throw lastRuntimeException;\n        }\n        List<String> columnNames = expected.raw().get(0);\n        if (expected.raw().size() > 0) {\n            List<List<String>> expectedRows = expected.raw().stream()\n                .skip(1)\n                .collect(Collectors.toList());\n            List<List<String>> foundRows = lastResultRows.stream()\n                .map(row -> lastResultColumnNames.stream()\n                    .map(row::get)\n                    .map(obj -> ctx.getResultWriter().columnValueToString(ctx, obj))\n                    .collect(Collectors.toList())\n                )\n                .collect(Collectors.toList());\n\n            expectedRows.sort(new RowComparator());\n            foundRows.sort(new RowComparator());\n\n            if (expectedRows.size() > 0) {\n                System.out.println(\"Expected\");\n                System.out.println(String.join(\", \", expected.raw().get(0)));\n                for (List<String> expectedRow : expectedRows) {\n                    System.out.println(String.join(\", \", expectedRow));\n                }\n            }\n\n            System.out.println(\"Found\");\n            System.out.println(String.join(\", \", lastResultColumnNames));\n            for (List<String> foundRow : foundRows) {\n                System.out.println(String.join(\", \", foundRow));\n            }\n\n            if (expectedRows.size() > 0) {\n                assertEquals(\n                    String.format(\n                        \"Header count, expected (%s), found (%s)\",\n                        String.join(\", \", expected.raw().get(0)),\n                        String.join(\", \", lastResultColumnNames)\n                    ),\n                    expected.raw().get(0).size(),\n                    lastResultColumnNames.size()\n                );\n                for (int colIdx = 0; colIdx < expected.raw().get(0).size(); colIdx++) {\n                    String expectedColumnName = expected.raw().get(0).get(colIdx);\n                    assertTrue(\n                        String.format(\n                            \"Header mismatch (expected: %s, columnNames: %s)\",\n                            expectedColumnName,\n                            String.join(\", \", lastResultColumnNames)\n                        ),\n                        lastResultColumnNames.contains(expectedColumnName)\n                    );\n                }\n            }\n\n            assertEquals(\"result count\", expectedRows.size(), foundRows.size());\n\n            if (expectedRows.size() > 0) {\n                for (int row = 0; row < expectedRows.size(); row++) {\n                    List<String> expectedRow = expectedRows.get(row);\n                    List<String> foundRow = foundRows.get(row);\n                    for (int col = 0; col < expectedRow.size(); col++) {\n                        String expectedColumn = expectedRow.get(col);\n                        String foundColumn = foundRow.get(col);\n                        assertColumnValue(row, col, expectedColumn, foundColumn);\n                    }\n                }\n            }\n        }\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 147,
+    "file_info": {
+      "path": "cypher/src/test/java/org/vertexium/cypher/glue/GraphGlue.java",
+      "directory": "cypher/src/test/java/org/vertexium/cypher/glue",
+      "filename": "GraphGlue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 616,
+    "annotation": "\n    @Then(\"^a (.*) should be raised at compile time: (.*)$\")",
+    "glue_code": "    @Then(\"^a (.*) should be raised at compile time: (.*)$\")\n    public void thenASyntaxErrorShouldBeRaisedAtCompileTime(String errorType, String error) {\n        Exception ex = this.lastCompileTimeException;\n        if (ex == null) {\n            if (lastRuntimeException != null) {\n                lastRuntimeException.printStackTrace();\n                // TODO do we care?\n                LOGGER.warn(\"statement should have resulted in a compile time exception, but resulted in a runtime exception\");\n                ex = lastRuntimeException;\n            } else {\n                Assume.assumeTrue(\"statement should have resulted in a compile time exception\", false);\n            }\n        }\n        if (!ex.getClass().getName().contains(errorType)) {\n            ex.printStackTrace();\n            // TODO do we care?\n            LOGGER.warn(\"exception type should contain \\\"\" + errorType + \"\\\", but only contained \\\"\" + ex.getClass().getName() + \"\\\": \" + ex);\n        }\n        if (ex.getMessage() == null || !ex.getMessage().contains(error)) {\n            ex.printStackTrace();\n            // TODO do we care?\n            LOGGER.warn(\"exception should contain \\\"\" + error + \"\\\", but only contained \\\"\" + ex.getMessage() + \"\\\"\");\n        }\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 345,
+    "file_info": {
+      "path": "cypher/src/test/java/org/vertexium/cypher/glue/GraphGlue.java",
+      "directory": "cypher/src/test/java/org/vertexium/cypher/glue",
+      "filename": "GraphGlue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 617,
+    "annotation": "\n    @Then(\"^a (.*) should be raised at runtime: (.*)$\")",
+    "glue_code": "    @Then(\"^a (.*) should be raised at runtime: (.*)$\")\n    public void thenATypeErrorShouldBeRaisedAtRuntime(String errorType, String error) {\n        if (lastRuntimeException == null) {\n            if (lastCompileTimeException != null) {\n                LOGGER.error(\"compile time exception\", lastCompileTimeException);\n                fail(\"statement should have resulted in a runtime exception, but resulted in a compile time exception\");\n            } else {\n                fail(\"statement should have resulted in a runtime exception\");\n            }\n        }\n        if (!lastRuntimeException.getClass().getName().contains(errorType)) {\n            lastRuntimeException.printStackTrace();\n            // TODO do we care?\n            LOGGER.warn(\"exception type should contain \\\"\" + errorType + \"\\\", but only contained \\\"\" + lastRuntimeException.getClass().getName() + \"\\\": \" + lastRuntimeException);\n        }\n        if (!lastRuntimeException.getMessage().contains(error)) {\n            lastRuntimeException.printStackTrace();\n            // TODO do we care?\n            LOGGER.warn(\"exception should contain \\\"\" + error + \"\\\", but only contained \\\"\" + lastRuntimeException.getMessage() + \"\\\"\");\n        }\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 370,
+    "file_info": {
+      "path": "cypher/src/test/java/org/vertexium/cypher/glue/GraphGlue.java",
+      "directory": "cypher/src/test/java/org/vertexium/cypher/glue",
+      "filename": "GraphGlue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 618,
+    "annotation": "\n    @Then(\"^the result should be empty$\")",
+    "glue_code": "    @Then(\"^the result should be empty$\")\n    public void thenTheResultsShouldBeEmpty() throws Throwable {\n        if (lastCompileTimeException != null) {\n            throw lastCompileTimeException;\n        }\n        if (lastRuntimeException != null) {\n            throw lastRuntimeException;\n        }\n        assertEquals(\"number of rows\", 0, lastResultRows.size());\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 392,
+    "file_info": {
+      "path": "cypher/src/test/java/org/vertexium/cypher/glue/GraphGlue.java",
+      "directory": "cypher/src/test/java/org/vertexium/cypher/glue",
+      "filename": "GraphGlue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 619,
+    "annotation": "\n    @Then(\"^no side effects$\")",
+    "glue_code": "    @Then(\"^no side effects$\")\n    public void noSideEffects() {\n        assertEquals(\"+node\", 0, ctx.getPlusNodeCount());\n        assertEquals(\"+relationship\", 0, ctx.getPlusRelationshipCount());\n        assertEquals(\"+label\", 0, ctx.getPlusLabelCount());\n        assertEquals(\"+property\", 0, ctx.getPlusPropertyCount());\n        assertEquals(\"-node\", 0, ctx.getMinusNodeCount());\n        assertEquals(\"-relationship\", 0, ctx.getMinusRelationshipCount());\n        assertEquals(\"-label\", 0, ctx.getMinusLabelCount());\n        assertEquals(\"-property\", 0, ctx.getMinusPropertyCount());\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 403,
+    "file_info": {
+      "path": "cypher/src/test/java/org/vertexium/cypher/glue/GraphGlue.java",
+      "directory": "cypher/src/test/java/org/vertexium/cypher/glue",
+      "filename": "GraphGlue.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 620,
+    "annotation": "\n    @Then(\"^the side effects should be:$\")",
+    "glue_code": "    @Then(\"^the side effects should be:$\")\n    public void thenTheSideEffectsShouldBe(DataTable table) {\n        for (List<String> tableRow : table.raw()) {\n            if (tableRow.size() == 2 && tableRow.get(0).equals(\"+nodes\")) {\n                int plusNodes = Integer.parseInt(tableRow.get(1));\n                assertEquals(\"+nodes\", plusNodes, ctx.getPlusNodeCount());\n            } else if (tableRow.size() == 2 && tableRow.get(0).equals(\"+relationships\")) {\n                int plusRelationships = Integer.parseInt(tableRow.get(1));\n                assertEquals(\"+relationships\", plusRelationships, ctx.getPlusRelationshipCount());\n            } else if (tableRow.size() == 2 && tableRow.get(0).equals(\"+labels\")) {\n                int plusLabels = Integer.parseInt(tableRow.get(1));\n                assertEquals(\"+labels\", plusLabels, ctx.getPlusLabelCount());\n            } else if (tableRow.size() == 2 && tableRow.get(0).equals(\"+properties\")) {\n                int plusProperties = Integer.parseInt(tableRow.get(1));\n                assertEquals(\"+properties\", plusProperties, ctx.getPlusPropertyCount());\n            } else if (tableRow.size() == 2 && tableRow.get(0).equals(\"-nodes\")) {\n                int minusNodes = Integer.parseInt(tableRow.get(1));\n                assertEquals(\"-nodes\", minusNodes, ctx.getMinusNodeCount());\n            } else if (tableRow.size() == 2 && tableRow.get(0).equals(\"-relationships\")) {\n                int minusRelationships = Integer.parseInt(tableRow.get(1));\n                assertEquals(\"-relationships\", minusRelationships, ctx.getMinusRelationshipCount());\n            } else if (tableRow.size() == 2 && tableRow.get(0).equals(\"-labels\")) {\n                int minusLabels = Integer.parseInt(tableRow.get(1));\n                assertEquals(\"-labels\", minusLabels, ctx.getMinusLabelCount());\n            } else if (tableRow.size() == 2 && tableRow.get(0).equals(\"-properties\")) {\n                int minusProperties = Integer.parseInt(tableRow.get(1));\n                assertEquals(\"-properties\", minusProperties, ctx.getMinusPropertyCount());\n            } else {\n                fail(\"Unhandled side effect row: \" + tableRow.stream().collect(Collectors.joining(\",\")));\n            }\n        }\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 415,
+    "file_info": {
+      "path": "cypher/src/test/java/org/vertexium/cypher/glue/GraphGlue.java",
+      "directory": "cypher/src/test/java/org/vertexium/cypher/glue",
+      "filename": "GraphGlue.java",
+      "extension": ".java"
+    }
+  }
+]

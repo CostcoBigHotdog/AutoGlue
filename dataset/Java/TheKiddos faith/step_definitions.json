@@ -1,0 +1,1052 @@
+[
+  {
+    "step_definition_id": 83,
+    "annotation": "\n    @Given( \"Bidding Freelancer logins\" )",
+    "glue_code": "    @Given( \"Bidding Freelancer logins\" )\n    public void freelancerLogins() {\n        emailRepository.deleteAll();\n        bidRepository.deleteAll();\n\n        webDriver.get( Utils.LOGIN_PAGE );\n        webDriver.findElement( By.id( \"email\" ) ).sendKeys( freelancer.getEmail() );\n        webDriver.findElement( By.id( \"password\" ) ).sendKeys( \"password\" );\n        webDriver.findElement( By.id( \"submit\" ) ).click();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 75,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/BiddingFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "BiddingFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 84,
+    "annotation": "\n    @And( \"user visits a public project page\" )",
+    "glue_code": "    @And( \"user visits a public project page\" )\n    public void freelancerVisitsAPublicProjectPage() {\n        webDriver.get( Utils.getProjectDetailsPage( project.getId() ) );\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 86,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/BiddingFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "BiddingFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 85,
+    "annotation": "\n    @And( \"Freelancer adds his bid\" )",
+    "glue_code": "    @And( \"Freelancer adds his bid\" )\n    public void freelancerAddsHisBid() {\n        webDriver.findElement( By.id( \"amount\" ) ).clear();\n        webDriver.findElement( By.id( \"amount\" ) ).sendKeys( \"200\" );\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 91,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/BiddingFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "BiddingFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 86,
+    "annotation": "\n    @When( \"Freelancer clicks the Bid button\" )",
+    "glue_code": "    @When( \"Freelancer clicks the Bid button\" )\n    public void freelancerClicksTheBidButton() {\n        webDriver.findElement( By.id( \"add-bid-btn\" ) ).click();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 97,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/BiddingFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "BiddingFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 87,
+    "annotation": "\n    @Then( \"Bid is added to project\" )",
+    "glue_code": "    @Then( \"Bid is added to project\" )\n    public void bidIsAddedToProject() {\n        WebDriverWait wait = new WebDriverWait( webDriver, 20 );\n        wait.until( ExpectedConditions.visibilityOfElementLocated( By.id( \"toast-container\" ) ) );\n\n        var bids = bidRepository.findAll();\n        assertEquals( 1, bids.size() );\n\n        var bid = bids.get( 0 );\n        assertEquals( 200, bid.getAmount() );\n        assertEquals( project, bid.getProject() );\n        assertEquals( freelancer, bid.getBidder().getUser() );\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 102,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/BiddingFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "BiddingFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 88,
+    "annotation": "\n    @And( \"Freelancer adds a comment\" )",
+    "glue_code": "    @And( \"Freelancer adds a comment\" )\n    public void freelancerAddsAComment() {\n        webDriver.findElement( By.id( \"comment\" ) ).sendKeys( \"Hehe\" );\n    }",
+    "original_keyword": "And",
+    "keyword": "Then",
+    "line_in_the_file": 126,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/BiddingFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "BiddingFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 89,
+    "annotation": "\n    @And( \"Comment is added\" )",
+    "glue_code": "    @And( \"Comment is added\" )\n    public void commentIsAdded() {\n        var comments = bidCommentService.findByBid( bidRepository.findAll().get( 0 ) );\n        assertEquals( 1, comments.size() );\n        assertEquals( \"Hehe\", comments.get( 0 ).getText() );\n    }",
+    "original_keyword": "And",
+    "keyword": "Then",
+    "line_in_the_file": 131,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/BiddingFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "BiddingFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 90,
+    "annotation": "\n    @Given( \"Bidding Stakeholder logins\" )",
+    "glue_code": "    @Given( \"Bidding Stakeholder logins\" )\n    public void stakeholderLogins() {\n        BidDto bidDto = BidDto.builder()\n                .projectId( project.getId() )\n                .amount( 100 )\n                .build();\n        bidService.addBid( bidDto, (Freelancer) freelancer.getType() );\n\n        webDriver.get( Utils.LOGIN_PAGE );\n        webDriver.findElement( By.id( \"email\" ) ).sendKeys( stakeholder.getEmail() );\n        webDriver.findElement( By.id( \"password\" ) ).sendKeys( \"password\" );\n        webDriver.findElement( By.id( \"submit\" ) ).click();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 138,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/BiddingFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "BiddingFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 91,
+    "annotation": "\n    @And( \"stakeholder types a comment on a bidding\" )",
+    "glue_code": "    @And( \"stakeholder types a comment on a bidding\" )\n    public void stakeholderTypesACommentOnABidding() {\n        webDriver.findElement( By.className( \"show-comments-btn\" ) ).click();\n\n        WebDriverWait wait = new WebDriverWait( webDriver, 20 );\n        wait.until( ExpectedConditions.visibilityOfElementLocated( By.id( \"new-comment-text\" ) ) );\n\n        webDriver.findElement( By.id( \"new-comment-text\" ) ).sendKeys( \"Diee\" );\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 152,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/BiddingFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "BiddingFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 92,
+    "annotation": "\n    @When( \"stakeholder clicks add comment button\" )",
+    "glue_code": "    @When( \"stakeholder clicks add comment button\" )\n    public void stakeholderClicksAddCommentButton() {\n        webDriver.findElement( By.id( \"add-comment-btn\" ) ).click();\n        WebDriverWait wait = new WebDriverWait( webDriver, 20 );\n        wait.until( ExpectedConditions.visibilityOfElementLocated( By.id( \"toast-container\" ) ) );\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 162,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/BiddingFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "BiddingFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 93,
+    "annotation": "\n    @Then( \"comment is saved\" )",
+    "glue_code": "    @Then( \"comment is saved\" )\n    public void commentIsSaved() {\n        assertTrue( bidCommentService.findByBid( bidRepository.findByBidderAndProject( (Freelancer) freelancer.getType(), project ).orElseThrow() ).stream().anyMatch( bidComment -> bidComment.getText().equals( \"Diee\" ) ) );\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 169,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/BiddingFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "BiddingFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 94,
+    "annotation": "\n    @And( \"Bidding Close Browser\" )",
+    "glue_code": "    @And( \"Bidding Close Browser\" )\n    public void biddingCloseBrowser() {\n        webDriver.close();\n    }",
+    "original_keyword": "And",
+    "keyword": "Then",
+    "line_in_the_file": 174,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/BiddingFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "BiddingFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 95,
+    "annotation": "\n    @Given( \"Close Dashboard Stakeholder logins\" )",
+    "glue_code": "    @Given( \"Close Dashboard Stakeholder logins\" )\n    public void closeDashboardStakeholderLogins() {\n        webDriver.get( Utils.LOGIN_PAGE );\n        webDriver.manage().window().maximize();\n\n        webDriver.findElement( By.id( \"email\" ) ).sendKeys( stakeholder.getEmail() );\n        webDriver.findElement( By.id( \"password\" ) ).sendKeys( \"password\" );\n        webDriver.findElement( By.id( \"submit\" ) ).click();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 56,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/CloseProjectFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "CloseProjectFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 96,
+    "annotation": "\n    @And( \"Close Dashboard Stakeholder goes to an open project dashboard\" )",
+    "glue_code": "    @And( \"Close Dashboard Stakeholder goes to an open project dashboard\" )\n    public void closeDashboardStakeholderGoesToAnOpenProjectDashboard() {\n        webDriver.get( Utils.getProjectDashboardPage( project.getId() ) );\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 66,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/CloseProjectFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "CloseProjectFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 97,
+    "annotation": "\n    @When( \"Close Dashboard Stakeholder clicks the close project button for a project\" )",
+    "glue_code": "    @When( \"Close Dashboard Stakeholder clicks the close project button for a project\" )\n    public void closeDashboardStakeholderClicksTheCloseProjectButtonForAProject() {\n        webDriver.findElement( By.id( \"close-project-btn\" ) ).click();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 71,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/CloseProjectFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "CloseProjectFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 98,
+    "annotation": "\n    @Then( \"Project Status Is Changed To Closed\" )",
+    "glue_code": "    @Then( \"Project Status Is Changed To Closed\" )\n    public void closeDashboardStakeholderIsRedirectedToProjectDashboardPage() {\n        assertTrue( projectRepository.findById( project.getId() ).orElse( new Project() ).isClosed() );\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 76,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/CloseProjectFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "CloseProjectFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 99,
+    "annotation": "\n    @Given( \"Freelancer logins\" )",
+    "glue_code": "    @Given( \"Freelancer logins\" )\n    public void freelancerLogins() {\n        webDriver.get( Utils.LOGIN_PAGE );\n        webDriver.findElement( By.id( \"email\" ) ).sendKeys( \"freelancer@test.com\" );\n        webDriver.findElement( By.id( \"password\" ) ).sendKeys( \"password\" );\n        webDriver.findElement( By.id( \"submit\" ) ).click();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 32,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/FreelancerProfileFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "FreelancerProfileFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 100,
+    "annotation": "\n    @And( \"Freelancer visits my profile page\" )",
+    "glue_code": "    @And( \"Freelancer visits my profile page\" )\n    public void freelancerVisitsMyProfilePage() {\n        webDriver.get( Utils.FREELANCER_PROFILE );\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 40,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/FreelancerProfileFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "FreelancerProfileFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 101,
+    "annotation": "\n    @And( \"Freelancer fills his details\" )",
+    "glue_code": "    @And( \"Freelancer fills his details\" )\n    public void freelancerFillsHisDetails() {\n        webDriver.findElement( By.id( \"summary\" ) ).sendKeys( \"Blah Blah\" );\n        webDriver.findElement( By.id( \"skills\" ) ).sendKeys( \"python\\nc++ sleeping\" );\n        webDriver.findElement( By.id( \"is-available\" ) ).click();\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 45,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/FreelancerProfileFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "FreelancerProfileFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 102,
+    "annotation": "\n    @When( \"Freelancer clicks the update button\" )",
+    "glue_code": "    @When( \"Freelancer clicks the update button\" )\n    public void freelancerClicksTheUpdateButton() {\n        webDriver.findElement( By.id( \"submit-profile\" ) ).click();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 52,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/FreelancerProfileFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "FreelancerProfileFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 103,
+    "annotation": "\n    @Then( \"Freelancer profile is updated\" )",
+    "glue_code": "    @Then( \"Freelancer profile is updated\" )\n    public void freelancerProfileIsUpdated() {\n        var user = (User) userService.loadUserByUsername( this.user.getEmail() );\n\n        Freelancer freelancer = (Freelancer) user.getType();\n        assertEquals( \"Blah Blah\", freelancer.getSummary() );\n        assertTrue( freelancer.isAvailable() );\n\n        Set<Skill> skills = Set.of( Skill.of( \"python\" ), Skill.of( \"c++ sleeping\" ) );\n        assertEquals( skills, freelancer.getSkills() );\n        webDriver.close();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 57,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/FreelancerProfileFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "FreelancerProfileFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 129,
+    "annotation": "\n    @Given( \"Dashboard Stakeholder logins\" )",
+    "glue_code": "    @Given( \"Dashboard Stakeholder logins\" )\n    public void stakeholderLogins() {\n        webDriver.get( Utils.LOGIN_PAGE );\n        webDriver.findElement( By.id( \"email\" ) ).sendKeys( \"stakeholder@test.com\" );\n        webDriver.findElement( By.id( \"password\" ) ).sendKeys( \"password\" );\n        webDriver.findElement( By.id( \"submit\" ) ).click();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 48,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProjectDashboardFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProjectDashboardFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 130,
+    "annotation": "\n    @And( \"Dashboard Stakeholder visits my projects page\" )",
+    "glue_code": "    @And( \"Dashboard Stakeholder visits my projects page\" )\n    public void stakeholderVisitsMyProjectsPage() {\n        webDriver.get( Utils.MY_PROJECTS_PAGE );\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 56,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProjectDashboardFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProjectDashboardFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 131,
+    "annotation": "\n    @When( \"Stakeholder clicks dashboard button for a project\" )",
+    "glue_code": "    @When( \"Stakeholder clicks dashboard button for a project\" )\n    public void stakeholderClicksDashboardButtonForAProject() {\n        webDriver.findElement( By.id( \"project-dashboard-btn-\" + project.getId() ) ).click();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 61,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProjectDashboardFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProjectDashboardFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 132,
+    "annotation": "\n    @Then( \"Stakeholder is redirected to project dashboard page\" )",
+    "glue_code": "    @Then( \"Stakeholder is redirected to project dashboard page\" )\n    public void stakeholderIsRedirectedToProjectDashboardPage() {\n        assertEquals( Utils.getProjectDashboardPage( project.getId() ) , webDriver.getCurrentUrl() );\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 66,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProjectDashboardFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProjectDashboardFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 118,
+    "annotation": "\n    @Given( \"Stakeholder logins\" )",
+    "glue_code": "    @Given( \"Stakeholder logins\" )\n    public void stakeholderLogins() {\n        webDriver.get( Utils.LOGIN_PAGE );\n        webDriver.findElement( By.id( \"email\" ) ).sendKeys( \"stakeholder@test.com\" );\n        webDriver.findElement( By.id( \"password\" ) ).sendKeys( \"password\" );\n        webDriver.findElement( By.id( \"submit\" ) ).click();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 44,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProjectFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProjectFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 119,
+    "annotation": "\n    @And( \"Stakeholder visits my projects page\" )",
+    "glue_code": "    @And( \"Stakeholder visits my projects page\" )\n    public void stakeholderVisitsMyProjectsPage() {\n        webDriver.get( Utils.MY_PROJECTS_PAGE );\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 52,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProjectFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProjectFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 120,
+    "annotation": "\n    @And( \"Stakeholder clicks add project buttons\" )",
+    "glue_code": "    @And( \"Stakeholder clicks add project buttons\" )\n    public void stakeholderClicksAddProjectButtons() {\n        webDriver.findElement( By.id( \"add-project\" ) ).click();\n        assertEquals( Utils.ADD_PROJECT_PAGE , webDriver.getCurrentUrl() );\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 57,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProjectFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProjectFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 121,
+    "annotation": "\n    @And( \"Stakeholder fills project details\" )",
+    "glue_code": "    @And( \"Stakeholder fills project details\" )\n    public void stakeholderFillsProjectDetails() {\n            webDriver.findElement( By.id( \"name\" ) ).sendKeys( \"new world order\" );\n            webDriver.findElement( By.id( \"description\" ) ).sendKeys( \"Make all people slaves\" );\n            webDriver.findElement( By.id( \"preferred-bid\" ) ).clear();\n            webDriver.findElement( By.id( \"preferred-bid\" ) ).sendKeys( \"200.0\" );\n            webDriver.findElement( By.id( \"duration\" ) ).clear();\n            webDriver.findElement( By.id( \"duration\" ) ).sendKeys( \"31\" );\n            webDriver.findElement( By.id( \"minimum-qualification\" ) ).clear();\n            webDriver.findElement( By.id( \"minimum-qualification\" ) ).sendKeys( \"100\" );\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 63,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProjectFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProjectFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 122,
+    "annotation": "\n    @And( \"Stakeholder sets the project public\" )",
+    "glue_code": "    @And( \"Stakeholder sets the project public\" )\n    public void stakeholderSetsTheProjectPublic() {\n        webDriver.findElement( By.id( \"allow-bidding\" ) ).click();\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 75,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProjectFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProjectFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 123,
+    "annotation": "\n    @When( \"Stakeholder clicks the submit button\" )",
+    "glue_code": "    @When( \"Stakeholder clicks the submit button\" )\n    public void stakeholderClicksTheSubmitButton() {\n        webDriver.findElement( By.id( \"submit-project\" ) ).click();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 80,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProjectFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProjectFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 124,
+    "annotation": "\n    @Then( \"Project is added with {string} for bidding\" )",
+    "glue_code": "    @Then( \"Project is added with {string} for bidding\" )\n    public void projectIsAddedWithForBidding( String bidding ) {\n        var projects = projectRepository.findAll();\n\n        assertFalse( projects.isEmpty() );\n\n        var project = projects.get( 0 );\n        assertNotNull( project );\n        assertEquals( \"new world order\", project.getName() );\n        assertEquals( \"Make all people slaves\", project.getDescription() );\n        assertEquals( 200.0, project.getPreferredBid() );\n        assertEquals( 31, project.getDuration().toDays() );\n        assertEquals( 100, project.getMinimumQualification() );\n        assertEquals( bidding, String.valueOf( project.isAllowBidding() ) );\n        assertNotNull( project.getOwner() );\n        assertEquals( this.user.getEmail(), project.getOwner().getUser().getEmail() );\n\n        projectRepository.deleteAll(); // For other tests\n        webDriver.close();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 85,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProjectFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProjectFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 125,
+    "annotation": "\n    @And( \"Stakeholder sets the project private\" )",
+    "glue_code": "    @And( \"Stakeholder sets the project private\" )\n    public void stakeholderSetsTheProjectPrivate() {\n        // Default value is private so no need to do anything here right?\n    }",
+    "original_keyword": "And",
+    "keyword": "Then",
+    "line_in_the_file": 106,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProjectFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProjectFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 104,
+    "annotation": "\n    @Given(\"Proposal Stakeholder logs in\")",
+    "glue_code": "    @Given(\"Proposal Stakeholder logs in\")\n    public void proposalStakeholderLogsIn() {\n        setUp();\n        emailRepository.deleteAll();\n        webDriver.manage().window().maximize();\n        webDriver.get( Utils.LOGIN_PAGE );\n        webDriver.findElement( By.id( \"email\" ) ).sendKeys( stakeholder.getEmail() );\n        webDriver.findElement( By.id( \"password\" ) ).sendKeys( \"password\" );\n        webDriver.findElement( By.id( \"submit\" ) ).click();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 87,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProposalFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProposalFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 105,
+    "annotation": "\n    @And(\"stakeholder goes to a project dashboard\")",
+    "glue_code": "    @And(\"stakeholder goes to a project dashboard\")\n    public void stakeholderGoesToAProjectDashboard() {\n        webDriver.get( Utils.getProjectDashboardPage( project.getId() ) );\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 98,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProposalFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProposalFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 106,
+    "annotation": "\n    @And(\"stakeholder sets his proposal amount to a freelancer\")",
+    "glue_code": "    @And(\"stakeholder sets his proposal amount to a freelancer\")\n    public void stakeholderSetsHisProposalAmountToAFreelancer() {\n        webDriver.findElement( By.id( \"amount-\" + freelancer.getType().getId() ) ).clear();\n        webDriver.findElement( By.id( \"amount-\" + freelancer.getType().getId() ) ).sendKeys( \"200\" );\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 103,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProposalFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProposalFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 107,
+    "annotation": "\n    @When(\"stakeholder clicks the send proposal button\")",
+    "glue_code": "    @When(\"stakeholder clicks the send proposal button\")\n    public void stakeholderClicksTheSendProposalButton() {\n        var element = webDriver.findElement( By.className( \"send-proposal-btn\" ) );\n        WebDriverWait wait = new WebDriverWait( webDriver, 3 );\n        wait.until( ExpectedConditions.elementToBeClickable( element ) );\n        element.click();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 109,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProposalFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProposalFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 108,
+    "annotation": "\n    @Then(\"proposal is saved\")",
+    "glue_code": "    @Then(\"proposal is saved\")\n    public void proposalIsSaved() {\n        WebDriverWait wait = new WebDriverWait( webDriver, 20 );\n        wait.until( ExpectedConditions.visibilityOfElementLocated( By.id( \"toast-container\" ) ) );\n\n        var proposal = proposalRepository.findByProjectAndFreelancer( project, (Freelancer) freelancer.getType() );\n        assertTrue( proposal.isPresent() );\n        assertEquals( 200, proposal.get().getAmount() );\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 117,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProposalFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProposalFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 109,
+    "annotation": "\n    @And(\"freelancer is informed by email that a new proposal was sent\")",
+    "glue_code": "    @And(\"freelancer is informed by email that a new proposal was sent\")\n    public void freelancerIsInformedByEmailThatANewProposalWasSent() {\n        var emails = emailRepository.findAll();\n        assertEquals( 1, emails.size() );\n\n        var email = emails.get( 0 );\n        assertEquals( freelancer.getEmail(), email.getTo() );\n        assertEquals( EmailSubjectConstants.NEW_PROPOSAL, email.getSubject() );\n        webDriver.close();\n    }",
+    "original_keyword": "And",
+    "keyword": "Then",
+    "line_in_the_file": 127,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProposalFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProposalFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 110,
+    "annotation": "\n    @Given(\"Proposal Freelancer logs in\")",
+    "glue_code": "    @Given(\"Proposal Freelancer logs in\")\n    public void proposalFreelancerLogsIn() {\n        setUp();\n        proposalService.sendProposal(\n                ProposalDto\n                        .builder()\n                        .freelancerId( freelancer.getType().getId() )\n                        .projectId( project.getId() )\n                        .amount( 200 )\n                        .build()\n        );\n        var proposals = proposalRepository.findAll();\n        assertEquals( proposals.size(), 1 );\n\n        this.proposal = proposals.get( 0 );\n        emailRepository.deleteAll();\n        webDriver.manage().window().maximize();\n\n        webDriver.get( Utils.LOGIN_PAGE );\n        webDriver.findElement( By.id( \"email\" ) ).sendKeys( freelancer.getEmail() );\n        webDriver.findElement( By.id( \"password\" ) ).sendKeys( \"password\" );\n        webDriver.findElement( By.id( \"submit\" ) ).click();\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 138,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProposalFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProposalFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 111,
+    "annotation": "\n    @And(\"freelancer visits my proposals page\")",
+    "glue_code": "    @And(\"freelancer visits my proposals page\")\n    public void freelancerVisitsMyProposalsPage() {\n        webDriver.get( Utils.MY_PROPOSALS_PAGE );\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 162,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProposalFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProposalFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 112,
+    "annotation": "\n    @When(\"Freelancer clicks the accept button\")",
+    "glue_code": "    @When(\"Freelancer clicks the accept button\")\n    public void freelancerClicksTheAcceptButton() {\n        webDriver.findElement( By.className( \"accept-btn\" ) ).click();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 167,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProposalFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProposalFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 113,
+    "annotation": "\n    @Then(\"proposal status is changed to accepted\")",
+    "glue_code": "    @Then(\"proposal status is changed to accepted\")\n    public void proposalStatusIsChangedToAccepted() {\n        var proposal = proposalRepository.findById( this.proposal.getId() );\n        assertTrue( proposal.isPresent() );\n        assertEquals( Status.ACCEPTED, proposal.get().getStatus() );\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 172,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProposalFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProposalFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 114,
+    "annotation": "\n    @And(\"stakeholder is informed by email that proposal was accepted\")",
+    "glue_code": "    @And(\"stakeholder is informed by email that proposal was accepted\")\n    public void stakeholderIsInformedByEmailThatProposalWasAccepted() {\n        var emails = emailRepository.findAll();\n        assertEquals( 1, emails.size() );\n\n        var email = emails.get( 0 );\n        assertEquals( stakeholder.getEmail(), email.getTo() );\n        assertEquals( EmailSubjectConstants.PROPOSAL_STATUS_CHANGED, email.getSubject() );\n        webDriver.close();\n    }",
+    "original_keyword": "And",
+    "keyword": "Then",
+    "line_in_the_file": 179,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProposalFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProposalFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 115,
+    "annotation": "\n\n    @When(\"Freelancer clicks the reject button\")",
+    "glue_code": "\n    @When(\"Freelancer clicks the reject button\")\n    public void freelancerClicksTheRejectButton() {\n        webDriver.findElement( By.className( \"reject-btn\" ) ).click();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 190,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProposalFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProposalFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 116,
+    "annotation": "\n    @Then(\"proposal status is changed to rejected\")",
+    "glue_code": "    @Then(\"proposal status is changed to rejected\")\n    public void proposalStatusIsChangedToRejected() {\n        var proposal = proposalRepository.findById( this.proposal.getId() );\n        assertTrue( proposal.isPresent() );\n        assertEquals( Status.REJECTED, proposal.get().getStatus() );\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 196,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProposalFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProposalFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 117,
+    "annotation": "\n    @And(\"stakeholder is informed by email that proposal was rejected\")",
+    "glue_code": "    @And(\"stakeholder is informed by email that proposal was rejected\")\n    public void stakeholderIsInformedByEmailThatProposalWasRejected() {\n        var emails = emailRepository.findAll();\n        assertEquals( 1, emails.size() );\n\n        var email = emails.get( 0 );\n        assertEquals( stakeholder.getEmail(), email.getTo() );\n        assertEquals( EmailSubjectConstants.PROPOSAL_STATUS_CHANGED, email.getSubject() );\n        webDriver.close();\n    }",
+    "original_keyword": "And",
+    "keyword": "Then",
+    "line_in_the_file": 203,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/ProposalFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "ProposalFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 126,
+    "annotation": "\n    @Given( \"a user open list of available projects for bidding\" )",
+    "glue_code": "    @Given( \"a user open list of available projects for bidding\" )\n    public void aUserOpenListOfAvailableProjectsForBidding() {\n        webDriver.get( Utils.PUBLIC_PROJECTS_PAGE );\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 47,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/PublicProjectFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "PublicProjectFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 127,
+    "annotation": "\n    @When( \"user clicks on a project\" )",
+    "glue_code": "    @When( \"user clicks on a project\" )\n    public void userClicksOnAProject() {\n        webDriver.findElement( By.className( \"btn\" ) ).click();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 52,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/PublicProjectFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "PublicProjectFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 128,
+    "annotation": "\n    @Then( \"user is redirected to project details page\" )",
+    "glue_code": "    @Then( \"user is redirected to project details page\" )\n    public void userIsRedirectedToProjectDetailsPage() {\n        assertTrue( isProjectDetailsUrl( webDriver.getCurrentUrl() ) );\n        webDriver.close();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 57,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/PublicProjectFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "PublicProjectFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 133,
+    "annotation": "\n    @When( \"Rating User Opens Homepage\" )",
+    "glue_code": "    @When( \"Rating User Opens Homepage\" )\n    public void ratingUserOpensHomepage() {\n        webDriver.manage().window().maximize();\n        webDriver.get( Utils.SITE_ROOT );\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 27,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/RatingFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "RatingFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 134,
+    "annotation": "\n    @Then( \"He Can See Each Freelancer Rating\" )",
+    "glue_code": "    @Then( \"He Can See Each Freelancer Rating\" )\n    public void heCanSeeEachFreelancerRating() {\n        assertDoesNotThrow( () -> webDriver.findElement( By.className( \"rating\" ) ) );\n        webDriver.close();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 33,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/RatingFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "RatingFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 135,
+    "annotation": "\n    @When(\"User visits homepage\")",
+    "glue_code": "    @When(\"User visits homepage\")\n    public void userVisitsHomepage() {\n        webDriver.get( Utils.SITE_ROOT );\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 32,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/SeleniumStepDefs.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "SeleniumStepDefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 136,
+    "annotation": "\n    @Then(\"User will see homepage\")",
+    "glue_code": "    @Then(\"User will see homepage\")\n    public void userWillSeeHomepage() {\n        // If the connection was accepted then the page was rendered and the test passes so close and end\n        webDriver.close();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 37,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/SeleniumStepDefs.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "SeleniumStepDefs.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 137,
+    "annotation": "\n    @Given( \"a user visits forgot password page\" )",
+    "glue_code": "    @Given( \"a user visits forgot password page\" )\n    public void aUserVisitsForgotPasswordPage() {\n        webDriver.get( Utils.FORGOT_PASSWORD_URL );\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 32,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserLoginFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserLoginFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 138,
+    "annotation": "\n    @And( \"user enters his email\" )",
+    "glue_code": "    @And( \"user enters his email\" )\n    public void userEntersHisEmail() {\n        User user = Utils.getOrCreateTestUser( userService );\n\n        webDriver.findElement( By.id( \"email\" ) ).sendKeys( user.getEmail() );\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 37,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserLoginFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserLoginFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 139,
+    "annotation": "\n    @When( \"user clicks the submit button\" )",
+    "glue_code": "    @When( \"user clicks the submit button\" )\n    public void userClicksTheSubmitButton() {\n        webDriver.findElement( By.id( \"submit\" ) ).click();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 44,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserLoginFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserLoginFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 140,
+    "annotation": "\n    @Then( \"a unique token is generated\" )",
+    "glue_code": "    @Then( \"a unique token is generated\" )\n    public void aUniqueTokenIsGenerated() {\n        User user = Utils.getOrCreateTestUser( userService );\n        var tokenOptional = passwordResetTokenRepository.findByUser_Email( user.getEmail() );\n        assertNotNull( user.getPasswordResetToken() );\n        assertTrue( tokenOptional.isPresent() );\n        assertEquals( user, tokenOptional.get().getUser() );\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 49,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserLoginFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserLoginFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 141,
+    "annotation": "\n    @And( \"an email with instruction on how to reset the password is sent to the user\" )",
+    "glue_code": "    @And( \"an email with instruction on how to reset the password is sent to the user\" )\n    public void anEmailWithInstructionOnHowToResetThePasswordIsSentToTheUser() {\n        User user = Utils.getOrCreateTestUser( userService );\n\n        var emails = emailRepository.findAll();\n        var emailOptional = emails.stream().filter( email -> email.getSubject().equals( EmailSubjectConstants.PASSWORD_RESET ) ).findAny();\n\n        assertTrue( emailOptional.isPresent() );\n        assertEquals( user.getEmail(), emailOptional.get().getTo() );\n\n        webDriver.close();\n    }",
+    "original_keyword": "And",
+    "keyword": "Then",
+    "line_in_the_file": 58,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserLoginFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserLoginFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 142,
+    "annotation": "\n    @Given( \"a user with a token visits the password reset page\" )",
+    "glue_code": "    @Given( \"a user with a token visits the password reset page\" )\n    public void aUserWithATokenVisitsThePasswordResetPage() {\n        User user = Utils.getOrCreateTestUser( userService );\n        var token = userService.createForgotPasswordToken( user.getEmail() );\n\n        webDriver.get( Utils.getPasswordResetTokenUrl( token.getToken() ) );\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 71,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserLoginFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserLoginFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 143,
+    "annotation": "\n    @And( \"user enters his new password and password confirm\" )",
+    "glue_code": "    @And( \"user enters his new password and password confirm\" )\n    public void userEntersHisNewPasswordAndPasswordConfirm() {\n        webDriver.findElement( By.id( \"password\" ) ).sendKeys( \"newpassword\" );\n        webDriver.findElement( By.id( \"password-confirm\" ) ).sendKeys( \"newpassword\" );\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 79,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserLoginFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserLoginFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 144,
+    "annotation": "\n    @Then( \"his password changes\" )",
+    "glue_code": "    @Then( \"his password changes\" )\n    public void hisPasswordChanges() {\n        User user = Utils.getOrCreateTestUser( userService );\n        assertTrue( user.checkPassword( \"newpassword\" ) );\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 87,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserLoginFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserLoginFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 145,
+    "annotation": "\n    @And( \"token is deleted\" )",
+    "glue_code": "    @And( \"token is deleted\" )\n    public void tokenIsDeleted() {\n        User user = Utils.getOrCreateTestUser( userService );\n        assertNull( user.getPasswordResetToken() );\n        assertTrue( passwordResetTokenRepository.findByUser_Email( user.getEmail() ).isEmpty() );\n        webDriver.close();\n    }",
+    "original_keyword": "And",
+    "keyword": "Then",
+    "line_in_the_file": 93,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserLoginFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserLoginFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 146,
+    "annotation": "\n    @And( \"User is redirected to thank you page\" )",
+    "glue_code": "    @And( \"User is redirected to thank you page\" )\n    public void userIsRedirectedToThankYouPage() {\n        assertEquals( Utils.REGISTRATION_SUCCESSFUL_URL, webDriver.getCurrentUrl() );\n        webDriver.close();\n    }",
+    "original_keyword": "And",
+    "keyword": "And",
+    "line_in_the_file": 105,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserRegistrationFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserRegistrationFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 147,
+    "annotation": "\n    @Given( \"User visits login page\" )",
+    "glue_code": "    @Given( \"User visits login page\" )\n    public void userVisitsLoginPage() {\n        webDriver.manage().window().maximize();\n        webDriver.get( Utils.LOGIN_PAGE );\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 111,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserRegistrationFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserRegistrationFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 148,
+    "annotation": "\n    @And( \"User enters default admin credentials\" )",
+    "glue_code": "    @And( \"User enters default admin credentials\" )\n    public void userEntersDefaultAdminCredentials() {\n        webDriver.findElement( By.id( \"email\" ) ).sendKeys( \"admin@faith.com\" );\n        webDriver.findElement( By.id( \"password\" ) ).sendKeys( \"Admin@Fa1ith\" );\n    }",
+    "original_keyword": "And",
+    "keyword": "Given",
+    "line_in_the_file": 117,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserRegistrationFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserRegistrationFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 149,
+    "annotation": "\n    @When( \"User Clicks the login button\" )",
+    "glue_code": "    @When( \"User Clicks the login button\" )\n    public void userClicksTheLoginButton() {\n        webDriver.findElement( By.id( \"submit\" ) ).click();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 123,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserRegistrationFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserRegistrationFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 150,
+    "annotation": "\n    @Then( \"User is redirected to admin panel\" )",
+    "glue_code": "    @Then( \"User is redirected to admin panel\" )\n    public void userIsRedirectedToAdminPanel() {\n        assertEquals( Utils.ADMIN_PANEL, webDriver.getCurrentUrl() );\n        webDriver.close();\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 128,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserRegistrationFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserRegistrationFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 151,
+    "annotation": "\n    @Given( \"Admin visits users admin page\" )",
+    "glue_code": "    @Given( \"Admin visits users admin page\" )\n    public void adminVisitsUsersAdminPage() {\n        User user = Utils.getOrCreateTestUser( userService );\n\n        // setup user for this test (user must be disabled and have no emails)\n        user.setEnabled( false );\n        userRepository.save( user );\n        emailRepository.deleteAll( emailRepository.findAllByTo( user.getEmail() ) );\n\n        loginAsAdmin();\n\n        webDriver.get( Utils.USER_ADMIN_PANEL );\n    }",
+    "original_keyword": "Given",
+    "keyword": "Given",
+    "line_in_the_file": 134,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserRegistrationFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserRegistrationFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 152,
+    "annotation": "\n    @When( \"Admin clicks the activate button on a deactivated user\" )",
+    "glue_code": "    @When( \"Admin clicks the activate button on a deactivated user\" )\n    public void adminClicksTheActivateButtonOnADeactivatedUser() {\n        webDriver.findElement( By.className( \"enable-user-btn\" ) ).click();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 154,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserRegistrationFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserRegistrationFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 153,
+    "annotation": "\n    @Then( \"User is activated\" )",
+    "glue_code": "    @Then( \"User is activated\" )\n    public void userIsActivated() {\n        User user = (User) userService.loadUserByUsername( \"testuser@test.com\" );\n        assertTrue( user.isEnabled() );\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 159,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserRegistrationFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserRegistrationFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 154,
+    "annotation": "\n    @And( \"User receives an email\" )",
+    "glue_code": "    @And( \"User receives an email\" )\n    public void userReceivesAnEmail() {\n        User user = (User) userService.loadUserByUsername( \"testuser@test.com\" );\n\n        List<Email> emails = emailService.getEmailsFor( user.getEmail() );\n        assertEquals( 1, emails.size() );\n        assertEquals( EmailSubjectConstants.ACCOUNT_ACTIVATED, emails.get( 0 ).getSubject() );\n\n        webDriver.close();\n    }",
+    "original_keyword": "And",
+    "keyword": "Then",
+    "line_in_the_file": 165,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserRegistrationFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserRegistrationFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 155,
+    "annotation": "\n    @When( \"Admin clicks the reject button on a deactivated user\" )",
+    "glue_code": "    @When( \"Admin clicks the reject button on a deactivated user\" )\n    public void adminClicksTheRejectButtonOnADeactivatedUser() {\n        User user = Utils.getOrCreateTestUser( userService );\n        webDriver.findElement( By.id( \"delete-\" + user.getNickname() ) ).click();\n    }",
+    "original_keyword": "When",
+    "keyword": "When",
+    "line_in_the_file": 176,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserRegistrationFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserRegistrationFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 156,
+    "annotation": "\n    @Then( \"User receives an email with the {string} Subject\" )",
+    "glue_code": "    @Then( \"User receives an email with the {string} Subject\" )\n    public void userReceivesAnEmailWithTheSubject( String emailSubject ) {\n        List<Email> emails = emailService.getEmailsFor( \"testuser@test.com\" );\n        assertEquals( emailSubject, emails.get( 0 ).getSubject() );\n    }",
+    "original_keyword": "Then",
+    "keyword": "Then",
+    "line_in_the_file": 182,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserRegistrationFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserRegistrationFeature.java",
+      "extension": ".java"
+    }
+  },
+  {
+    "step_definition_id": 157,
+    "annotation": "\n    @And( \"User is deleted\" )",
+    "glue_code": "    @And( \"User is deleted\" )\n    public void userIsDeleted() {\n        assertThrows( UsernameNotFoundException.class, () -> userService.loadUserByUsername( \"testuser@test.com\" ) );\n        webDriver.close();\n    }",
+    "original_keyword": "And",
+    "keyword": "Then",
+    "line_in_the_file": 188,
+    "file_info": {
+      "path": "code/src/test/java/org/thekiddos/faith/functional/UserRegistrationFeature.java",
+      "directory": "code/src/test/java/org/thekiddos/faith/functional",
+      "filename": "UserRegistrationFeature.java",
+      "extension": ".java"
+    }
+  }
+]
