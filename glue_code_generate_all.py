@@ -16,7 +16,7 @@ from codebleu import calc_codebleu
 import argparse
 
 
-DATASET_DIR = "few_shot/dataset/Java"
+DATASET_DIR = "dataset/Java"
 load_dotenv()
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 MODEL_NAME = os.getenv("MODEL_NAME")
@@ -166,11 +166,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # ----------- Set logging ------------
-    LOG_PATH = f"few_shot/logs/glue_code_generate_{args.n_shots}shot.log"
+    LOG_PATH = f"logs/glue_code_generate_{args.n_shots}shot.log"
     if not os.path.exists(os.path.dirname(LOG_PATH)):
         os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
-
-    LOG_PATH = f"few_shot/logs/glue_code_generate_{args.n_shots}shot_metafresh_only.log"
 
     logging.basicConfig(
         filename=LOG_PATH,
